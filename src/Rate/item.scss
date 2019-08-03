@@ -1,0 +1,18 @@
+.pure-rate-item {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  div {
+    display: inline-block;
+    &:first-child {
+      position: absolute;
+      left: 0;
+    }
+    &:last-child {
+      position: absolute;
+      left: 0;
+      overflow: hidden;
+    }
+  }
+}

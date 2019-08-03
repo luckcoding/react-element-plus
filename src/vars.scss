@@ -1,0 +1,16 @@
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin cubic ($duration: 0.3s) {
+  transition: all $duration cubic-bezier(0.645, 0.045, 0.355, 1);
+}

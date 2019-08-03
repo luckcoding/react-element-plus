@@ -1,0 +1,130 @@
+@import './vars.scss';
+
+:root {
+  --button-color: inherit;
+}
+
+.pure-button {
+  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+
+  color: var(--button-color);
+
+  font-family: $font-family-base;
+
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+
+  white-space: nowrap;
+
+  user-select: none;
+  vertical-align: top; // the better option for most scenarios
+  vertical-align: -webkit-baseline-middle; // the best for those that support it
+  pointer-events: auto;
+
+  font-kerning: none;
+  font-weight: 500;
+
+  line-height: 1;
+  
+  transition: map-get($buttons, transition);
+  transition: button-attr(transition);
+  margin: map-get($buttons, margin);
+  margin: button-attr(margin);
+  padding: map-get($buttons, padding);
+  padding: button-attr(padding);
+  height: map-get($buttons, height);
+  height: button-attr(height);
+  border-radius: map-get($buttons, border-radius);
+  border-radius: button-attr(border-radius);
+  font-size: map-get($buttons, font-size);
+  font-size: button-attr(font-size);
+
+  &._full, &._block {
+    display: block;
+    display: flex;
+    width: 100%;
+    contain: content;
+  }
+
+  &._full {
+    border-radius: 0;
+  }
+  
+  // handle colors
+  @each $name, $value in $colors {
+    &._#{$name} {
+      background-color: map-get($value, base);
+      background-color: pure-color($name, base);
+      color: map-get($value, contrast);
+      color: pure-color($name, contrast);
+    }
+
+    &._outline._#{$name},
+    &._clear._#{$name} {
+      background: transparent;
+      color: map-get($value, base);
+      color: pure-color($name, base);
+    }
+
+    &._outline._#{$name} {
+      border: 1px solid map-get($value, base);
+      border: 1px solid pure-color($name, base);
+    }
+  }
+
+  &._round {
+    border-radius: 1000px;
+  }
+
+  &._small {
+    padding: map-get($buttons, small-padding);
+    padding: button-attr(small-padding);
+    height: map-get($buttons, small-height);
+    height: button-attr(small-height);
+    border-radius: map-get($buttons, small-border-radius);
+    border-radius: button-attr(small-border-radius);
+    font-size: map-get($buttons, small-font-size);
+    font-size: button-attr(small-font-size);
+  }
+
+  &._large {
+    padding: map-get($buttons, large-padding);
+    padding: button-attr(large-padding);
+    height: map-get($buttons, large-height);
+    height: button-attr(large-height);
+    border-radius: map-get($buttons, large-border-radius);
+    border-radius: button-attr(large-border-radius);
+    font-size: map-get($buttons, large-font-size);
+    font-size: button-attr(large-font-size);
+  }
+
+  ._start {
+    margin-right: 5px;
+    display: inline-block;
+  }
+
+  ._end {
+    margin-left: 5px;
+    display: inline-block;
+  }
+
+  &._disabled {
+    opacity: .5;        
+    pointer-events: none;
+  }
+
+  ._loading {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    opacity: button-attr(opacity-hover);
+  }
+}

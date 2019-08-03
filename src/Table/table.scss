@@ -1,0 +1,32 @@
+$table-item-min-width: 100px;
+
+.pure-table {
+  overflow-x: scroll;
+  white-space: nowrap;
+  position: relative;
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  ._thead,
+  ._tbody {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    li {
+      flex: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      min-width: $table-item-min-width;
+      min-width: var(--pure-table-min-width, $table-item-min-width);
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import './vars.scss';
+
+.pure-select {
+  position: relative;
+  display: inline-block;
+
+  ._content {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    padding: map-get($selects, padding);
+    padding: select-attr(padding);
+
+    ._inline {
+      margin-right: 2px;
+    }
+    ._arrow {
+      margin-left: 10px;
+    }
+  }
+
+  ._toggle {
+    display: none;
+    position: absolute;
+    width: 100%;
+
+    z-index: map-get($selects, z-index);
+    z-index: select-attr(z-index);
+    background: map-get($selects, background);
+    background: select-attr(background);
+    min-width: map-get($selects, min-width);
+    min-width: select-attr(min-width);
+
+    ._toggle-item {
+      padding: map-get($selects, padding);
+      padding: select-attr(padding);
+      cursor: pointer;
+      &._active {
+        color: map-get($selects, color-activated);
+        color: select-attr(color-activated);
+      }
+      &:hover {
+        background: map-get($selects, background-activated);
+        background: select-attr(background-activated);
+      }
+    }
+  }
+
+  &._visible {
+    ._toggle {
+      display: block;
+    }
+  }
+}

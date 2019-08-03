@@ -1,0 +1,91 @@
+@import './vars.scss';
+
+.pure-modal {
+  position: fixed;
+  z-index: -1;
+  visibility: hidden;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: background-color 200ms linear;
+
+  background: map-get($modals, mask-color);
+  background: modal-attr(mask-color);
+  
+  &._visible {
+    visibility: visible;
+    z-index: map-get($modals, z-index);
+    z-index: modal-attr(z-index);
+    background: map-get($modals, mask-color-activated);
+    background: modal-attr(mask-color-activated);
+  }
+
+  ._box {
+    position: relative;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: scroll;
+    margin: 0 10px;
+    padding: map-get($modals, padding);
+    padding: modal-attr(padding);
+    background: map-get($modals, background);
+    background: modal-attr(background);
+    animation-name: modal-box-scale;
+    animation-duration: .2s;
+
+    ._hd {
+      text-align: center;
+      position: relative;
+      line-height: 1.5;
+      font-weight: map-get($modals, head-font-weight);
+      font-weight: modal-attr(head-font-weight);
+      font-size: map-get($modals, head-font-size);
+      font-size: modal-attr(head-font-size);
+      color: map-get($modals, head-color);
+      color: modal-attr(head-color);
+
+      ._close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: map-get($modals, head-height);
+        height: modal-attr(head-height);
+        width: map-get($modals, head-height);
+        width: modal-attr(head-height);
+        cursor: pointer;
+        &:hover {
+          opacity: map-get($modals, close-opacity-hover);
+          opacity: modal-attr(close-opacity-hover);
+        }
+        &:after {
+          content: "X";
+        }
+      }
+    }
+
+    ._bd {
+      padding: map-get($modals, bd-padding);
+      padding: modal-attr(bd-padding);
+    }
+
+    ._ft {
+      text-align: right;
+    }
+  }
+}
+
+@keyframes modal-box-scale {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}

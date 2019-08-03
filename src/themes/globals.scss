@@ -1,0 +1,84 @@
+// Global Color Functions
+@import "./mixins";
+
+// Default Theme
+@import "./colors";
+
+// Default General
+// --------------------------------------------------
+$font-family-base:                  var(--pure-font-family, inherit) !default;
+
+// Global app direction
+$app-direction: null !default;
+
+// Global font path
+$font-path: "/dist/fonts" !default;
+
+// Hairlines width
+$hairlines-width: .55px !default;
+
+// The minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries
+$screen-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+
+// Z-Index
+// --------------------------------------------------
+$z-index-modal:                     9 !default;
+$z-index-progress-activated:        999 !default;
+$z-index-select:                    2 !default;
+$z-index-toast:                     11 !default;
+$z-index-toggle:                    4 !default;
+$z-index-tooltip:                   1 !default;
+
+body {
+  background: var(--pure-background-color);
+}
+
+@mixin generate-color($color-name) {
+  $value: map-get($colors, $color-name);
+
+  $base: map-get($value, base);
+  $contrast: map-get($value, contrast);
+  $shade: map-get($value, shade);
+  $tint: map-get($value, tint);
+
+  --pure-color-base: var(--pure-color-#{$color-name}, #{$base}) !important;
+  --pure-color-base-rgb: var(--pure-color-#{$color-name}-rgb, #{color-to-rgb-list($base)}) !important;
+  --pure-color-contrast: var(--pure-color-#{$color-name}-contrast, #{$contrast}) !important;
+  --pure-color-contrast-rgb: var(--pure-color-#{$color-name}-contrast-rgb, #{color-to-rgb-list($contrast)}) !important;
+  --pure-color-shade: var(--pure-color-#{$color-name}-shade, #{$shade}) !important;
+  --pure-color-tint: var(--pure-color-#{$color-name}-tint, #{$tint}) !important;
+}
+
+@each $color-name, $value in $colors {
+  .pure-color-#{$color-name} {
+    @include generate-color($color-name);
+  }
+}
+
+/**
+ * reset
+ * ========================
+ */
+
+[class*="pure-"] {
+  box-sizing: border-box;
+  
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after, {
+    box-sizing: inherit;
+  }
+}

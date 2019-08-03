@@ -1,0 +1,57 @@
+@import '../themes/globals.scss';
+
+$toast-info-background: $dark !default;
+$toast-info-color: #fff !default;
+$toast-success-background: $success !default;
+$toast-success-color: #fff !default;
+$toast-warning-background: $warning !default;
+$toast-warning-color: #fff !default;
+$toast-error-background: $danger !default;
+$toast-error-color: #fff !default;
+
+.pure-toast {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: $z-index-toast;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    display: inline-block;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 2px;
+
+    &._info {
+      color: $toast-info-color;
+      color: var(--pure-toast-info-color, $toast-info-color);
+      background: $toast-info-background;
+      background: var(--pure-toast-info-background, $toast-info-background);
+    }
+
+    &._success {
+      color: $toast-success-color;
+      color: var(--pure-toast-success-color, $toast-success-color);
+      background: $toast-success-background;
+      background: var(--pure-toast-success-background, $toast-success-background);
+    }
+
+    &._warning {
+      color: $toast-warning-color;
+      color: var(--pure-toast-warning-color, $toast-warning-color);
+      background: $toast-warning-background;
+      background: var(--pure-toast-warning-background, $toast-warning-background);
+    }
+
+    &._error {
+      color: $toast-error-color;
+      color: var(--pure-toast-error-color, $toast-error-color);
+      background: $toast-error-background;
+      background: var(--pure-toast-error-background, $toast-error-background);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import '../themes/globals.scss';
+
+$selects: (
+  z-index: $z-index-select,
+  background: #fff,
+  min-width: 100px,
+  padding: 5px,
+  color-activated: $primary,
+  background-activated: $light,
+) !default;
+
+@function select-attr($attr) {
+  @return var(--pure-select-#{$attr}, map-get($selects, $attr));
+}

@@ -1,0 +1,24 @@
+@import '../themes/globals.scss';
+
+$toggle-background: #fff;
+
+.pure-toggle {
+  position: relative;
+  display: inline-block;
+
+  ._append {
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    z-index: $z-index-toggle;
+    z-index: var(--pure-toggle-z-index, $z-index-toggle);
+    background: $toggle-background;
+    background: var(--pure-toggle-background, $toggle-background);
+  }
+
+  &:hover ._append {
+    display: block;
+  }
+}

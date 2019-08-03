@@ -1,0 +1,26 @@
+@import '../themes/globals.scss';
+
+$buttons: (
+  margin: 2px 4px,
+  padding: 0 1em,
+  height: 2.8em,
+  border-radius: 10px,
+  font-size: 16px,
+  opacity-hover: .8,
+  opacity-disabled: .5,
+  transition: (background-color, opacity 100ms linear),
+
+  large-padding: 0 1em,
+  large-height: 2.8em,
+  large-border-radius: 12px,
+  large-font-size: 20px,
+
+  small-padding: 0 .9em,
+  small-height: 2.1em,
+  small-border-radius: 6px,
+  small-font-size: 13px,
+) !default;
+
+@function button-attr($attr) {
+  @return var(--pure-button-#{$attr}, map-get($buttons, $attr));
+}
