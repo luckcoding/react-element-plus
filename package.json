@@ -70,5 +70,24 @@
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
-  }
+  },
+  "homepage": "https://github.com/luckcoding/crude-ui",
+  "keywords": [
+    "react",
+    "react ui",
+    "react components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckcoding/crude-ui.git"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "lib",
+    "dist",
+    "src",
+    "es"
+  ]
 }
