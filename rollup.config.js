@@ -28,7 +28,7 @@ function baseConfig() {
       }),
       postcss({
         plugins: [autoprefixer(), cssnano()],
-        extract: 'dist/pureui.css' // 输出路径
+        extract: 'dist/crudeui.css' // 输出路径
       }),
       babel({
         babelrc: false,
@@ -69,13 +69,13 @@ function baseUmdConfig(minified) {
 const libConfig = baseConfig();
 libConfig.external = peerDependencies.concat(dependencies);
 libConfig.output = [
-  { sourcemap: true, name: 'Pureui', file: 'dist/pureui.cjs.js', format: 'cjs' },
-  { sourcemap: true, name: 'Pureui', file: 'dist/pureui.es.js', format: 'es' },
+  { sourcemap: true, name: 'Crudeui', file: 'dist/crudeui.cjs.js', format: 'cjs' },
+  { sourcemap: true, name: 'Crudeui', file: 'dist/crudeui.es.js', format: 'es' },
 ];
 
 const umdFullConfig = baseUmdConfig(false);
 umdFullConfig.output = [
-  { globals: globals(), sourcemap: true, name: 'Pureui', file: 'dist/pureui.full.js', format: 'umd' },
+  { globals: globals(), sourcemap: true, name: 'Crudeui', file: 'dist/crudeui.full.js', format: 'umd' },
 ];
 
 const missingGlobals = peerDependencies.filter(dep => !(dep in globals()));
@@ -88,7 +88,7 @@ if (missingGlobals.length) {
 
 const umdFullConfigMin = baseUmdConfig(true);
 umdFullConfigMin.output = [
-  { globals: globals(), sourcemap: true, name: 'Pureui', file: 'dist/pureui.full.min.js', format: 'umd' },
+  { globals: globals(), sourcemap: true, name: 'Crudeui', file: 'dist/crudeui.full.min.js', format: 'umd' },
 ];
 
 const external = umdFullConfig.external.slice();
@@ -98,13 +98,13 @@ const allGlobals = Object.assign({}, globals(), {});
 const umdConfig = baseUmdConfig(false);
 umdConfig.external = external;
 umdConfig.output = [
-  { globals: allGlobals, sourcemap: true, name: 'Pureui', file: 'dist/pureui.js', format: 'umd' },
+  { globals: allGlobals, sourcemap: true, name: 'Crudeui', file: 'dist/crudeui.js', format: 'umd' },
 ];
 
 const umdConfigMin = baseUmdConfig(true);
 umdConfigMin.external = external;
 umdConfigMin.output = [
-  { globals: allGlobals, sourcemap: true, name: 'Pureui', file: 'dist/pureui.min.js', format: 'umd' },
+  { globals: allGlobals, sourcemap: true, name: 'Crudeui', file: 'dist/crudeui.min.js', format: 'umd' },
 ];
 
 export default [

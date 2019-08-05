@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { toNumber } from '@crude/extras';
 import { Pages, pickMidIndex } from './helpers';
 import { Arrow, Item, Ellipsis as BaseEllipsis } from './components';
-import './pagination.scss';
+import { paginationScss } from '../styles';
 
 const defaultProps = {
   search: {},
@@ -21,6 +22,7 @@ const propTypes = {
   total: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   showSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   render: PropTypes.func,
+  className: PropTypes.string,
 };
 
 /**
@@ -34,7 +36,7 @@ const propTypes = {
  */
 const Pagination = ({
   search, page, pageSize, total, showSize,
-  render,
+  render, className,
 }) => {
   page = toNumber(page, 0);
   pageSize = toNumber(pageSize, 10);
@@ -72,8 +74,13 @@ const Pagination = ({
 
   const lastProps = { href: lastPage, disabled: disabledNext };
   const Last = render('Last', lastProps) || <Arrow {...lastProps}>{'>>'}</Arrow>;
+
+  const classes = classnames(
+    paginationScss(),
+    className,
+  );
   return (
-    <div className="pure-pagination">
+    <div className={classes}>
       {/* <<|< */}
       {First}
       {Prev}

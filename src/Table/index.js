@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './table.scss';
+import { tableScss } from '../styles';
 
 const propTypes = {
   columns: PropTypes.arrayOf(PropTypes.shape({
@@ -53,7 +53,7 @@ class Table extends React.PureComponent {
       columns, dataSource, className,
     } = this.props;
     return (
-      <div className={classnames('pure-table', className)}>
+      <div className={classnames(tableScss(), className)}>
         <ol className="_thead">
           {columns.map(({ key, title, ...other }) => (
             <li key={key} style={getStyle(other)}>{title}</li>

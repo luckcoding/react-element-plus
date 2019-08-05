@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './split-line.scss';
+import { splitLineScss } from '../styles';
 
 const propTypes = {
   color: PropTypes.string,
@@ -45,7 +45,7 @@ function SplitLine({
         }
       `}
       </style>
-      <div className={classnames('pure-split-line', className)} {...props}>
+      <div className={classnames(splitLineScss(), className)} {...props}>
         {children}
       </div>
     </React.Fragment>

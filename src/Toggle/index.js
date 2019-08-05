@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './toggle.scss';
+import { toggleScss } from '../styles';
 
 function Toggle({
   children,
@@ -10,8 +10,8 @@ function Toggle({
   ...props
 }) {
   return (
-    <div className={classnames('pure-toggle', className)} {...props}>
-      <div className="clearfix">{children}</div>
+    <div className={classnames(toggleScss(), className)} {...props}>
+      <div className="_fix">{children}</div>
       <div className="_append">{append}</div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '../Button';
-import './modal.scss';
+import { modalScss } from '../styles';
 
 const defaultProps = {
   maskClosable: true,
@@ -102,7 +102,7 @@ class Modal extends React.PureComponent {
     } = this.props;
 
     const classes = classnames(
-      'pure-modal',
+      modalScss(),
       {
         _visible: visible,
       },

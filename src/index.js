@@ -1,4 +1,4 @@
-import './app.scss';
+import './styles/normalize.scss';
 
 export { default as Button } from './Button';
 export { default as CountDown } from './CountDown';

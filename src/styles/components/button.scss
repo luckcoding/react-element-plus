@@ -1,7 +1,28 @@
-@import './vars.scss';
+@import '../globals.scss';
 
-:root {
-  --button-color: inherit;
+$buttons: (
+  margin: 2px 4px,
+  padding: 0 1em,
+  height: 2.8em,
+  border-radius: 10px,
+  font-size: 16px,
+  opacity-hover: .8,
+  opacity-disabled: .5,
+  transition: (background-color, opacity 100ms linear),
+
+  large-padding: 0 1em,
+  large-height: 2.8em,
+  large-border-radius: 12px,
+  large-font-size: 20px,
+
+  small-padding: 0 .9em,
+  small-height: 2.1em,
+  small-border-radius: 6px,
+  small-font-size: 13px,
+) !default;
+
+@function button-attr($attr) {
+  @return var(--pure-button-#{$attr}, map-get($buttons, $attr));
 }
 
 .pure-button {
@@ -32,6 +53,10 @@
   font-weight: 500;
 
   line-height: 1;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-image: none;
   
   transition: map-get($buttons, transition);
   transition: button-attr(transition);
@@ -74,8 +99,8 @@
     }
 
     &._outline._#{$name} {
-      border: 1px solid map-get($value, base);
-      border: 1px solid pure-color($name, base);
+      border-color: map-get($value, base);
+      border-color: pure-color($name, base);
     }
   }
 

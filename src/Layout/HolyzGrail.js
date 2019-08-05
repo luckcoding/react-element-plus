@@ -47,7 +47,7 @@ const HolyzGrail = React.forwardRef(({
   ...props
 }, ref) => {
   const rootName = `pure-holy-grail-ref${refCounter++}`;
-  const classes = classnames(rootName, 'clearfix', className);
+  const classes = classnames(rootName, '_fix', className);
 
   // sort
   const leftOrder = dismissOrders.indexOf('left');

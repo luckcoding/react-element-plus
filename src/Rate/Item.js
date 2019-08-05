@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './item.scss';
+import { rateItemScss } from '../styles';
 
 const propTypes = {
   size: PropTypes.number,
@@ -31,7 +31,7 @@ function Item({
 }) {
   return (
     <div
-      className={classnames('pure-rate-item', className)}
+      className={classnames(rateItemScss(), className)}
       style={{
         ...style,
         fontSize: `${size}px`,

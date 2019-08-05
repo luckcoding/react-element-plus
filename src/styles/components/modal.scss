@@ -1,4 +1,21 @@
-@import './vars.scss';
+@import '../globals.scss';
+
+$modals: (
+  z-index: $z-index-modal,
+  padding: 20px,
+  mask-color: rgba(0, 0, 0, 0.1),
+  mask-color-activated: rgba(0, 0, 0, 0.3),
+  background: #fff,
+  head-color: $dark,
+  head-font-weight: 500,
+  head-font-size: 16px,
+  close-opacity-hover: .8,
+  bd-padding: 20px 0,
+) !default;
+
+@function modal-attr($attr) {
+  @return var(--pure-modal-#{$attr}, map-get($modals, $attr));
+}
 
 .pure-modal {
   position: fixed;

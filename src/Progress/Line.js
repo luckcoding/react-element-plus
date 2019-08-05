@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import types, { props as defProps } from './types';
-import './line.scss';
+import { progressLineScss } from '../styles';
 
 const propTypes = types;
 const defaultProps = defProps;
@@ -46,7 +46,7 @@ class Line extends React.PureComponent {
       <svg
         viewBox={`0 0 100 ${stroke}`}
         preserveAspectRatio="none"
-        className={classnames('pure-progress-line', className)}
+        className={classnames(progressLineScss(), className)}
       >
         <path
           d={path}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import types from './types';
-import './loading.scss';
+import { loadingScss } from '../styles';
 
 const propTypes = {
   type: PropTypes.oneOf(types),
@@ -19,7 +19,7 @@ const Loading = React.forwardRef(({
   ...props
 }, ref) => {
   const classes = classnames(
-    'pure-loading',
+    loadingScss(),
     `_${type}`,
     className,
   );
