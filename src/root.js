@@ -1,4 +1,4 @@
-require('./styles');
+require('./style');
 require('./Button/style');
 require('./Input/style');
 require('./Loading/style');

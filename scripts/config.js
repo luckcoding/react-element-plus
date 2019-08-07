@@ -39,7 +39,7 @@ module.exports = (distRoot, optimize) => ({
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader',
+          'sass-loader'
         ],
       },
     ],

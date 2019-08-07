@@ -1,6 +1,6 @@
 {
   "name": "@crude/ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A crude React ui library",
   "author": "luckcoding",
   "main": "lib/index.js",
