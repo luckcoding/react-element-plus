@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import types, { props as defProps } from './types';
-import { progressCircleScss } from '../styles';
 
 const propTypes = {
   ...types,
@@ -80,7 +79,7 @@ class Circle extends React.PureComponent {
       <svg
         viewBox="0 0 110 110"
         preserveAspectRatio="none"
-        className={classnames(progressCircleScss(), className)}
+        className={classnames('crude-progress-circle', className)}
       >
         <CircleBase
           strokeLinecap={linecap}

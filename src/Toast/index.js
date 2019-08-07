@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { addEvent, delEvent } from '@crude/events';
-import { toastScss } from '../styles';
 
 const defaultProps = {
   duration: 3000,
@@ -75,7 +74,7 @@ class ToastContainer extends React.PureComponent {
     const { message, status } = this.state;
     Toast.show = this._show;
     return message ? (
-      <div className={classnames(toastScss(), this.props.className)}>
+      <div className={classnames('crude-toast', this.props.className)}>
         <div className={`_${status}`} onClick={stopPropagation}>{message}</div>
       </div>
     ) : null;

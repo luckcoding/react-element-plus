@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import debounce from '@crude/extras/es/debounce';
+import { debounce } from '@crude/extras';
 import colors from './colors';
 import Loading from '../Loading';
-import { buttonScss } from '../styles';
 
 const propTypes = {
   tag: PropTypes.elementType,
@@ -77,7 +76,7 @@ const Button = React.forwardRef(({
   ...props
 }, ref) => {
   const classes = classnames(
-    buttonScss(),
+    'crude-button',
     {
       _full: full,
       _block: block,

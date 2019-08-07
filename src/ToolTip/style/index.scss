@@ -1,0 +1,33 @@
+@import '../../styles/vars.scss';
+
+$tooltip-color: #fff;
+$tooltip-background: rgba(0,0,0,.9);
+$tooltip-font-size: 12px;
+
+.pure-tooltip {
+  cursor: pointer;
+  position: relative;
+
+  &:hover ._tip {
+    display: block;
+  }
+
+  ._tip {
+    display: none;
+    word-wrap: break-word;
+    word-break: keep-all;
+    pointer-events: none; // 阻止冒泡
+    padding: 2px 5px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    cursor: none;
+    width: calc(100% + 4px);
+    max-width: 300px;
+    
+    font-size: $tooltip-font-size;
+    z-index: $z-index-tooltip;
+    color: $tooltip-color;
+    background: $tooltip-background;
+  }
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { addEvent, delEvent } from '@crude/events';
-import { selectScss } from '../styles';
 
 const propTypes = {
   value: PropTypes.oneOfType([
@@ -113,7 +112,7 @@ class Select extends React.PureComponent {
     const { visible } = this.state;
 
     const classes = classnames(
-      selectScss(),
+      'crude-select',
       visible && '_visible',
       className,
     );

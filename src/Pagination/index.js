@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { toNumber } from '@crude/extras';
 import { Pages, pickMidIndex } from './helpers';
 import { Arrow, Item, Ellipsis as BaseEllipsis } from './components';
-import { paginationScss } from '../styles';
 
 const defaultProps = {
   search: {},
@@ -76,7 +75,7 @@ const Pagination = ({
   const Last = render('Last', lastProps) || <Arrow {...lastProps}>{'>>'}</Arrow>;
 
   const classes = classnames(
-    paginationScss(),
+    'crude-pagination',
     className,
   );
   return (

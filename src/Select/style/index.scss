@@ -1,0 +1,56 @@
+@import '../../styles/vars.scss';
+
+$selects: (
+  z-index: $z-index-select,
+  background: #fff,
+  min-width: 100px,
+  padding: 5px,
+  color-activated: $primary,
+  background-activated: $light,
+) !default;
+
+.crude-select {
+  position: relative;
+  display: inline-block;
+
+  ._content {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    padding: map-get($selects, padding);
+
+    ._inline {
+      margin-right: 2px;
+    }
+    ._arrow {
+      margin-left: 10px;
+    }
+  }
+
+  ._toggle {
+    display: none;
+    position: absolute;
+    width: 100%;
+
+    z-index: map-get($selects, z-index);
+    background: map-get($selects, background);
+    min-width: map-get($selects, min-width);
+
+    ._toggle-item {
+      padding: map-get($selects, padding);
+      cursor: pointer;
+      &._active {
+        color: map-get($selects, color-activated);
+      }
+      &:hover {
+        background: map-get($selects, background-activated);
+      }
+    }
+  }
+
+  &._visible {
+    ._toggle {
+      display: block;
+    }
+  }
+}

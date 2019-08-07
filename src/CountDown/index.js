@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isNumber from '@crude/extras/es/isNumber';
+import { isNumber } from '@crude/extras';
 import Button from '../Button';
 import SetTimeoutMixin from '../SetTimeoutMixin';
 

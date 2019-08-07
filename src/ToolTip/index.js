@@ -1,13 +1,12 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { tooltipScss } from '../styles';
 
 const ToolTip = ({ title, children, ...props }) => {
   const child = Children.only(children);
 
   const classes = classnames(
-    tooltipScss(),
+    'crude-tooltip',
     child.props.className,
   );
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { textareaScss } from '../styles';
 
 const propTypes = {
   // input
@@ -62,7 +61,7 @@ class Textarea extends React.PureComponent {
     } = this.props;
 
     const classes = classnames(
-      textareaScss(),
+      'crude-textarea',
       {
         _focus: focus,
         _filling: value,

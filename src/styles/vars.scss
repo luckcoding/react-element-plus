@@ -1,0 +1,18 @@
+// Global Color Functions
+@import "./mixins";
+
+// Default Theme
+@import "./colors";
+
+// Default General
+// --------------------------------------------------
+$font-family-base:                  sans-serif !default;
+
+// Z-Index
+// --------------------------------------------------
+$z-index-modal:                     9 !default;
+$z-index-progress-activated:        999 !default;
+$z-index-select:                    2 !default;
+$z-index-toast:                     11 !default;
+$z-index-toggle:                    4 !default;
+$z-index-tooltip:                   1 !default;

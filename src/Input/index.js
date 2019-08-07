@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { inputScss } from '../styles';
 
 const propTypes = {
   // input
@@ -62,7 +61,7 @@ class Input extends React.PureComponent {
     } = this.props;
 
     const classes = classnames(
-      inputScss(),
+      'crude-input',
       {
         _focus: focus,
         _filling: value,

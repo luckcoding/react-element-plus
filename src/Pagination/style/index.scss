@@ -1,0 +1,51 @@
+@import '../../styles/vars.scss';
+
+$paginations: (
+  color: $primary,
+  background: $light,
+  opacity-hover: .8,
+  item-size: 30px,
+  
+) !default;
+
+.crude-pagination {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: map-get($paginations, color);
+
+  .link,
+  a {
+    display: inline-block;
+    margin: 0 2px;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    min-width: 30px;
+    padding: 0 10px;
+    text-align: center;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    background: map-get($paginations, background);
+
+    &._active {
+      background: map-get($paginations, color);
+      color: map-get($paginations, background);
+    }
+
+    &:hover {
+      opacity: map-get($paginations, opacity-hover);
+    }
+  }
+
+  ._ellipsis {
+    background-color: transparent;
+  }
+
+  ._disabled {
+    pointer-events: none;
+  }
+}

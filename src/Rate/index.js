@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Item from './Item';
 import getRatePoints from './getRatePoints';
-import { rateScss } from '../styles';
 
 const propTypes = {
   value: PropTypes.number,
@@ -35,7 +34,7 @@ function Rate({
   ...props
 }) {
   const classes = classnames(
-    rateScss(),
+    'crude-rate',
     !disabled && '_animate',
     '_fix',
     className,

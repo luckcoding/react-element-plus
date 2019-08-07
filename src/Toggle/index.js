@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { toggleScss } from '../styles';
 
 function Toggle({
   children,
@@ -10,7 +9,7 @@ function Toggle({
   ...props
 }) {
   return (
-    <div className={classnames(toggleScss(), className)} {...props}>
+    <div className={classnames('crude-toggle', className)} {...props}>
       <div className="_fix">{children}</div>
       <div className="_append">{append}</div>
     </div>
