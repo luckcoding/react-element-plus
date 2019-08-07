@@ -29,17 +29,17 @@ function SplitLine({
     <React.Fragment>
       <style>
         {`
-        .pure-split-line {
+        .crude-split-line {
           color: ${color};
         }
-        .pure-split-line:after {
+        .crude-split-line:after {
           margin-left: ${spacing}px;
         }
-        .pure-split-line:before {
+        .crude-split-line:before {
           margin-right: ${spacing}px;
         }
-        .pure-split-line:after,
-        .pure-split-line:before {
+        .crude-split-line:after,
+        .crude-split-line:before {
           background: ${lineColor};
         }
       `}

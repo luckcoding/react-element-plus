@@ -11,7 +11,7 @@ $textareas: (
   error-color: $danger,
 ) !default;
 
-.pure-textarea {
+.crude-textarea {
   position: relative;
   line-height: map-get($textareas, line-height);
   font-size: map-get($textareas, font-size);

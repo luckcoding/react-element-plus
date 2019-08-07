@@ -24,9 +24,7 @@ $table-item-min-width: 100px;
       flex: 1;
       text-overflow: ellipsis;
       overflow: hidden;
-
       min-width: $table-item-min-width;
-      min-width: var(--pure-table-min-width, $table-item-min-width);
     }
   }
 }

@@ -46,7 +46,7 @@ const HolyzGrail = React.forwardRef(({
   className,
   ...props
 }, ref) => {
-  const rootName = `pure-holy-grail-ref${refCounter++}`;
+  const rootName = `crude-holy-grail-ref${refCounter++}`;
   const classes = classnames(rootName, '_fix', className);
 
   // sort
