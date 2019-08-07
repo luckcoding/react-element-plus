@@ -62,7 +62,7 @@ function walkJs(dir) {
       const fullpath = path.join(directory, file);
       const stat = fs.statSync(fullpath);
       if (/style\/index.js$/.test(fullpath)) {
-        const fileText = fs.readFileSync(fullpath).toString().replace('.scss', '.css');
+        const fileText = fs.readFileSync(fullpath).toString().replace(/.scss/g, '.css');
         fs.writeFileSync(fullpath.replace(/index.js$/, 'css.js'), fileText);
       } else if (stat.isDirectory()) {
         const subdir = path.join(dir, file);
