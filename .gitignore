@@ -6,6 +6,7 @@ node_modules
 /es
 npm-debug.log
 package-lock.json
+yarn.lock
 yarn-error.log
 .DS_Store
 ./../.DS_Store
