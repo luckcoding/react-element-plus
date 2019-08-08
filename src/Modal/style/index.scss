@@ -66,9 +66,6 @@ $modals: (
         &:hover {
           opacity: map-get($modals, close-opacity-hover);
         }
-        &:after {
-          content: "X";
-        }
       }
     }
 

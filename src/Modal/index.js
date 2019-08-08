@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { isNull } from '@crude/extras';
 import Button from '../Button';
 
 const defaultProps = {
@@ -11,6 +12,7 @@ const defaultProps = {
   onClose() {},
 
   title: '',
+  close: 'X',
 
   width: 300,
 
@@ -34,6 +36,7 @@ const propTypes = {
   onClose: PropTypes.func,
 
   title: PropTypes.node,
+  close: PropTypes.node,
 
   okText: PropTypes.string,
   okProps: PropTypes.object,
@@ -88,6 +91,7 @@ class Modal extends React.PureComponent {
       onClose,
 
       title,
+      close,
 
       okText,
       cancelText,
@@ -120,34 +124,37 @@ class Modal extends React.PureComponent {
           >
             <div className="_hd">
               {title}
-              {closable && <span className="_close" onClick={onClose} />}
+              {closable && <span className="_close" onClick={onClose}>{close}</span>}
             </div>
             <div className="_bd">
               {children}
             </div>
-            {footer || (
-              <div className="_ft">
-                <Button
-                  clear
-                  small
-                  type="button"
-                  color="medium"
-                  {...cancelProps}
-                  onClick={onClose}
-                >
-                  {cancelText}
-                </Button>
-                <Button
-                  clear
-                  small
-                  type="button"
-                  {...okProps}
-                  onClick={this._handleOk}
-                >
-                  {okText}
-                </Button>
-              </div>
-            )}
+            {isNull(footer)
+              ? null
+              : (footer || (
+                <div className="_ft">
+                  <Button
+                    clear
+                    small
+                    type="button"
+                    color="medium"
+                    {...cancelProps}
+                    onClick={onClose}
+                  >
+                    {cancelText}
+                  </Button>
+                  <Button
+                    clear
+                    small
+                    type="button"
+                    {...okProps}
+                    onClick={this._handleOk}
+                  >
+                    {okText}
+                  </Button>
+                </div>
+              ))
+            }
           </div>
         ) : null}
       </div>
