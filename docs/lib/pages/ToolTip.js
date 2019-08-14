@@ -3,26 +3,25 @@ import React from 'react';
 import { PrismCode } from 'react-prism';
 import Example from '../examples/ToolTip';
 import docs from '../utils/docs';
+
 const Source = require('!!raw-loader!../examples/ToolTip');
 
 const Docs = docs([
   ['title', 'show content', 'Node', '-', '-'],
-])
+]);
 
-export default () => {
-  return (
-    <div className="page">
-      <div className="docs-example" style={{marginBottom: '20px'}}>
-        <Example />
-      </div>
-      <pre>
-        <PrismCode className="language-jsx">
-          {Source}
-        </PrismCode>
-      </pre>
-      <div className="docs-api">
-        <Docs title="Props"/>
-      </div>
+export default () => (
+  <div className="page">
+    <div className="docs-example" style={{ marginBottom: '20px' }}>
+      <Example />
     </div>
-  );
-}
+    <pre>
+      <PrismCode className="language-jsx">
+        {Source}
+      </PrismCode>
+    </pre>
+    <div className="docs-api">
+      <Docs title="Props" />
+    </div>
+  </div>
+);

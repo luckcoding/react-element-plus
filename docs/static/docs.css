@@ -153,6 +153,10 @@ pre, code {
   color: #003a8c;
 }
 
+.row-part {
+  margin-bottom: 20px;
+}
+
 /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+jsx&plugins=autolinker */
 /**
  * okaidia theme for JavaScript, CSS and HTML

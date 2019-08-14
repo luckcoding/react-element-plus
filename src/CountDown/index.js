@@ -94,9 +94,7 @@ class CountDown extends SetTimeoutMixin {
     const { duration } = this.state;
     return (
       <Button
-        small
-        clear
-        type="button"
+        nativeType="button"
         {...props}
         disabled={!!duration || disabled}
         onClick={this._onClick}

@@ -1,32 +1,30 @@
 import React from 'react';
 import { Modal, Button } from '@crude/ui';
 
-class Example extends React.Component{
-  constructor(){
-    super()
+class Example extends React.Component {
+  constructor() {
+    super();
     this.state = { visible: false };
-
-    this.handleOk = this.handleOk.bind(this)
-    this.showModal = this.showModal.bind(this)
-    this.handleClose = this.handleClose.bind(this)
+    this.showModal = this.showModal.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
-  showModal () {
+  showModal() {
     this.setState({ visible: true });
   }
 
-  handleOk (hideModal) {
-    hideModal()
+  handleOk(hideModal) {
+    hideModal();
   }
 
-  handleClose () {
-    this.setState({ visible: false })
+  handleClose() {
+    this.setState({ visible: false });
   }
 
   render() {
     return (
       <div>
-        <Button small onClick={this.showModal}>
+        <Button onClick={this.showModal}>
           Open Modal
         </Button>
         <Modal
@@ -46,4 +44,4 @@ class Example extends React.Component{
     );
   }
 }
-export default Example
+export default Example;

@@ -2,29 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { debounce } from '@crude/extras';
-import colors from './colors';
+import SafeAnchor from '../SafeAnchor';
 import Loading from '../Loading';
 
 const propTypes = {
   tag: PropTypes.elementType,
+  href: PropTypes.string,
 
-  // colors
-  color: PropTypes.oneOf(colors),
-
-  // expand
-  full: PropTypes.bool,
-  block: PropTypes.bool,
-
-  // fill
-  clear: PropTypes.bool,
-  outline: PropTypes.bool,
+  type: PropTypes.oneOf(['default', 'primary', 'success', 'info', 'warning', 'danger']),
+  plain: PropTypes.bool,
 
   // size
-  small: PropTypes.bool,
-  large: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'mini']),
 
   // shape
   round: PropTypes.bool,
+  circle: PropTypes.bool,
 
   // child nodes
   startSlot: PropTypes.node,
@@ -38,73 +31,95 @@ const propTypes = {
   // handle
   debounce: PropTypes.number,
 
-  // self
+  // native
+  nativeType: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
   onClick: PropTypes.func,
 };
 
 const defaultProps = {
+  type: 'default',
   tag: 'button',
-  color: colors[0],
+  nativeType: 'button',
   debounce: 100,
 };
 
 const Button = React.forwardRef(({
   tag: Tag,
 
-  color,
-  full,
-  block,
-  clear,
-  outline,
-  small,
-  large,
+  type,
+  plain,
+
+  size,
+
   round,
+  circle,
 
   startSlot,
   endSlot,
 
-  disabled,
+  // disabled,
   loading,
   loadingType,
 
   debounce: wait,
 
+  nativeType,
   className,
   children,
   ...props
 }, ref) => {
   const classes = classnames(
-    'crude-button',
+    'cr-button',
+    `cr-button--${type}`,
+    size && `cr-button--${size}`,
     {
-      _full: full,
-      _block: block,
-      _clear: clear,
-      _outline: outline,
-      _small: small,
-      _large: large,
-      _round: round,
-      _disabled: disabled,
+      'is-disabled': props.disabled,
+      'is-loading': loading,
+      'is-plain': plain,
+      'is-round': round,
+      'is-circle': circle,
+      'is-sloted': startSlot || endSlot || loading,
     },
-    `_${color}`,
     className,
   );
+
 
   // debounce
   if (typeof props.onClick === 'function') {
     props.onClick = debounce(props.onClick, wait, false);
   }
 
+  // child
+  const child = (
+    <React.Fragment>
+      {loading && <div className="cr-button__loading"><Loading type={loadingType} /></div>}
+      {startSlot && <div className="cr-button__start">startSlot</div>}
+      {children}
+      {endSlot && <div className="cr-button__end">endSlot</div>}
+    </React.Fragment>
+  );
+
+  if (props.href) {
+    return (
+      <SafeAnchor
+        {...props}
+        tag={Tag}
+        innerRef={ref}
+        className={classes}
+      >
+        {child}
+      </SafeAnchor>
+    );
+  }
+
   // ref
   if (ref) props.ref = ref;
 
   return (
-    <Tag className={classes} {...props}>
-      {startSlot && <div className="_start">startSlot</div>}
-      {children}
-      {endSlot && <div className="_end">endSlot</div>}
-      {loading && <div className="_loading"><Loading type={loadingType} /></div>}
+    <Tag className={classes} {...props} type={nativeType}>
+      {child}
     </Tag>
   );
 });

@@ -1,8 +1,12 @@
-// Global Color Functions
-@import "./mixins";
-
 // Default Theme
 @import "./theme.scss";
+
+// bem
+// --------------------------------------------------
+$namespace:                         'cr' !default;
+$element-separator:                 '__' !default;
+$modifier-separator:                '--' !default;
+$state-prefix:                      'is-' !default;
 
 // Default General
 // --------------------------------------------------
@@ -10,6 +14,7 @@ $font-family-base:                  sans-serif !default;
 
 // Z-Index
 // --------------------------------------------------
+$z-index-backdrop:                  20 !default;
 $z-index-modal:                     32 !default;
 $z-index-select:                    2 !default;
 $z-index-toast:                     16 !default;

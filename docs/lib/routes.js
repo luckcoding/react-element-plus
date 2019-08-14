@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Alert from './pages/Alert';
 import Button from './pages/Button';
 import Input from './pages/Input';
 import ToolTip from './pages/ToolTip';
@@ -19,6 +20,11 @@ import Toast from './pages/Toast';
 import Toggle from './pages/Toggle';
 
 const navs = [
+  {
+    path: '/alert',
+    name: 'Alert',
+    component: Alert,
+  },
   {
     path: '/button',
     name: 'Button',
@@ -74,16 +80,16 @@ const navs = [
     name: 'Select',
     component: Select,
   },
-   {
+  {
     path: '/splitLine',
     name: 'SplitLine',
     component: SplitLine,
-   },
-   {
+  },
+  {
     path: '/table',
     name: 'Table',
     component: Table,
-   },
+  },
   {
     path: '/textarea',
     name: 'Textarea',
@@ -98,10 +104,10 @@ const navs = [
     path: '/toggle',
     name: 'Toggle',
     component: Toggle,
-  }
-]
+  },
+];
 
-export { navs }
+export { navs };
 
 export default [
   {
@@ -115,4 +121,4 @@ export default [
     name: '404',
     component: NotFound,
   },
-]
+];

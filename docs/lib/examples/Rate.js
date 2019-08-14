@@ -3,10 +3,10 @@ import { Rate, RateItem } from '@crude/ui';
 
 export default class extends React.PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       value: 50,
-    }
+    };
   }
 
   render() {
@@ -26,6 +26,6 @@ export default class extends React.PureComponent {
           onChange={value => this.setState({ value })}
         />
       </div>
-    )
+    );
   }
 }

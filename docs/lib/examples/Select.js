@@ -17,19 +17,19 @@ const Tag = ({ onClick, children, ...props }) => (
       X
     </span>
   </div>
-)
+);
 
 export default class extends React.PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       value: '',
       multipleValue: '',
-    }
+    };
   }
 
   render() {
-    const { value, multipleValue } = this.state
+    const { value, multipleValue } = this.state;
     return (
       <div>
         <Select
@@ -46,17 +46,15 @@ export default class extends React.PureComponent {
           multiple
           onChange={value => this.setState({ multipleValue: value })}
           placeholder="Multiple"
-          renderSelectItem={(text, { remove }) => {
-            return (
-              <Tag onClick={remove}>{text}</Tag>
-            )
-          }}
+          renderSelectItem={(text, { remove }) => (
+            <Tag onClick={remove}>{text}</Tag>
+          )}
         >
           <option value="1">value=1</option>
           <option value="2">value=2</option>
           <option value="3">value=3</option>
         </Select>
       </div>
-    )
+    );
   }
 }

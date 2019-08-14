@@ -4,8 +4,8 @@ import Content from '../UI/Content';
 const items = [
   {
     name: 'Colors',
-    to: '/utilities/colors/'
-  }
+    to: '/utilities/colors/',
+  },
 ];
 
 function Utilities(props) {

@@ -1,5 +1,7 @@
 require('./style');
+require('./Alert/style');
 require('./Button/style');
+require('./ButtonGroup/style');
 require('./Input/style');
 require('./Loading/style');
 require('./Modal/style');

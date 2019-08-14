@@ -1,12 +1,12 @@
 import React from 'react';
 import { Layout } from '@crude/ui';
 
-const { HolyzGrail } = Layout
+const { HolyzGrail } = Layout;
 
 const Example = () => {
-  const Left = () => <div style={{background: 'yellow'}}>Left</div>
-  const Right = () => <div style={{background: 'blue'}}>Right</div>
-  const Main = () => <div style={{background: 'red'}}>Main</div>
+  const Left = () => <div style={{ background: 'yellow' }}>Left</div>;
+  const Right = () => <div style={{ background: 'blue' }}>Right</div>;
+  const Main = () => <div style={{ background: 'red' }}>Main</div>;
   return (
     <div>
       <HolyzGrail
@@ -31,6 +31,6 @@ const Example = () => {
         <Main />
       </HolyzGrail>
     </div>
-  )
-}
-export default Example
+  );
+};
+export default Example;

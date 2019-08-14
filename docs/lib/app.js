@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Helmet from 'react-helmet';
-import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
+import {
+  BrowserRouter, Switch, Route, NavLink, Link,
+} from 'react-router-dom';
 import routes, { navs } from './routes';
-import './app.scss'
+import '../../src/root';
+import './app.scss';
 
 function App() {
   return (
@@ -14,8 +17,8 @@ function App() {
         defaultTitle="Pure"
         meta={[
           {
-            'name': 'description',
-            'content': 'pure components'
+            name: 'description',
+            content: 'pure components',
           },
         ]}
       />
@@ -31,10 +34,10 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
-  )
+  );
 }
 
 ReactDOM.render(
   <App />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

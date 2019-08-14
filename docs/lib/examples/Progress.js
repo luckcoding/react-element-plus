@@ -1,23 +1,23 @@
 import React from 'react';
 import { Progress, Button } from '@crude/ui';
 
-const { Circle, Line } = Progress
+const { Circle, Line } = Progress;
 
 export default class extends React.PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       percent: 50,
-    }
-    this.onChange = this.onChange.bind(this)
+    };
+    this.onChange = this.onChange.bind(this);
   }
 
   onChange() {
-    this.setState({ percent: Math.floor(Math.random() * 100) })
+    this.setState({ percent: Math.floor(Math.random() * 100) });
   }
 
   render() {
-    const { percent } = this.state
+    const { percent } = this.state;
     return (
       <div>
         <Line
@@ -62,6 +62,6 @@ export default class extends React.PureComponent {
           trailWidth={2}
         />
       </div>
-    )
+    );
   }
 }

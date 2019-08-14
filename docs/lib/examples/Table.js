@@ -21,16 +21,16 @@ const columns = [
     title: '创建时间',
     width: 500,
     key: 'create',
-    render: (record) => Date(Date.now()),
+    render: record => Date(Date.now()),
   }, {
     title: '操作',
     key: 'operation',
     width: 150,
     render() {
-      return  <button>button</button>
+      return <button>button</button>;
     },
   },
-]
+];
 
 const dataSource = Array.apply(null, Array(10)).map((i, k) => ({
   id: k,
@@ -38,19 +38,17 @@ const dataSource = Array.apply(null, Array(10)).map((i, k) => ({
   email: `${k}@qq.com`,
   phone: `13000000${k}`,
   create: Date.now(),
-}))
+}));
 
-const Example = () => {
-  return (
-    <div>
-      <Table
-        columns={columns}
-        dataSource={dataSource}
-        onRow={(record) => {
-          console.log(record)
-        }}
-      />
-    </div>
-  )
-}
-export default Example
+const Example = () => (
+  <div>
+    <Table
+      columns={columns}
+      dataSource={dataSource}
+      onRow={(record) => {
+        console.log(record);
+      }}
+    />
+  </div>
+);
+export default Example;

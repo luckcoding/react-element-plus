@@ -3,6 +3,7 @@ import React from 'react';
 import { PrismCode } from 'react-prism';
 import Example from '../examples/Modal';
 import docs from '../utils/docs';
+
 const Source = require('!!raw-loader!../examples/Modal');
 
 const Docs = docs([
@@ -13,23 +14,21 @@ const Docs = docs([
   ['onClose', '取消回调，参数为关闭函数，', 'Function', '无', '-'],
   ['onOk', '点击确定回调，参数为关闭函数', 'Function', '无', '-'],
   ['width', '宽度', 'Number', '300', '-'],
-])
+]);
 
-export default () => {
-  return (
-    <div className="page">
-      <p>注意：纯受控组件</p>
-      <div className="docs-example" style={{marginBottom: '20px'}}>
-        <Example />
-      </div>
-      <pre>
-        <PrismCode className="language-jsx">
-          {Source}
-        </PrismCode>
-      </pre>
-      <div className="docs-api">
-        <Docs title="Props"/>
-      </div>
+export default () => (
+  <div className="page">
+    <p>注意：纯受控组件</p>
+    <div className="docs-example" style={{ marginBottom: '20px' }}>
+      <Example />
     </div>
-  );
-}
+    <pre>
+      <PrismCode className="language-jsx">
+        {Source}
+      </PrismCode>
+    </pre>
+    <div className="docs-api">
+      <Docs title="Props" />
+    </div>
+  </div>
+);

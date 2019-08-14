@@ -1,131 +1,197 @@
 @import '../../style/vars.scss';
+@import '../../style/mixins.scss';
 
-$buttons: (
-  margin: 2px 4px,
-  padding: 0 1em,
-  height: 2.8em,
-  border-radius: 10px,
-  font-size: 16px,
-  opacity-hover: .8,
-  opacity-disabled: .5,
-  transition: (background-color, opacity 100ms linear),
-
-  large-padding: 0 1em,
-  large-height: 2.8em,
-  large-border-radius: 12px,
-  large-font-size: 20px,
-
-  small-padding: 0 .9em,
-  small-height: 2.1em,
-  small-border-radius: 6px,
-  small-font-size: 13px,
-) !default;
-
-.crude-button {
+@include b(button) {
   display: inline-block;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: auto;
-
-  font-family: $font-family-base;
-
-  text-align: center;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-
-  white-space: nowrap;
-
-  user-select: none;
-  vertical-align: top; // the better option for most scenarios
-  vertical-align: -webkit-baseline-middle; // the best for those that support it
-  pointer-events: auto;
-
-  font-kerning: none;
-  font-weight: 500;
-
   line-height: 1;
-  outline: none;
-  border: 1px solid transparent;
+  white-space: nowrap;
   cursor: pointer;
-  background-image: none;
-  
-  transition: map-get($buttons, transition);
-  margin: map-get($buttons, margin);
-  padding: map-get($buttons, padding);
-  height: map-get($buttons, height);
-  border-radius: map-get($buttons, border-radius);
-  font-size: map-get($buttons, font-size);
+  background: $--button-default-background-color;
+  border: $--border-base;
+  border-color: $--button-default-border-color;
+  color: $--button-default-font-color;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  font-weight: $--button-font-weight;
 
-  &._full, &._block {
-    display: block;
-    display: flex;
-    width: 100%;
-    contain: content;
+  @include user-select(none);
+  @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
+
+  & + & {
+    margin-left: 10px;
   }
 
-  &._full {
-    border-radius: 0;
-  }
-  
-  // handle colors
-  @each $name, $value in $colors {
-    &._#{$name} {
-      background-color: map-get($value, base);
-      color: map-get($value, contrast);
-    }
-
-    &._outline._#{$name},
-    &._clear._#{$name} {
-      background: transparent;
-      color: map-get($value, base);
-    }
-
-    &._outline._#{$name} {
-      border-color: map-get($value, base);
-    }
+  &:hover,
+  &:focus {
+    color: $--color-primary;
+    border-color: $--color-primary-light-7;
+    background-color: $--color-primary-light-9;
   }
 
-  &._round {
-    border-radius: 1000px;
+  &:active {
+    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    outline: none;
   }
 
-  &._small {
-    padding: map-get($buttons, small-padding);
-    height: map-get($buttons, small-height);
-    border-radius: map-get($buttons, small-border-radius);
-    font-size: map-get($buttons, small-font-size);
+  &::-moz-focus-inner {
+    border: 0;
   }
 
-  &._large {
-    padding: map-get($buttons, large-padding);
-    height: map-get($buttons, large-height);
-    border-radius: map-get($buttons, large-border-radius);
-    font-size: map-get($buttons, large-font-size);
-  }
-
-  ._start {
+  .cr-button__start,
+  .cr-button__loading {
     margin-right: 5px;
-    display: inline-block;
   }
 
-  ._end {
+  .cr-button__end {
     margin-left: 5px;
-    display: inline-block;
   }
 
-  &._disabled {
-    opacity: .5;        
+
+  // & [class*="el-icon-"] {
+  //   & + span {
+  //     margin-left: 5px;
+  //   }
+  // }
+  
+  @include when(sloted) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include when(plain) {
+    &:hover,
+    &:focus {
+      background: $--color-white;
+      border-color: $--color-primary;
+      color: $--color-primary;
+    }
+
+    &:active {
+      background: $--color-white;
+      border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      outline: none;
+    }
+  }
+  
+  @include when(active) {
+    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+  }
+
+  @include when(disabled) {
+    &,
+    &:hover,
+    &:focus {
+      color: $--button-disabled-font-color;
+      cursor: not-allowed;
+      background-image: none;
+      background-color: $--button-disabled-background-color;
+      border-color: $--button-disabled-border-color;
+    }
+
+    &.cr-button--text {
+      background-color: transparent;
+    }
+
+    &.is-plain {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $--color-white;
+        border-color: $--button-disabled-border-color;
+        color: $--button-disabled-font-color;
+      }
+    }
+  }
+
+  @include when(loading) {
+    position: relative;
     pointer-events: none;
+
+    &:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: inherit;
+      background-color: rgba(255,255,255,.35);
+    }
   }
 
-  ._loading {
-    margin-left: 5px;
+  @include when(round) {
+    border-radius: 20px;
+    padding: 12px 23px;
   }
+  @include when(circle) {
+    border-radius: 50%;
+    padding: $--button-padding-vertical;
+  }
+  @include m(primary) {
+    @include button-variant($--button-primary-font-color, $--button-primary-background-color, $--button-primary-border-color);
+  }
+  @include m(success) {
+    @include button-variant($--button-success-font-color, $--button-success-background-color, $--button-success-border-color);
+  }
+  @include m(warning) {
+    @include button-variant($--button-warning-font-color, $--button-warning-background-color, $--button-warning-border-color);
+  }
+  @include m(danger) {
+    @include button-variant($--button-danger-font-color, $--button-danger-background-color, $--button-danger-border-color);
+  }
+  @include m(info) {
+    @include button-variant($--button-info-font-color, $--button-info-background-color, $--button-info-border-color);
+  }
+  @include m(medium) {
+    @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
+    @include when(circle) {
+      padding: $--button-medium-padding-vertical;
+    }
+  }
+  @include m(small) {
+    @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
+    @include when(circle) {
+      padding: $--button-small-padding-vertical;
+    }
+  }
+  @include m(mini) {
+    @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
+    @include when(circle) {
+      padding: $--button-mini-padding-vertical;
+    }
+  }
+  @include m(text) {
+    border-color: transparent;
+    color: $--color-primary;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
 
-  &:hover {
-    opacity: map-get($buttons, opacity-hover);
+    &:hover,
+    &:focus {
+      color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
+      border-color: transparent;
+      background-color: transparent;
+    }
+    &:active {
+      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      border-color: transparent;
+      background-color: transparent;
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:focus {
+      border-color: transparent;
+    }
   }
 }

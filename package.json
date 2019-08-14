@@ -17,9 +17,11 @@
     "@crude/events": "^0.0.1",
     "@crude/extras": "^0.1.0",
     "classnames": "^2.2.6",
-    "prop-types": "^15.7.2"
+    "dom-helpers": "^3.4.0",
+    "react-transition-group": "^4.2.2"
   },
   "peerDependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.3.0",
     "react-dom": "^16.3.0"
   },
@@ -51,9 +53,9 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^1.0.0",
-    "react": "^16.8.6",
+    "react": "^16.9.0",
     "react-app-polyfill": "^1.0.1",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-prism": "^4.3.2",
     "react-router-dom": "^5.0.1",
