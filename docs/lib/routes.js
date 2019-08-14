@@ -5,6 +5,7 @@ import Alert from './pages/Alert';
 import Button from './pages/Button';
 import Input from './pages/Input';
 import ToolTip from './pages/ToolTip';
+import HolyzGrail from './pages/HolyzGrail';
 import Layout from './pages/Layout';
 import CountDown from './pages/CountDown';
 import Loading from './pages/Loading';
@@ -36,7 +37,7 @@ const navs = [
     component: Input,
   },
   {
-    path: '/toolTip',
+    path: '/tooltip',
     name: 'ToolTip',
     component: ToolTip,
   },
@@ -44,6 +45,11 @@ const navs = [
     path: '/layout',
     name: 'Layout',
     component: Layout,
+  },
+  {
+    path: '/holyzgrail',
+    name: 'HolyzGrail',
+    component: HolyzGrail,
   },
   {
     path: '/countDown',
@@ -81,7 +87,7 @@ const navs = [
     component: Select,
   },
   {
-    path: '/splitLine',
+    path: '/splitline',
     name: 'SplitLine',
     component: SplitLine,
   },

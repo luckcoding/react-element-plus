@@ -46,7 +46,7 @@ const HolyzGrail = React.forwardRef(({
   className,
   ...props
 }, ref) => {
-  const rootName = `crude-holy-grail-ref${refCounter++}`;
+  const rootName = `cr-holy-grail-ref${refCounter++}`;
   const classes = classnames(rootName, '_fix', className);
 
   // sort
@@ -70,28 +70,28 @@ const HolyzGrail = React.forwardRef(({
     <div className={classes} {...props}>
       <style jxs="true">
         {`
-        .${rootName} ._main,
-        .${rootName} ._left,
-        .${rootName} ._right {
+        .${rootName} .cr-holy-grail__main,
+        .${rootName} .cr-holy-grail__left,
+        .${rootName} .cr-holy-grail__right {
           float: left;
         }
 
-        .${rootName} ._left {
+        .${rootName} .cr-holy-grail__left {
           margin-left: -100%;
         }
 
-        .${rootName} ._main {
+        .${rootName} .cr-holy-grail__main {
           width: 100%;
         }
 
-        .${rootName} ._left {
+        .${rootName} .cr-holy-grail__left {
           width: ${leftWidth || 0}px;
         }
-        .${rootName} ._main {
+        .${rootName} .cr-holy-grail__main {
           padding-left: ${leftWidth ? leftWidth + spacing : 0}px;
           padding-right: ${rightWidth ? rightWidth + spacing : 0}px;
         }
-        .${rootName} ._right {
+        .${rootName} .cr-holy-grail__right {
           width: ${rightWidth}px;
           margin-left: -${rightWidth}px;
         }
@@ -103,27 +103,27 @@ const HolyzGrail = React.forwardRef(({
             flex-direction: column;
           }
 
-          .${rootName} ._main,
-          .${rootName} ._left,
-          .${rootName} ._right {
+          .${rootName} .cr-holy-grail__main,
+          .${rootName} .cr-holy-grail__left,
+          .${rootName} .cr-holy-grail__right {
             float: none;
           }
 
-          .${rootName} ._left {
+          .${rootName} .cr-holy-grail__left {
             width: 100%;
             margin-left: 0;
             order: ${leftOrder};
             margin-bottom: ${hasSpacing(leftOrder) ? spacing : 0}px;
           }
 
-          .${rootName} ._main {
+          .${rootName} .cr-holy-grail__main {
             padding-left: 0;
             padding-right: 0;
             order: ${mainOrder};
             margin-bottom: ${hasSpacing(mainOrder) ? spacing : 0}px;
           }
 
-          .${rootName} ._right {
+          .${rootName} .cr-holy-grail__right {
             width: 100%;
             margin-left: 0;
             order: ${rightOrder};
@@ -132,12 +132,12 @@ const HolyzGrail = React.forwardRef(({
         }
       `}
       </style>
-      <div className="_main">{children}</div>
+      <div className="cr-holy-grail__main">{children}</div>
       {leftNode && (
-        <div className="_left">{leftNode}</div>
+        <div className="cr-holy-grail__left">{leftNode}</div>
       )}
       {rightNode && (
-        <div className="_right">{rightNode}</div>
+        <div className="cr-holy-grail__right">{rightNode}</div>
       )}
     </div>
   );

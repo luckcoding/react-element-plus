@@ -1,9 +1,14 @@
 require('./style');
+require('./Aside/style');
 require('./Alert/style');
 require('./Button/style');
 require('./ButtonGroup/style');
+require('./Container/style');
+require('./Footer/style');
+require('./Header/style');
 require('./Input/style');
 require('./Loading/style');
+require('./Main/style');
 require('./Modal/style');
 require('./Pagination/style');
 require('./Progress/style');

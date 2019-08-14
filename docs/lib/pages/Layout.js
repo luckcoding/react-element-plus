@@ -1,34 +1,42 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
 import { PrismCode } from 'react-prism';
-import ExampleHolyzGrail from '../examples/Layout-HolyzGrail';
+import Example from '../examples/Layout';
 import docs from '../utils/docs';
 
-const SourceHolyzGrail = require('!!raw-loader!../examples/Layout-HolyzGrail');
+const Source = require('!!raw-loader!../examples/Layout');
 
-const Docs = docs([
-  ['spacing', 'parts spacing', 'Number', '0', '-'],
-  ['dismiss', 'media change trigger', 'Number', '800', '-'],
-  ['dismissOrders', 'parts order if media change', 'Array', '["left", "main", "right"]', '-'],
-  ['leftNode', '', '', '', '-'],
-  ['leftWidth', '', '', '0', '-'],
-  ['rightNode', '', '', '', '-'],
-  ['rightWidth', '', '', '0', '-'],
-  ['children', 'as main node render', '', '', '-'],
+const ContainerDocs = docs([
+  ['direction', '子元素的排列方向', 'string', 'horizontal / vertical', '子元素中有 Header 或 Footer 时为 vertical，否则为 horizontal'],
+]);
+
+const HeaderDocs = docs([
+  ['height', '顶栏高度', 'string', '-', '60px'],
+]);
+
+const AsideDocs = docs([
+  ['width', '侧边栏宽度', 'string', '-', '300px'],
+]);
+
+const FooterDocs = docs([
+  ['height', '底栏高度', 'string', '-', '60px'],
 ]);
 
 export default () => (
   <div className="page">
-    <div className="docs-example" style={{ marginBottom: '20px' }}>
-      <ExampleHolyzGrail />
+    <div className="docs-example">
+      <Example />
     </div>
     <pre>
       <PrismCode className="language-jsx">
-        {SourceHolyzGrail}
+        {Source}
       </PrismCode>
     </pre>
     <div className="docs-api">
-      <Docs title="HolyzGrail Props" />
+      <ContainerDocs title="Container Props" />
+      <HeaderDocs title="Header Props" />
+      <AsideDocs title="Aside Props" />
+      <FooterDocs title="Footer Props" />
     </div>
   </div>
 );
