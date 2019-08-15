@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-console.log(Object.keys(React.Children.toArray));
 const propTypes = {
   direction: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
 };
-
 
 const Container = ({
   direction,

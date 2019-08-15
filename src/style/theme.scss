@@ -229,6 +229,53 @@ $backdrop-background-activated:     rgba(0, 0, 0, 0.3) !default;
 
 
 
+/* Alert
+-------------------------- */
+$--alert-padding: 8px 16px !default;
+/// borderRadius||Border|2
+$--alert-border-radius: $--border-radius-base !default;
+/// fontSize||Font|1
+$--alert-title-font-size: 13px !default;
+/// fontSize||Font|1
+$--alert-description-font-size: 12px !default;
+/// fontSize||Font|1
+$--alert-close-font-size: 12px !default;
+/// fontSize||Font|1
+$--alert-close-customed-font-size: 13px !default;
+
+$--alert-success-color: $--color-success-lighter !default;
+$--alert-info-color: $--color-info-lighter !default;
+$--alert-warning-color: $--color-warning-lighter !default;
+$--alert-danger-color: $--color-danger-lighter !default;
+
+/// height||Other|4
+$--alert-icon-size: 16px !default;
+/// height||Other|4
+$--alert-icon-large-size: 28px !default;
+
+
+
+/* Avatar
+--------------------------*/
+/// color||Color|0
+$--avatar-font-color: #fff !default;
+/// color||Color|0
+$--avatar-background-color: #C0C4CC !default;
+/// fontSize||Font Size|1
+$--avatar-text-font-size: 14px !default;
+/// fontSize||Font Size|1
+$--avatar-icon-font-size: 18px !default;
+/// borderRadius||Border|2
+$--avatar-border-radius: $--border-radius-base !default;
+/// size|1|Avatar Size|3
+$--avatar-large-size: 40px !default;
+/// size|1|Avatar Size|3
+$--avatar-medium-size: 36px !default;
+/// size|1|Avatar Size|3
+$--avatar-small-size: 28px !default;
+
+
+
 
 /* Button
 -------------------------- */
@@ -314,32 +361,6 @@ $--button-info-background-color: $--color-info !default;
 
 $--button-hover-tint-percent: 20% !default;
 $--button-active-shade-percent: 10% !default;
-
-
-
-/* Alert
--------------------------- */
-$--alert-padding: 8px 16px !default;
-/// borderRadius||Border|2
-$--alert-border-radius: $--border-radius-base !default;
-/// fontSize||Font|1
-$--alert-title-font-size: 13px !default;
-/// fontSize||Font|1
-$--alert-description-font-size: 12px !default;
-/// fontSize||Font|1
-$--alert-close-font-size: 12px !default;
-/// fontSize||Font|1
-$--alert-close-customed-font-size: 13px !default;
-
-$--alert-success-color: $--color-success-lighter !default;
-$--alert-info-color: $--color-info-lighter !default;
-$--alert-warning-color: $--color-warning-lighter !default;
-$--alert-danger-color: $--color-danger-lighter !default;
-
-/// height||Other|4
-$--alert-icon-size: 16px !default;
-/// height||Other|4
-$--alert-icon-large-size: 28px !default;
 
 
 

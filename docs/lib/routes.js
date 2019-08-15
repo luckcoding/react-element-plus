@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Alert from './pages/Alert';
+import Avatar from './pages/Avatar';
 import Button from './pages/Button';
 import Input from './pages/Input';
 import ToolTip from './pages/ToolTip';
@@ -25,6 +26,11 @@ const navs = [
     path: '/alert',
     name: 'Alert',
     component: Alert,
+  },
+  {
+    path: '/avatar',
+    name: 'Avatar',
+    component: Avatar,
   },
   {
     path: '/button',

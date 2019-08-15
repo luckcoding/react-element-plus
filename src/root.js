@@ -1,6 +1,7 @@
 require('./style');
-require('./Aside/style');
 require('./Alert/style');
+require('./Aside/style');
+require('./Avatar/style');
 require('./Button/style');
 require('./ButtonGroup/style');
 require('./Container/style');
