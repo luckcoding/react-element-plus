@@ -3,7 +3,9 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Alert from './pages/Alert';
 import Avatar from './pages/Avatar';
+import Backtop from './pages/Backtop';
 import Button from './pages/Button';
+import Icon from './pages/Icon';
 import Input from './pages/Input';
 import ToolTip from './pages/ToolTip';
 import HolyzGrail from './pages/HolyzGrail';
@@ -33,9 +35,19 @@ const navs = [
     component: Avatar,
   },
   {
+    path: '/backtop',
+    name: 'Backtop',
+    component: Backtop,
+  },
+  {
     path: '/button',
     name: 'Button',
     component: Button,
+  },
+  {
+    path: '/icon',
+    name: 'Icon',
+    component: Icon,
   },
   {
     path: '/input',

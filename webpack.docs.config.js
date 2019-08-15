@@ -55,7 +55,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /\.css$/,
@@ -63,6 +67,17 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader'
         ]
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2|otf|svg)/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: './font/[name].[ext]',
+            },
+          },
+        ],
       },
     ]
   },

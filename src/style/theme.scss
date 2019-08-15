@@ -277,6 +277,18 @@ $--avatar-small-size: 28px !default;
 
 
 
+/* Backtop
+--------------------------*/
+/// color||Color|0
+$--backtop-background-color: $--color-white !default;
+/// color||Color|0
+$--backtop-font-color: $--color-primary !default;
+/// color||Color|0
+$--backtop-hover-background-color: $--border-color-extra-light !default;
+
+
+
+
 /* Button
 -------------------------- */
 /// fontSize||Font|1

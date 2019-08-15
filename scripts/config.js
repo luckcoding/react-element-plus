@@ -42,6 +42,17 @@ module.exports = (distRoot, optimize) => ({
           'sass-loader'
         ],
       },
+      {
+        test: /\.(ttf|eot|woff|woff2|otf|svg)/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: './font/[name].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
   externals: {

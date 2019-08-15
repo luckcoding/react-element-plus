@@ -71,7 +71,6 @@ const Alert = React.forwardRef(({
       ref={ref}
       {...props}
       in={visible}
-      prefix="cr-alert"
     >
       <div
         role="alert"

@@ -1,6 +1,7 @@
 export { default as Alert } from './Alert';
 export { default as Aside } from './Aside';
 export { default as Avatar } from './Avatar';
+export { default as Backtop } from './Backtop';
 export { default as Button } from './Button';
 export { default as ButtonGroup } from './ButtonGroup';
 export { default as Container } from './Container';
@@ -8,6 +9,7 @@ export { default as CountDown } from './CountDown';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as HolyzGrail } from './HolyzGrail';
+export { default as Icon } from './Icon';
 export { default as Input } from './Input';
 export { default as Loading } from './Loading';
 export { default as Main } from './Main';
