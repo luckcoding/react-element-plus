@@ -6,24 +6,30 @@ import docs from '../utils/docs';
 
 const Source = require('!!raw-loader!../examples/Layout');
 
-const ContainerDocs = docs([
-  ['direction', '子元素的排列方向', 'string', 'horizontal / vertical', '子元素中有 Header 或 Footer 时为 vertical，否则为 horizontal'],
+const RowDocs = docs([
+  ['gutter', '栅格间隔', 'number', '-', '0'],
+  ['flex', 'flex布局', 'boolean', '-', 'false'],
+  ['justify', 'flex 布局下的水平排列方式', 'string', 'start / end / center / space-around / space-between', 'start'],
+  ['align', 'flex 布局下的垂直排列方式', 'string', 'top / middle / bottom', 'top'],
+  ['tag', '自定义元素标签', 'string', '-', 'div'],
 ]);
 
-const HeaderDocs = docs([
-  ['height', '顶栏高度', 'string', '-', '60px'],
-]);
-
-const AsideDocs = docs([
-  ['width', '侧边栏宽度', 'string', '-', '300px'],
-]);
-
-const FooterDocs = docs([
-  ['height', '底栏高度', 'string', '-', '60px'],
-]);
+const ColDocs = docs([
+  ['span', '栅格占据的列数', 'number', '-', '24'],
+  ['offset', '栅格左侧的间隔格数', 'number', '-', '0'],
+  ['push', '栅格向右移动格数', 'number', '-', '0'],
+  ['pull', '栅格向左移动格数', 'number', '-', '0'],
+  ['xs', '<768px 响应式栅格数或者栅格属性对象', 'number/object (例如： {span: 4, offset: 4})', '-', '0'],
+  ['sm', '≥768px 响应式栅格数或者栅格属性对象', 'number/object (例如： {span: 4, offset: 4})', '-', '0'],
+  ['md', '≥992px 响应式栅格数或者栅格属性对象', 'number/object (例如： {span: 4, offset: 4})', '-', '0'],
+  ['lg', '≥1200px 响应式栅格数或者栅格属性对象', 'number/object (例如： {span: 4, offset: 4})', '-', '0'],
+  ['xl', '≥1920px 响应式栅格数或者栅格属性对象', 'number/object (例如： {span: 4, offset: 4})', '-', '0'],
+  ['tag', '自定义元素标签', 'string', '-', 'div'],
+])
 
 export default () => (
   <div className="page">
+    <h2>基础用法</h2>
     <div className="docs-example">
       <Example />
     </div>
@@ -33,10 +39,8 @@ export default () => (
       </PrismCode>
     </pre>
     <div className="docs-api">
-      <ContainerDocs title="Container Props" />
-      <HeaderDocs title="Header Props" />
-      <AsideDocs title="Aside Props" />
-      <FooterDocs title="Footer Props" />
+      <RowDocs title="Row Props" />
+      <ColDocs title="Col Props" />
     </div>
   </div>
 );

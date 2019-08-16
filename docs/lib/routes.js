@@ -5,6 +5,7 @@ import Alert from './pages/Alert';
 import Avatar from './pages/Avatar';
 import Backtop from './pages/Backtop';
 import Button from './pages/Button';
+import Container from './pages/Container';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
 import ToolTip from './pages/ToolTip';
@@ -43,6 +44,11 @@ const navs = [
     path: '/button',
     name: 'Button',
     component: Button,
+  },
+  {
+    path: '/container',
+    name: 'Container',
+    component: Container,
   },
   {
     path: '/icon',
