@@ -25,7 +25,7 @@ const ColDocs = docs([
   ['lg', '≥1200px 响应式栅格数或者栅格属性对象', 'number/object (例如： {span: 4, offset: 4})', '-', '0'],
   ['xl', '≥1920px 响应式栅格数或者栅格属性对象', 'number/object (例如： {span: 4, offset: 4})', '-', '0'],
   ['tag', '自定义元素标签', 'string', '-', 'div'],
-])
+]);
 
 export default () => (
   <div className="page">

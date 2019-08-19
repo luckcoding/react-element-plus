@@ -20,7 +20,7 @@ const defaultProps = {
   flex: false,
 };
 
-export const RowContext = createContext('row');
+export const RowContext = createContext('Row');
 
 class Row extends React.PureComponent {
   constructor(props) {

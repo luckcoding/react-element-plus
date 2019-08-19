@@ -8,22 +8,20 @@ const fits = ['fill', 'contain', 'cover', 'none', 'scale-down'];
 
 export default class extends React.PureComponent {
   render() {
-    const errorHandler = () => {
-      return true
-    }
+    const errorHandler = () => true;
     return (
       <div>
         <div className="row-part">
-          <Avatar size={50} src={circleUrl}/>
-          <Avatar size="large" src={circleUrl}/>
-          <Avatar size="medium" src={circleUrl}/>
-          <Avatar size="small" src={circleUrl}/>
+          <Avatar size={50} src={circleUrl} />
+          <Avatar size="large" src={circleUrl} />
+          <Avatar size="medium" src={circleUrl} />
+          <Avatar size="small" src={circleUrl} />
         </div>
         <div className="row-part">
-          <Avatar size={50} shape="square" src={squareUrl}/>
-          <Avatar size="large" shape="square" src={squareUrl}/>
-          <Avatar size="medium" shape="square" src={squareUrl}/>
-          <Avatar size="small" shape="square" src={squareUrl}/>
+          <Avatar size={50} shape="square" src={squareUrl} />
+          <Avatar size="large" shape="square" src={squareUrl} />
+          <Avatar size="medium" shape="square" src={squareUrl} />
+          <Avatar size="small" shape="square" src={squareUrl} />
         </div>
         <div className="row-part">
           <Avatar icon="cr-icon-user-solid" />
@@ -32,7 +30,7 @@ export default class extends React.PureComponent {
         </div>
         <div>
           <Avatar size={60} src="https://empty" error={errorHandler}>
-            <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
+            <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
           </Avatar>
         </div>
         <div>

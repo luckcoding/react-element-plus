@@ -5,7 +5,8 @@ export default class extends React.PureComponent {
   render() {
     return (
       <div>
-        <style>{`
+        <style>
+          {`
           .cr-row {
             margin-bottom: 20px;
             &:last-child {
@@ -32,98 +33,99 @@ export default class extends React.PureComponent {
             padding: 10px 0;
             background-color: #f9fafc;
           }
-        `}</style>
+        `}
+        </style>
         <div className="row-part">
           <Row>
-            <Col span={24}><div className="grid-content bg-purple-dark"></div></Col>
+            <Col span={24}><div className="grid-content bg-purple-dark" /></Col>
           </Row>
           <Row>
-            <Col span={12}><div className="grid-content bg-purple"></div></Col>
-            <Col span={12}><div className="grid-content bg-purple-light"></div></Col>
+            <Col span={12}><div className="grid-content bg-purple" /></Col>
+            <Col span={12}><div className="grid-content bg-purple-light" /></Col>
           </Row>
           <Row>
-            <Col span={8}><div className="grid-content bg-purple"></div></Col>
-            <Col span={8}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={8}><div className="grid-content bg-purple"></div></Col>
+            <Col span={8}><div className="grid-content bg-purple" /></Col>
+            <Col span={8}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={8}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple-light"></div></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple-light" /></Col>
           </Row>
           <Row>
-            <Col span={4}><div className="grid-content bg-purple"></div></Col>
-            <Col span={4}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={4}><div className="grid-content bg-purple"></div></Col>
-            <Col span={4}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={4}><div className="grid-content bg-purple"></div></Col>
-            <Col span={4}><div className="grid-content bg-purple-light"></div></Col>
+            <Col span={4}><div className="grid-content bg-purple" /></Col>
+            <Col span={4}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={4}><div className="grid-content bg-purple" /></Col>
+            <Col span={4}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={4}><div className="grid-content bg-purple" /></Col>
+            <Col span={4}><div className="grid-content bg-purple-light" /></Col>
           </Row>
         </div>
         <div className="row-part">
           <Row gutter={20}>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
           </Row>
         </div>
         <div className="row-part">
           <Row gutter={20}>
-            <Col span={16}><div className="grid-content bg-purple"></div></Col>
-            <Col span={8}><div className="grid-content bg-purple"></div></Col>
+            <Col span={16}><div className="grid-content bg-purple" /></Col>
+            <Col span={8}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row gutter={20}>
-            <Col span={8}><div className="grid-content bg-purple"></div></Col>
-            <Col span={8}><div className="grid-content bg-purple"></div></Col>
-            <Col span={4}><div className="grid-content bg-purple"></div></Col>
-            <Col span={4}><div className="grid-content bg-purple"></div></Col>
+            <Col span={8}><div className="grid-content bg-purple" /></Col>
+            <Col span={8}><div className="grid-content bg-purple" /></Col>
+            <Col span={4}><div className="grid-content bg-purple" /></Col>
+            <Col span={4}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row gutter={20}>
-            <Col span={4}><div className="grid-content bg-purple"></div></Col>
-            <Col span={16}><div className="grid-content bg-purple"></div></Col>
-            <Col span={4}><div className="grid-content bg-purple"></div></Col>
+            <Col span={4}><div className="grid-content bg-purple" /></Col>
+            <Col span={16}><div className="grid-content bg-purple" /></Col>
+            <Col span={4}><div className="grid-content bg-purple" /></Col>
           </Row>
         </div>
         <div className="row-part">
           <Row gutter={40}>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6} offset={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6} offset={6}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row gutter={20}>
-            <Col span={6} offset={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6} offset={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={6} offset={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6} offset={6}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row gutter={20}>
-            <Col span={12} offset={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={12} offset={6}><div className="grid-content bg-purple" /></Col>
           </Row>
         </div>
         <div className="row-part">
           <Row flex className="row-bg">
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row flex className="row-bg" justify="center">
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row flex className="row-bg" justify="end">
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row flex className="row-bg" justify="space-between">
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
           </Row>
           <Row flex className="row-bg" justify="space-around">
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple-light"></div></Col>
-            <Col span={6}><div className="grid-content bg-purple"></div></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
+            <Col span={6}><div className="grid-content bg-purple-light" /></Col>
+            <Col span={6}><div className="grid-content bg-purple" /></Col>
           </Row>
         </div>
       </div>

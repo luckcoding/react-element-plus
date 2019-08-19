@@ -1,4 +1,3 @@
-import React from 'react';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Alert from './pages/Alert';
@@ -16,6 +15,7 @@ import Loading from './pages/Loading';
 import Modal from './pages/Modal';
 import Pagination from './pages/Pagination';
 import Progress from './pages/Progress';
+import Radio from './pages/Radio';
 import Rate from './pages/Rate';
 import Select from './pages/Select';
 import SplitLine from './pages/SplitLine';
@@ -99,6 +99,11 @@ const navs = [
     path: '/progress',
     name: 'Progress',
     component: Progress,
+  },
+  {
+    path: '/radio',
+    name: 'Radio',
+    component: Radio,
   },
   {
     path: '/rate',

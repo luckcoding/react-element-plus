@@ -1,11 +1,14 @@
 import React from 'react';
-import { Container, Header, Main, Footer, Aside } from '@crude/ui';
+import {
+  Container, Header, Main, Footer, Aside,
+} from '@crude/ui';
 
 export default class extends React.PureComponent {
   render() {
     return (
       <div>
-        <style>{`
+        <style>
+          {`
           .cr-header, .cr-footer {
             background-color: #B3C0D1;
             color: #333;
@@ -39,7 +42,8 @@ export default class extends React.PureComponent {
           .cr-container:nth-child(7) .cr-aside {
             line-height: 320px;
           }
-        `}</style>
+        `}
+        </style>
         <Container>
           <Header>Header</Header>
           <Main>Main</Main>
