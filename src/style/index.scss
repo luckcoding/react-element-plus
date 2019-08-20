@@ -1,0 +1,29 @@
+@import './mixins.scss';
+@import './vars.scss';
+@import './normalize.scss';
+@import './reset.scss';
+@import './transition.scss';
+
+/**
+ * reset
+ * ========================
+ */
+
+[class*="crude-"] {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after, {
+    box-sizing: inherit;
+  }
+}
+
+._fix {
+  @include clearfix();
+}
