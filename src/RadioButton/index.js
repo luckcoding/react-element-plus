@@ -1,34 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { RadioGroupContext } from '../RadioGroup';
+import Radio from '../Radio';
 
-const propTypes = {
-  label: PropTypes.oneOfType([
-    PropTypes.string, PropTypes.number,
-  ]),
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-
-  // self
-  className: PropTypes.string,
-  children: PropTypes.node,
-};
-
-class RadioButton extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.root = null;
-    this._radioGroup = null;
-    this.state = {
-      focus: false,
-    };
-  }
-
-  get value() {
-    return this.context.value;
-  }
-
+class RadioButton extends Radio {
   get activeStyle() {
     const { fill, textColor } = this.context;
     return {
@@ -37,31 +11,6 @@ class RadioButton extends React.PureComponent {
       boxShadow: fill ? `-1px 0 0 0 ${fill}` : '',
       color: textColor,
     };
-  }
-
-  get size() {
-    return this.context.size;
-  }
-
-  get isDisabled() {
-    return this.props.disabled || this.context.disabled;
-  }
-
-  onChange(e) {
-    if (e.target.checked) {
-      const { onChange } = this.context;
-      if (onChange) {
-        onChange(this.props.label);
-      }
-    }
-  }
-
-  onFocus() {
-    this.setState({ focus: true });
-  }
-
-  onBlur() {
-    this.setState({ focus: false });
   }
 
   render() {
@@ -74,7 +23,7 @@ class RadioButton extends React.PureComponent {
     } = this.props;
 
     const checked = this.value === label;
-    const { size } = this;
+    const size = this.radioSize;
     const disabled = this.isDisabled;
     const { activeStyle } = this;
 
@@ -112,8 +61,6 @@ class RadioButton extends React.PureComponent {
   }
 }
 
-RadioButton.contextType = RadioGroupContext;
 RadioButton.displayName = 'RadioButton';
-RadioButton.propTypes = propTypes;
 
 export default RadioButton;
