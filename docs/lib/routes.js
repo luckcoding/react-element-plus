@@ -4,6 +4,7 @@ import Alert from './pages/Alert';
 import Avatar from './pages/Avatar';
 import Backtop from './pages/Backtop';
 import Button from './pages/Button';
+import Checkbox from './pages/Checkbox';
 import Container from './pages/Container';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
@@ -44,6 +45,11 @@ const navs = [
     path: '/button',
     name: 'Button',
     component: Button,
+  },
+  {
+    path: '/checkbox',
+    name: 'Checkbox',
+    component: Checkbox,
   },
   {
     path: '/container',

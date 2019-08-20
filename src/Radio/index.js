@@ -21,12 +21,6 @@ const propTypes = {
   children: PropTypes.node,
 };
 
-const defaultProps = {
-  // type: 'text',
-  // onChange: () => {},
-  // value: '',
-};
-
 class Radio extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -35,11 +29,9 @@ class Radio extends React.PureComponent {
     this.state = {
       focus: false,
     };
-
-    this.isGroup = this.isGroup.bind(this);
   }
 
-  isGroup() {
+  get isGroup() {
     if (typeof this.context === 'object') {
       this._radioGroup = this.context;
       return true;
@@ -48,24 +40,24 @@ class Radio extends React.PureComponent {
   }
 
   get value() {
-    return this.isGroup() ? this._radioGroup.value : this.props.value;
+    return this.isGroup ? this._radioGroup.value : this.props.value;
   }
 
   get radioSize() {
-    return this.isGroup()
+    return this._radioGroup
       ? (this._radioGroup.size || this.props.size)
       : this.props.size;
   }
 
   get isDisabled() {
-    return this.isGroup()
+    return this._radioGroup
       ? (this._radioGroup.disabled || this.props.disabled)
       : this.props.disabled;
   }
 
   onChange(e) {
     if (e.target.checked) {
-      const onChange = this.isGroup()
+      const onChange = this._radioGroup
         ? this._radioGroup.onChange
         : this.props.onChange;
 
@@ -94,11 +86,14 @@ class Radio extends React.PureComponent {
     } = this.props;
 
     const checked = this.value === label;
+    const size = this.radioSize;
+    const disabled = this.isDisabled;
+
     const classes = classnames(
       'cr-radio',
-      border && this.radioSize && `cr-radio--${this.radioSize}`,
+      border && size && `cr-radio--${size}`,
       {
-        'is-disabled': this.isDisabled,
+        'is-disabled': disabled,
         'is-focus': focus,
         'is-bordered': border,
         'is-checked': checked,
@@ -111,7 +106,7 @@ class Radio extends React.PureComponent {
         <span
           className={classnames({
             'cr-radio__input': true,
-            'is-disabled': this.isDisabled,
+            'is-disabled': disabled,
             'is-checked': checked,
           })}
         >
@@ -124,7 +119,7 @@ class Radio extends React.PureComponent {
             onFocus={this.onFocus.bind(this)}
             onBlur={this.onBlur.bind(this)}
             onChange={this.onChange.bind(this)}
-            disabled={this.isDisabled}
+            disabled={disabled}
           />
         </span>
         <span className="cr-radio__label">
@@ -138,6 +133,5 @@ class Radio extends React.PureComponent {
 Radio.contextType = RadioGroupContext;
 Radio.displayName = 'Radio';
 Radio.propTypes = propTypes;
-Radio.defaultProps = defaultProps;
 
 export default Radio;

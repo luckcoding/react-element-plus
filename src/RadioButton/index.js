@@ -74,14 +74,17 @@ class RadioButton extends React.PureComponent {
     } = this.props;
 
     const checked = this.value === label;
+    const { size } = this;
+    const disabled = this.isDisabled;
+    const { activeStyle } = this;
 
     const classes = classnames(
       'cr-radio-button',
-      this.size && `cr-radio-button--${this.size}`,
+      size && `cr-radio-button--${size}`,
       {
         'is-active': checked,
         'is-focus': focus,
-        'is-disabled': this.isDisabled,
+        'is-disabled': disabled,
       },
       className,
     );
@@ -96,11 +99,11 @@ class RadioButton extends React.PureComponent {
           onFocus={this.onFocus.bind(this)}
           onBlur={this.onBlur.bind(this)}
           onChange={this.onChange.bind(this)}
-          disabled={this.isDisabled}
+          disabled={disabled}
         />
         <span
           className="cr-radio-button__inner"
-          style={checked ? this.activeStyle : {}}
+          style={checked ? activeStyle : {}}
         >
           {children || label}
         </span>

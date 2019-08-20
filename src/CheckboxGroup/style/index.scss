@@ -1,0 +1,6 @@
+@import '../../style/vars.scss';
+@import '../../style/mixins.scss';
+
+@include b(checkbox-group) {
+  font-size: 0;
+}
