@@ -8,7 +8,6 @@ import Checkbox from './pages/Checkbox';
 import Container from './pages/Container';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
-import ToolTip from './pages/ToolTip';
 import HolyzGrail from './pages/HolyzGrail';
 import Layout from './pages/Layout';
 import CountDown from './pages/CountDown';
@@ -24,6 +23,7 @@ import Table from './pages/Table';
 import Textarea from './pages/Textarea';
 import Toast from './pages/Toast';
 import Toggle from './pages/Toggle';
+import Tooltip from './pages/Tooltip';
 
 const navs = [
   {
@@ -65,11 +65,6 @@ const navs = [
     path: '/input',
     name: 'Input',
     component: Input,
-  },
-  {
-    path: '/tooltip',
-    name: 'ToolTip',
-    component: ToolTip,
   },
   {
     path: '/layout',
@@ -145,6 +140,11 @@ const navs = [
     path: '/toggle',
     name: 'Toggle',
     component: Toggle,
+  },
+  {
+    path: '/tooltip',
+    name: 'Tooltip',
+    component: Tooltip,
   },
 ];
 

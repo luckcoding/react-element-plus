@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, CheckboxGroup, CheckboxButton } from '@crude/ui';
+import { Checkbox } from '@crude/ui';
 
 const cityOptions = ['上海', '北京', '广州', '深圳'];
 
@@ -40,8 +40,6 @@ export default class extends React.PureComponent {
     } else {
       group.splice(index, 1)
     }
-
-    console.log(group)
     this.setState({ group })
   }
 
@@ -88,13 +86,13 @@ export default class extends React.PureComponent {
           <Checkbox checked={false} disabled>备选项</Checkbox>
         </div>
         <div className="row-part">
-          <CheckboxGroup
+          <Checkbox.Group
             value={group}
             onChange={this.onGroup}
           >
             <Checkbox label="备选项1"></Checkbox>
             <Checkbox label="备选项2"></Checkbox>
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
         <div className="row-part">
           <Checkbox
@@ -104,17 +102,17 @@ export default class extends React.PureComponent {
           >
             全选
           </Checkbox>
-          <CheckboxGroup
+          <Checkbox.Group
             value={checkedCities}
             onChange={this.handleCheckedCitiesChange.bind(this)}
           >
             {cityOptions.map(city => {
               return <Checkbox label={city} key={city}>{city}</Checkbox>
             })}
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
         <div className="row-part">
-          <CheckboxGroup
+          <Checkbox.Group
             min={1}
             max={2}
             value={minmaxCheckedCities}
@@ -123,52 +121,52 @@ export default class extends React.PureComponent {
             {cityOptions.map(city => {
               return <Checkbox label={city} key={city}>{city}</Checkbox>
             })}
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
 
         <div className="row-part">
-          <CheckboxGroup
+          <Checkbox.Group
             value={checkedCities}
             onChange={this.handleCheckedCitiesChange.bind(this)}
           >
             {cityOptions.map(city => {
-              return <CheckboxButton label={city} key={city}>{city}</CheckboxButton>
+              return <Checkbox.Button label={city} key={city}>{city}</Checkbox.Button>
             })}
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
         <div className="row-part">
-          <CheckboxGroup
+          <Checkbox.Group
             value={checkedCities}
             onChange={this.handleCheckedCitiesChange.bind(this)}
             size="medium"
           >
             {cityOptions.map(city => {
-              return <CheckboxButton label={city} key={city}>{city}</CheckboxButton>
+              return <Checkbox.Button label={city} key={city}>{city}</Checkbox.Button>
             })}
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
         <div className="row-part">
-          <CheckboxGroup
+          <Checkbox.Group
             value={checkedCities}
             onChange={this.handleCheckedCitiesChange.bind(this)}
             size="small"
           >
             {cityOptions.map(city => {
-              return <CheckboxButton label={city} key={city} disabled={city === '北京'}>{city}</CheckboxButton>
+              return <Checkbox.Button label={city} key={city} disabled={city === '北京'}>{city}</Checkbox.Button>
             })}
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
         <div className="row-part">
-          <CheckboxGroup
+          <Checkbox.Group
             value={checkedCities}
             onChange={this.handleCheckedCitiesChange.bind(this)}
             size="mini"
             disabled
           >
             {cityOptions.map(city => {
-              return <CheckboxButton label={city} key={city}>{city}</CheckboxButton>
+              return <Checkbox.Button label={city} key={city}>{city}</Checkbox.Button>
             })}
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
         <div className="row-part">
           <Checkbox
@@ -201,16 +199,16 @@ export default class extends React.PureComponent {
           />
         </div>
         <div className="row-part">
-          <CheckboxGroup value={group} onChange={this.onGroup} size="small">
+          <Checkbox.Group value={group} onChange={this.onGroup} size="small">
             <Checkbox label="备选项1" border></Checkbox>
             <Checkbox label="备选项2" border disabled></Checkbox>
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
         <div className="row-part">
-          <CheckboxGroup value={group} onChange={this.onGroup} size="mini" disabled>
+          <Checkbox.Group value={group} onChange={this.onGroup} size="mini" disabled>
             <Checkbox label="备选项1" border></Checkbox>
             <Checkbox label="备选项2" border></Checkbox>
-          </CheckboxGroup>
+          </Checkbox.Group>
         </div>
       </div>
     );

@@ -1,0 +1,22 @@
+@import '../../style/vars.scss';
+
+$toggle-background: #fff;
+
+.crude-toggle {
+  position: relative;
+  display: inline-block;
+
+  ._append {
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    z-index: $z-index-toggle;
+    background: $toggle-background;
+  }
+
+  &:hover ._append {
+    display: block;
+  }
+}

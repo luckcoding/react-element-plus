@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { isNull } from '@crude/extras';
-import Button from '../Button';
+import Button from '../button';
 
 const defaultProps = {
   maskClosable: true,
