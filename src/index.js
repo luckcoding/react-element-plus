@@ -7,7 +7,7 @@ export { default as Checkbox } from './checkbox';
 export { default as Col } from './col';
 export { default as Container } from './container';
 export { default as CountDown } from './count-down';
-export { default as Footer } from './footer/';
+export { default as Footer } from './footer';
 export { default as Header } from './header';
 export { default as HolyzGrail } from './holyz-grail';
 export { default as Icon } from './icon';

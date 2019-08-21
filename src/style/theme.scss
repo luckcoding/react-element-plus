@@ -523,3 +523,20 @@ $--radio-button-checked-font-color: $--color-white !default;
 /// color||Color|0
 $--radio-button-checked-border-color: $--color-primary !default;
 $--radio-button-disabled-checked-fill: $--border-color-extra-light !default;
+
+
+
+
+/* Tooltip
+-------------------------- */
+/// color|1|Color|0
+$--tooltip-fill: $--color-text-primary !default;
+/// color|1|Color|0
+$--tooltip-color: $--color-white !default;
+/// fontSize||Font|1
+$--tooltip-font-size: 12px !default;
+/// color||Color|0
+$--tooltip-border-color: $--color-text-primary !default;
+$--tooltip-arrow-size: 6px !default;
+/// padding||Spacing|3
+$--tooltip-padding: 10px !default;

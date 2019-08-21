@@ -1,5 +1,5 @@
-import Circle from './Circle';
-import Line from './Line';
+import Circle from './circle';
+import Line from './line';
 
 export default {
   Circle,
