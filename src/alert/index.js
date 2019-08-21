@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Fade from '../fade';
+import Transition from '../transition';
 
 const propTypes = {
   visible: PropTypes.bool,
@@ -66,7 +66,8 @@ const Alert = React.forwardRef(({
   );
 
   return (
-    <Fade
+    <Transition
+      name="fade"
       unmountOnExit
       ref={ref}
       {...props}
@@ -84,7 +85,7 @@ const Alert = React.forwardRef(({
           {closable && <i className={closeClasses()} onClick={onClose}>{closeText}</i>}
         </div>
       </div>
-    </Fade>
+    </Transition>
   );
 });
 

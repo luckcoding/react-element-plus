@@ -13,6 +13,7 @@ require('./icon/style');
 require('./input/style');
 require('./loading/style');
 require('./main/style');
+require('./message/style');
 require('./modal/style');
 require('./pagination/style');
 require('./progress/style');

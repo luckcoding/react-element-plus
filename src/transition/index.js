@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Transition, {
+import TransitionNative, {
   ENTERED,
   ENTERING,
 } from 'react-transition-group/Transition';
@@ -62,6 +62,11 @@ const propTypes = {
    */
   onExited: PropTypes.func,
 
+  /**
+   * transition name
+   */
+  name: PropTypes.string,
+
   className: PropTypes.string,
   children: PropTypes.node,
 };
@@ -72,14 +77,15 @@ const defaultProps = {
   mountOnEnter: false,
   unmountOnExit: false,
   appear: false,
+  name: 'fade',
 };
 
-const fadeStyles = {
-  [ENTERING]: 'cr-show',
-  [ENTERED]: 'cr-show',
+const styles = {
+  [ENTERING]: 'cr-transition-show',
+  [ENTERED]: 'cr-transition-show',
 };
 
-class Fade extends React.Component {
+class Transition extends React.Component {
   constructor(props) {
     super(props);
     this.handleEnter = this.handleEnter.bind(this);
@@ -92,27 +98,31 @@ class Fade extends React.Component {
 
   render() {
     const {
-      className, children, ...props
+      name, className, children, ...props
     } = this.props;
 
     return (
-      <Transition addEndListener={onEnd} {...props} onEnter={this.handleEnter}>
+      <TransitionNative
+        addEndListener={onEnd}
+        {...props}
+        onEnter={this.handleEnter}
+      >
         {(status, innerProps) => React.cloneElement(children, {
           ...innerProps,
           className: classnames(
-            'cr-fade',
+            `cr-transition-${name}`,
             className,
             children.props.className,
-            fadeStyles[status],
+            styles[status],
           ),
         })
         }
-      </Transition>
+      </TransitionNative>
     );
   }
 }
 
-Fade.propTypes = propTypes;
-Fade.defaultProps = defaultProps;
+Transition.propTypes = propTypes;
+Transition.defaultProps = defaultProps;
 
-export default Fade;
+export default Transition;

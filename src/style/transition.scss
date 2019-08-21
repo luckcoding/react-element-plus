@@ -1,13 +1,18 @@
-.cr-fade {
+.cr-transition-fade {
   transition: opacity 0.2s linear;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cr-fade {
+  .cr-transition-fade {
     transition: none;
   }
 }
 
-.cr-fade:not(.cr-show) {
+.cr-transition-fade:not(.cr-transition-show) {
+  opacity: 0;
+}
+
+.cr-transition-down:not(.cr-transition-show) {
+  transform: translate(-50%, -100%);
   opacity: 0;
 }

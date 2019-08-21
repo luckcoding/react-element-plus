@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { throttle } from '@crude/extras';
 import { addEvent, delEvent } from '@crude/events';
-import Fade from '../fade';
+import Transition from '../transition';
 
 const propTypes = {
   visibilityHeight: PropTypes.number,
@@ -116,7 +116,8 @@ class Alert extends React.PureComponent {
     };
 
     return (
-      <Fade
+      <Transition
+        name="fade"
         unmountOnExit
         in={this.state.visible}
       >
@@ -127,7 +128,7 @@ class Alert extends React.PureComponent {
         >
           {children}
         </div>
-      </Fade>
+      </Transition>
     );
   }
 }

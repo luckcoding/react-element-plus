@@ -12,6 +12,7 @@ import HolyzGrail from './pages/HolyzGrail';
 import Layout from './pages/Layout';
 import CountDown from './pages/CountDown';
 import Loading from './pages/Loading';
+import Message from './pages/Message';
 import Modal from './pages/Modal';
 import Pagination from './pages/Pagination';
 import Progress from './pages/Progress';
@@ -85,6 +86,11 @@ const navs = [
     path: '/loading',
     name: 'Loading',
     component: Loading,
+  },
+  {
+    path: '/message',
+    name: 'Message',
+    component: Message,
   },
   {
     path: '/modal',

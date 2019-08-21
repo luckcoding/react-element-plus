@@ -4,7 +4,7 @@ import { Manager, Reference, Popper } from 'react-popper';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import SetTimeoutMixin from '../set-timeout-mixin';
-import Fade from '../fade';
+import Transition from '../transition';
 
 const propTypes = {
   openDelay: PropTypes.number,
@@ -117,7 +117,8 @@ class Tooltip extends SetTimeoutMixin {
             {({
               ref, style, placement: dataPlacement, arrowProps,
             }) => (
-              <Fade
+              <Transition
+                name="fade"
                 unmountOnExit
                 in={this.state.showPopper && !disabled}
               >
@@ -130,7 +131,7 @@ class Tooltip extends SetTimeoutMixin {
                   <div>{content}</div>
                   {visibleArrow && <div ref={arrowProps.ref} style={arrowProps.style} className="popper__arrow" />}
                 </div>
-              </Fade>
+              </Transition>
             )}
           </Popper>,
           document.getElementsByTagName('body')[0],
