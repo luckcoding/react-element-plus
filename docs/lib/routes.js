@@ -14,6 +14,7 @@ import CountDown from './pages/CountDown';
 import Loading from './pages/Loading';
 import Message from './pages/Message';
 import Modal from './pages/Modal';
+import Notification from './pages/Notification';
 import Pagination from './pages/Pagination';
 import Progress from './pages/Progress';
 import Radio from './pages/Radio';
@@ -96,6 +97,11 @@ const navs = [
     path: '/modal',
     name: 'Modal',
     component: Modal,
+  },
+  {
+    path: '/notification',
+    name: 'Notification',
+    component: Notification,
   },
   {
     path: '/pagination',

@@ -1,18 +1,37 @@
 .cr-transition-fade {
   transition: opacity 0.2s linear;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .cr-transition-fade {
-    transition: none;
-  }
-}
-
 .cr-transition-fade:not(.cr-transition-show) {
   opacity: 0;
 }
 
+
+.cr-transition-down {
+  transition: opacity 0.3s linear;
+}
 .cr-transition-down:not(.cr-transition-show) {
   transform: translate(-50%, -100%);
   opacity: 0;
 }
+
+.cr-transition-hor-pan {
+  transition: opacity 0.3s linear;
+}
+.cr-transition-hor-pan:not(.cr-transition-show) {
+  &.right {
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &.left {
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="cr-transition-"] {
+    transition: none;
+  }
+}
+

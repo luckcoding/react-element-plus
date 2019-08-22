@@ -15,6 +15,7 @@ require('./loading/style');
 require('./main/style');
 require('./message/style');
 require('./modal/style');
+require('./notification/style');
 require('./pagination/style');
 require('./progress/style');
 require('./radio/style');
