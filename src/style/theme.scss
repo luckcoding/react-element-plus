@@ -445,6 +445,25 @@ $--checkbox-button-checked-border-color: $--color-primary !default;
 
 
 
+
+/* Dialog
+-------------------------- */
+$--dialog-background-color: $--color-white !default;
+$--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !default;
+/// fontSize||Font|1
+$--dialog-title-font-size: $--font-size-large !default;
+/// fontSize||Font|1
+$--dialog-content-font-size: 14px !default;
+/// fontLineHeight||LineHeight|2
+$--dialog-font-line-height: $--font-line-height-primary !default;
+/// padding||Spacing|3
+$--dialog-padding-primary: 20px !default;
+
+
+
+
+
+
 /* Header
 --------------------------*/
 $--header-padding: 0 20px !default;
@@ -487,6 +506,35 @@ $--message-danger-font-color: $--color-danger !default;
 
 
 
+/* MessageBox
+-------------------------- */
+/// color||Color|0
+$--messagebox-title-color: $--color-text-primary !default;
+$--messagebox-width: 420px !default;
+$--messagebox-border-radius: 4px !default;
+/// fontSize||Font|1
+$--messagebox-font-size: $--font-size-large !default;
+/// fontSize||Font|1
+$--messagebox-content-font-size: $--font-size-base !default;
+/// color||Color|0
+$--messagebox-content-color: $--color-text-regular !default;
+/// fontSize||Font|1
+$--messagebox-error-font-size: 12px !default;
+$--messagebox-padding-primary: 15px !default;
+/// color||Color|0
+$--messagebox-success-color: $--color-success !default;
+/// color||Color|0
+$--messagebox-info-color: $--color-info !default;
+/// color||Color|0
+$--messagebox-warning-color: $--color-warning !default;
+/// color||Color|0
+$--messagebox-danger-color: $--color-danger !default;
+
+
+
+
+
+
 
 
 /* Notification
@@ -524,6 +572,18 @@ $--notification-info-icon-color: $--color-info !default;
 $--notification-warning-icon-color: $--color-warning !default;
 /// color||Color|0
 $--notification-danger-icon-color: $--color-danger !default;
+
+
+
+
+
+/* Popup
+-------------------------- */
+/// color||Color|0
+$--popup-modal-background-color: $--color-black !default;
+/// opacity||Other|1
+$--popup-modal-opacity: 0.5 !default;
+
 
 
 

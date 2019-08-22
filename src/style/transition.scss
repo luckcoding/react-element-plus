@@ -14,6 +14,15 @@
   opacity: 0;
 }
 
+.cr-transition-fade-down {
+  transition: opacity 0.3s, transform .3s;
+}
+.cr-transition-fade-down:not(.cr-transition-show) {
+  transform: translate3d(0, -10%, 0);
+  opacity: 0;
+}
+
+
 .cr-transition-hor-pan {
   transition: opacity 0.3s linear;
 }

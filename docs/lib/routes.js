@@ -6,6 +6,7 @@ import Backtop from './pages/Backtop';
 import Button from './pages/Button';
 import Checkbox from './pages/Checkbox';
 import Container from './pages/Container';
+import Dialog from './pages/Dialog';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
 import HolyzGrail from './pages/HolyzGrail';
@@ -13,6 +14,7 @@ import Layout from './pages/Layout';
 import CountDown from './pages/CountDown';
 import Loading from './pages/Loading';
 import Message from './pages/Message';
+import MessageBox from './pages/MessageBox';
 import Modal from './pages/Modal';
 import Notification from './pages/Notification';
 import Pagination from './pages/Pagination';
@@ -59,6 +61,11 @@ const navs = [
     component: Container,
   },
   {
+    path: '/dialog',
+    name: 'Dialog',
+    component: Dialog,
+  },
+  {
     path: '/icon',
     name: 'Icon',
     component: Icon,
@@ -74,12 +81,12 @@ const navs = [
     component: Layout,
   },
   {
-    path: '/holyzgrail',
+    path: '/Holyz-grail',
     name: 'HolyzGrail',
     component: HolyzGrail,
   },
   {
-    path: '/countDown',
+    path: '/count-down',
     name: 'CountDown',
     component: CountDown,
   },
@@ -92,6 +99,11 @@ const navs = [
     path: '/message',
     name: 'Message',
     component: Message,
+  },
+  {
+    path: '/message-box',
+    name: 'MessageBox',
+    component: MessageBox,
   },
   {
     path: '/modal',
@@ -129,7 +141,7 @@ const navs = [
     component: Select,
   },
   {
-    path: '/splitline',
+    path: '/split-line',
     name: 'SplitLine',
     component: SplitLine,
   },
