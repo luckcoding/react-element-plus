@@ -31,6 +31,7 @@ module.exports = {
     'tree': 'Tree 树形控件',
     'pagination': 'Pagination 分页',
     'badge': 'Badge 标记',
+    'avatar': 'Avatar 头像',
     'alert': 'Alert 警告',
     'loading': 'Loading 加载',
     'message': 'Message 消息提示',

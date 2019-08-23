@@ -32,6 +32,7 @@ body {
     position: relative;
 
     h1 {
+      color: #fff;
       position: relative;
       margin: 0;
       float: left;
@@ -41,8 +42,8 @@ body {
       &:after {
         position: absolute;
         top: -7px;
-        right: -50px;
-        content: 'React';
+        right: -85px;
+        content: 'element ui';
         font-size: 13px;
         font-weight: bold;
         text-transform: uppercase;
@@ -415,4 +416,12 @@ body {
 
 .demo-part:not(:last-child) {
   margin-bottom: 20px;
+}
+
+blockquote {
+  padding: 8px 16px;
+  background-color: #ecf8ff;
+  border-radius: 4px;
+  border-left: 5px solid #50bfff;
+  margin: 20px 0;
 }

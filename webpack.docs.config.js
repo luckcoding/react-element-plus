@@ -29,7 +29,6 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve('./build'),
     libraryTarget: 'umd',
-    // globalObject: '(typeof self !== \'undefined\' ? self : this)'
   },
   plugins: [
     new HtmlWebPackPlugin({

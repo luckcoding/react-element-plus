@@ -12,11 +12,17 @@ export default class Canvas extends React.Component {
 
     this.playerId = `${parseInt(Math.random() * 1e9).toString(36)}`
     this.document = this.props.children.match(/([^]*)\n?(```[^]+```)/)
-    this.description = marked(this.document[1])
+    let description = this.document[1]
+    let blockDisabled = true
+    if (/^demo/.test(description)) {
+      description = description.substr(4)
+      blockDisabled = false
+    }
+    this.description = marked(description)
     this.source = this.document[2].match(/```(.*)\n?([^]+)```/)
-
     this.state = {
-      showBlock: false
+      showBlock: false,
+      blockDisabled,
     }
   }
 
@@ -68,7 +74,7 @@ export default class Canvas extends React.Component {
   }
 
   render() {
-    return (
+    return this.state.blockDisabled ? <div className="source" id={this.playerId} /> : (
       <div className={`demo-block demo-box demo-${this.props.name}`}>
         <div className="source" id={this.playerId} />
         {

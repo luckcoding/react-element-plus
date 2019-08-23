@@ -88,18 +88,9 @@ export default class App extends React.Component {
         <header className="header">
           <div className="container">
             <h1>
-              <img src={require('./assets/logo.svg')} />
+              Crude UI
             </h1>
             <ul className="nav">
-              <li className="nav-item">
-                <a href={`http://element.eleme.io/#/${this.state.locale}/guide/design`} target="_blank" rel="noopener noreferrer">{this.getLocale('misc.guide')}</a>
-              </li>
-              <li className="nav-item">
-                <a className="active">{this.getLocale('misc.component')}</a>
-              </li>
-              <li className="nav-item">
-                <a href={`http://element.eleme.io/#/${this.state.locale}/resource`} target="_blank" rel="noopener noreferrer">{this.getLocale('misc.resource')}</a>
-              </li>
               <li className="nav-item">
                 <span className={classnames('nav-lang', { active: this.state.locale === 'zh-CN'})} onClick={this.setLocale.bind(this, 'zh-CN')}>中文</span>
                 <span> / </span>

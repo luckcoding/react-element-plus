@@ -8,14 +8,14 @@ export default {
     'Basic': {
       'layout': require('./layout'),
       'container': require('./container'),
-      // 'color': require('./color'),
-      // 'typography': require('./typography'),
+      'color': require('./color'),
+      'typography': require('./typography'),
       // 'icon': require('./icon'),
       'button': require('./button')
     },
-    // 'Form': {
-    //   'radio': require('./radio'),
-    //   'checkbox': require('./checkbox'),
+    'Form': {
+      'radio': require('./radio'),
+      'checkbox': require('./checkbox'),
     //   'input': require('./input'),
     //   'input-number': require('./input-number'),
     //   'select': require('./select'),
@@ -30,22 +30,23 @@ export default {
     //   'color-picker': require('./color-picker'),
     //   'transfer': require('./transfer'),
     //   'form': require('./form')
-    // },
-    // 'Data': {
+    },
+    'Data': {
     //   'table': require('./table'),
     //   'tag': require('./tag'),
     //   'progress': require('./progress'),
     //   'tree': require('./tree'),
     //   'pagination': require('./pagination'),
-    //   'badge': require('./badge')
-    // },
-    // 'Notice': {
-    //   'alert': require('./alert'),
-    //   'loading': require('./loading'),
-    //   'message': require('./message'),
-    //   'message-box': require('./message-box'),
-    //   'notification': require('./notification')
-    // },
+    //   'badge': require('./badge'),
+      'avatar': require('./avatar')
+    },
+    'Notice': {
+      'alert': require('./alert'),
+      // 'loading': require('./loading'),
+      'message': require('./message'),
+      // 'message-box': require('./message-box'),
+      'notification': require('./notification')
+    },
     // 'Nav': {
     //   'menu': require('./menu'),
     //   'tabs': require('./tabs'),
@@ -53,13 +54,13 @@ export default {
     //   'dropdown': require('./dropdown'),
     //   'steps': require('./steps')
     // },
-    // 'Others': {
-    //   'dialog': require('./dialog'),
-    //   'tooltip': require('./tooltip'),
+    'Others': {
+      // 'dialog': require('./dialog'),
+      'tooltip': require('./tooltip'),
     //   'popover': require('./popover'),
     //   'card': require('./card'),
     //   'carousel': require('./carousel'),
     //   'collapse': require('./collapse')
-    // }
+    }
   }
 }

@@ -6,8 +6,8 @@ import SafeAnchor from '../safe-anchor';
 import Loading from '../loading';
 
 export const types = [
-  'default', 'primary', 'success', 'info', 'warning', 'danger', 'text'
-]
+  'default', 'primary', 'success', 'info', 'warning', 'danger', 'text',
+];
 
 const propTypes = {
   tag: PropTypes.elementType,
@@ -110,7 +110,7 @@ const Button = React.forwardRef(({
       <SafeAnchor
         {...props}
         tag={Tag}
-        innerRef={ref}
+        ref={ref}
         className={classes}
       >
         {child}
@@ -119,7 +119,7 @@ const Button = React.forwardRef(({
   }
 
   // ref
-  if (ref) props.innerRef = ref;
+  if (ref) props.ref = ref;
 
   return (
     <Tag className={classes} {...props} type={nativeType}>

@@ -188,6 +188,7 @@ import 'element-ui/lib/theme-chalk/display.css';
 ```
 
 包含的类名及其含义为：
+
 - `hidden-xs-only` - 当视口在 `xs` 尺寸时隐藏
 - `hidden-sm-only` - 当视口在 `sm` 尺寸时隐藏
 - `hidden-sm-and-down` - 当视口在 `sm` 及以下尺寸时隐藏

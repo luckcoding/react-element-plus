@@ -1,0 +1,40 @@
+.demo-tooltip {
+  .cr-button {
+    margin: 5px;
+  }
+
+  .box {
+    width: 400px;
+
+    .top {
+      text-align: center;
+    }
+
+    .left {
+      float: left;
+      width: 60px;
+    }
+
+    .right {
+      float: right;
+      width: 60px;
+    }
+
+    .bottom {
+      clear: both;
+      text-align: center;
+    }
+
+    .item {
+      margin: 4px;
+    }
+
+    .left .cr-tooltip__popper,
+    .right .cr-tooltip__popper {
+      padding: 8px 10px;
+    }
+    .cr-tooltip {
+      margin-left: 0;
+    }
+  }
+}

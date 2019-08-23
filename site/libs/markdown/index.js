@@ -42,12 +42,14 @@ export default class Markdown extends React.Component {
     if (typeof document === 'string') {
       this.components.clear();
 
-      const html = marked(document.replace(/:::\s?demo\s?([^]+?):::/g, (match, p1, offset) => {
+      const html = marked(document.replace(/:::\s?([^]+?):::/g, (match, p1, offset) => {
         const id = offset.toString(36);
 
-        this.components.set(id, React.createElement(Canvas, Object.assign({
+        const component = React.createElement(Canvas, Object.assign({
           name: this.constructor.name.toLowerCase()
-        }, this.props), p1));
+        }, this.props), p1);
+
+        this.components.set(id, component);
 
         return `<div id=${id}></div>`;
       }), { renderer: this.renderer });

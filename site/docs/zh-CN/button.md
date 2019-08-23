@@ -114,7 +114,7 @@ render() {
       <Button type="primary" icon="el-icon-share"></Button>
       <Button type="primary" icon="el-icon-delete"></Button>
       <Button type="primary" icon="el-icon-search">搜索</Button>
-      <Button type="primary">上传<i class="el-icon-upload el-icon--right"></i></Button>
+      <Button type="primary">上传<i className="el-icon-upload el-icon--right"></i></Button>
     </div>
   )
 }
