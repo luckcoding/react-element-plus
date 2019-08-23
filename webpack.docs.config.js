@@ -21,7 +21,7 @@ module.exports = {
       chunks: false
     }
   },
-  entry: './docs/lib/app.js',
+  entry: './site/index.js',
   node: {
     fs: 'empty'
   },
@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       inject: true,
-      template: './docs/lib/index.html',
+      template: './site/index.html',
     }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([{ from: './docs/static', to: 'assets' }]),
@@ -79,6 +79,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif)(\?.+)?$/,
+        loader : 'url-loader'
+      },
+      {
+        test: /\.md$/,
+        loader : 'raw-loader'
+      }
     ]
   },
   resolve: {

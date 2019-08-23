@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import {
   BrowserRouter, Switch, Route, NavLink, Link,
 } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 import routes, { navs } from './routes';
 import '../../src/root';
 import './app.scss';
@@ -37,7 +38,9 @@ function App() {
   );
 }
 
+const HotAppRoot = hot(module)(App)
+
 ReactDOM.render(
-  <App />,
+  <HotAppRoot />,
   document.getElementById('app'),
 );

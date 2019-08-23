@@ -5,11 +5,15 @@ import { debounce } from '@crude/extras';
 import SafeAnchor from '../safe-anchor';
 import Loading from '../loading';
 
+export const types = [
+  'default', 'primary', 'success', 'info', 'warning', 'danger', 'text'
+]
+
 const propTypes = {
   tag: PropTypes.elementType,
   href: PropTypes.string,
 
-  type: PropTypes.oneOf(['default', 'primary', 'success', 'info', 'warning', 'danger']),
+  type: PropTypes.oneOf(types),
   plain: PropTypes.bool,
 
   // size
@@ -115,7 +119,7 @@ const Button = React.forwardRef(({
   }
 
   // ref
-  if (ref) props.ref = ref;
+  if (ref) props.innerRef = ref;
 
   return (
     <Tag className={classes} {...props} type={nativeType}>
