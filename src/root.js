@@ -25,6 +25,7 @@ require('./rate/style');
 require('./row/style');
 require('./select/style');
 require('./split-line/style');
+require('./switch/style');
 require('./table/style');
 require('./textarea/style');
 require('./toast/style');

@@ -20,7 +20,7 @@ export default {
     //   'input-number': require('./input-number'),
     //   'select': require('./select'),
     //   'cascader': require('./cascader'),
-    //   'switch': require('./switch'),
+      'switch': require('./switch'),
     //   'slider': require('./slider'),
     //   'time-picker': require('./time-picker'),
     //   'date-picker': require('./date-picker'),
