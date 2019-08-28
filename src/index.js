@@ -29,6 +29,7 @@ export { default as SetTimeoutMixin } from './set-timeout-mixin';
 export { default as SplitLine } from './split-line';
 export { default as Switch } from './switch';
 export { default as Table } from './table';
+export { default as Tag } from './tag';
 export { default as Textarea } from './textarea';
 export { default as Toast, ToastContainer } from './toast';
 export { default as Toggle } from './toggle';

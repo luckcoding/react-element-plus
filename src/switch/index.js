@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { addEvent, delEvent } from '@crude/events';
 
 const propTypes = {
   width: PropTypes.number,
@@ -27,9 +26,10 @@ const propTypes = {
   onColor: PropTypes.string,
   offColor: PropTypes.string,
   name: PropTypes.string,
+  onChange: PropTypes.func,
+  disabled: PropTypes.bool,
 
   className: PropTypes.string,
-  children: PropTypes.node,
 };
 
 const defaultProps = {
@@ -45,12 +45,17 @@ const defaultProps = {
 };
 
 class Switch extends React.PureComponent {
-  handleChange(e) {
-    const { onChange } = this.props
+  constructor(props) {
+    super(props);
+    this.input = null;
+  }
+
+  handleChange() {
+    const { onChange } = this.props;
     if (typeof onChange === 'function') {
-      const { onValue, offValue  } = this.props
-      const checked = this.refs.input.checked
-      onChange(checked ? offValue : onValue)
+      const { onValue, offValue } = this.props;
+      const { checked } = this.input;
+      onChange(checked ? offValue : onValue);
     }
   }
 
@@ -71,14 +76,13 @@ class Switch extends React.PureComponent {
       onColor,
       offColor,
       onValue,
-      offValue,
       width,
+      name,
 
       className,
-      children,
     } = this.props;
 
-    const checked = value === onValue
+    const checked = value === onValue;
 
     const classes = classnames(
       'cr-switch',
@@ -87,23 +91,19 @@ class Switch extends React.PureComponent {
       className,
     );
 
-    let coreStyle = { width: `${width}px` };
-    if (onColor && checked) {
+    const coreStyle = { width: `${width}px` };
+    if (onColor || offColor) {
+      const currentColor = checked ? onColor : offColor;
       Object.assign(coreStyle, {
-        backgroundColor: onColor,
-        borderColor: onColor,
-      })
-    } else if (offColor && !checked) {
-      Object.assign(coreStyle, {
-        backgroundColor: offColor,
-        borderColor: offColor,
-      })
+        backgroundColor: currentColor,
+        borderColor: currentColor,
+      });
     }
 
     return (
       <div className={classes} onClick={this.switchValue.bind(this)}>
         <input
-          ref="input"
+          ref={(ref) => { this.input = ref; }}
           className="cr-switch__input"
           type="checkbox"
           checked={checked}
@@ -111,14 +111,14 @@ class Switch extends React.PureComponent {
           name={name}
           disabled={disabled}
         />
-        {onIconClass || onText && (
+        {(onIconClass || onText) && (
           <span className={classnames('cr-switch__label', 'cr-switch__label--left', !checked && 'is-active')}>
             {onIconClass && <i className={onIconClass} />}
             {!onIconClass && onText && <span>{onText}</span>}
           </span>
         )}
         <span className="cr-switch__core" style={coreStyle} />
-        {offIconClass || offText && (
+        {(offIconClass || offText) && (
           <span className={classnames('cr-switch__label', 'cr-switch__label--right', checked && 'is-active')}>
             {offIconClass && <i className={offIconClass} />}
             {!offIconClass && offText && <span>{offText}</span>}

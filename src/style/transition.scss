@@ -38,6 +38,15 @@
   }
 }
 
+
+.cr-transition-zoom-in {
+  transition: all .3s cubic-bezier(.55,0,.1,1);
+}
+.cr-transition-zoom-in:not(.cr-transition-show) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   [class*="cr-transition-"] {
     transition: none;

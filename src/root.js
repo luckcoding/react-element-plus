@@ -27,6 +27,7 @@ require('./select/style');
 require('./split-line/style');
 require('./switch/style');
 require('./table/style');
+require('./tag/style');
 require('./textarea/style');
 require('./toast/style');
 require('./toggle/style');
