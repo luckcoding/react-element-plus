@@ -15,6 +15,7 @@ export { default as HolyzGrail } from './holyz-grail';
 export { default as Icon } from './icon';
 export { default as Input } from './input';
 export { default as Loading } from './loading';
+export { default as Link } from './link';
 export { default as Main } from './main';
 export { default as Message } from './message';
 export { default as MessageBox } from './message-box';

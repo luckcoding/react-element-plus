@@ -50,6 +50,7 @@ module.exports = {
     'collapse': 'Collapse 折叠面板',
     'backtop': 'Backtop 回到顶部',
     'border': 'Border 边框',
+    'link': 'Link 文字链接'
   },
   misc: {
     'guide': '指南',

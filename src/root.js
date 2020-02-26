@@ -14,6 +14,7 @@ require('./header/style');
 require('./icon/style');
 require('./input/style');
 require('./loading/style');
+require('./link/style');
 require('./main/style');
 require('./message/style');
 require('./message-box/style');
