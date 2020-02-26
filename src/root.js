@@ -3,6 +3,7 @@ require('./alert/style');
 require('./aside/style');
 require('./avatar/style');
 require('./backtop/style');
+require('./badge/style');
 require('./button/style');
 require('./checkbox/style');
 require('./col/style');

@@ -8,17 +8,17 @@ new WebpackDevServer(webpack({
   devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
-    './index'
+    './index',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
@@ -27,36 +27,36 @@ new WebpackDevServer(webpack({
         loader: 'babel-loader',
         include: [
           path.join(__dirname, '../site'),
-          path.join(__dirname, '../src')
-        ]
+          path.join(__dirname, '../src'),
+        ],
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?.+)?$/,
-        loader : 'file-loader'
+        loader : 'file-loader',
       },
       {
         test: /\.(jpe?g|png|gif)(\?.+)?$/,
-        loader : 'url-loader'
+        loader : 'url-loader',
       },
       {
         test: /\.md$/,
-        loader : 'raw-loader'
-      }
-    ]
+        loader : 'raw-loader',
+      },
+    ],
   },
-  mode: 'development'
+  mode: 'development',
 }), {
   publicPath: '/',
   historyApiFallback: true,
-  stats: { colors: true }
+  stats: { colors: true },
 }).listen(3000, 'localhost', error => {
   if (error) {
     throw error;

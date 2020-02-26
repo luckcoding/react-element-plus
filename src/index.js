@@ -2,6 +2,7 @@ export { default as Alert } from './alert';
 export { default as Aside } from './aside';
 export { default as Avatar } from './avatar';
 export { default as Backtop } from './backtop';
+export { default as Badge } from './badge';
 export { default as Button } from './button';
 export { default as Checkbox } from './checkbox';
 export { default as Col } from './col';

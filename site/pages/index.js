@@ -37,7 +37,7 @@ export default {
     //   'progress': require('./progress'),
     //   'tree': require('./tree'),
     //   'pagination': require('./pagination'),
-    //   'badge': require('./badge'),
+      'badge': require('./badge'),
       'avatar': require('./avatar')
     },
     'Notice': {
@@ -60,7 +60,8 @@ export default {
     //   'popover': require('./popover'),
     //   'card': require('./card'),
     //   'carousel': require('./carousel'),
-    //   'collapse': require('./collapse')
+    //   'collapse': require('./collapse'),
+      'backtop': require('./backtop')
     }
   }
 }

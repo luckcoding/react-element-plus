@@ -60,6 +60,7 @@ class Alert extends React.PureComponent {
         throw new Error(`target is not existed: ${target}`);
       }
       this.container = this.el;
+      this.onScroll(); // first trigger
     }
   }
 
@@ -70,7 +71,6 @@ class Alert extends React.PureComponent {
         this.setState({ visible });
       }
     };
-
     toggle(scrollTop >= this.props.visibilityHeight);
   }
 
@@ -126,7 +126,7 @@ class Alert extends React.PureComponent {
           style={styles}
           onClick={this.handleClick}
         >
-          {children}
+          {children || '↑'}
         </div>
       </Transition>
     );

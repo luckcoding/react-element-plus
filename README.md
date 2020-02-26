@@ -17,11 +17,11 @@ npm install @crude/ui
 
 - [x] Alert
 - [x] Aside
-- [ ] autocomplete
+- [ ] Autocomplete
 - [x] Avatar
 - [x] Backtop
-- [ ] Badge
-- [ ] breadcrumb
+- [x] Badge
+- [ ] Breadcrumb
 - [x] Button
 - [x] ButtonGroup
 - [ ] Calendar
