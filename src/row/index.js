@@ -22,61 +22,39 @@ const defaultProps = {
 
 export const RowContext = createContext('Row');
 
-class Row extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.style = this.style.bind(this);
+const Row = ({
+  tag: Tag,
+  justify,
+  align,
+  flex,
+  style = {},
+  gutter,
+  className,
+  children,
+}) => {
+  if (gutter) {
+    style.marginLeft = `-${gutter / 2}px`;
+    style.marginRight = style.marginLeft;
   }
 
-  style() {
-    const ret = {};
-    const { gutter } = this.props;
+  const classes = classnames(
+    'cr-row',
+    flex && [
+      'cr-row--flex',
+      (justify !== 'start') && `is-justify-${justify}`,
+      (align !== 'top') && `is-align-${align}`,
+    ],
+    className,
+  );
 
-    if (gutter) {
-      ret.marginLeft = `-${gutter / 2}px`;
-      ret.marginRight = ret.marginLeft;
-    }
-
-    return ret;
-  }
-
-  render() {
-    const {
-      tag: Tag,
-      justify,
-      align,
-      flex,
-      style,
-      gutter,
-      className,
-      children,
-    } = this.props;
-
-    const styles = {
-      ...style,
-      ...this.style(),
-    };
-
-    const classes = classnames(
-      'cr-row',
-      flex && [
-        'cr-row--flex',
-        (justify !== 'start') && `is-justify-${justify}`,
-        (align !== 'top') && `is-align-${align}`,
-      ],
-      className,
-    );
-
-    return (
-      <RowContext.Provider value={{ gutter }}>
-        <Tag className={classes} style={styles}>
-          {children}
-        </Tag>
-      </RowContext.Provider>
-    );
-  }
-}
-
+  return (
+    <RowContext.Provider value={{ gutter }}>
+      <Tag className={classes} style={style}>
+        {children}
+      </Tag>
+    </RowContext.Provider>
+  );
+};
 
 Row.displayName = 'Row';
 Row.propTypes = propTypes;

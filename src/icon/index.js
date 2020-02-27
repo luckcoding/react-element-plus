@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -22,42 +22,35 @@ function inject(url) {
 export default (url, fontFamily = 'iconfont', prefix = 'cr-icon') => {
   const injected = inject(url);
 
-  class IconWrapper extends React.PureComponent {
-    componentDidMount() {
-      if (!injected) {
-        inject(url);
-      }
-    }
+  const Icon = ({
+    name,
+    fontSize,
+    className,
+    children,
+    style = {},
+    ...props
+  }) => {
+    const classes = classnames(
+      'cr-icon',
+      `${prefix}-${name}`,
+      className,
+    );
 
-    render() {
-      const {
-        name,
-        fontSize,
-        className,
-        children,
-        ...props
-      } = this.props;
+    style.fontFamily = fontFamily;
+    style.fontSize = fontSize;
 
-      const classes = classnames(
-        'cr-icon',
-        `${prefix}-${name}`,
-        className,
-      );
+    useEffect(() => {
+      if (!injected) inject(url);
+    }, []);
 
-      const style = Object.assign({}, {
-        fontFamily,
-        fontSize,
-      }, this.props.style);
+    return (
+      <i {...props} className={classes} style={style}>
+        {children}
+      </i>
+    );
+  };
 
-      return (
-        <i {...props} className={classes} style={style}>
-          {children}
-        </i>
-      );
-    }
-  }
-
-  IconWrapper.propTypes = {
+  Icon.propTypes = {
     name: PropTypes.string,
     fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     className: PropTypes.string,
@@ -65,5 +58,5 @@ export default (url, fontFamily = 'iconfont', prefix = 'cr-icon') => {
     style: PropTypes.object,
   };
 
-  return IconWrapper;
+  return Icon;
 };

@@ -20,7 +20,7 @@ const propTypes = {
 
 export const RadioGroupContext = createContext('RadioGroup');
 
-function RadioGroup({
+const RadioGroup = ({
   value,
   onChange,
   size,
@@ -30,7 +30,7 @@ function RadioGroup({
   className,
   style,
   children,
-}) {
+}) => {
   const provider = {
     value, onChange, size, fill, textColor, disabled,
   };
@@ -45,7 +45,7 @@ function RadioGroup({
       </div>
     </RadioGroupContext.Provider>
   );
-}
+};
 
 RadioGroup.displayName = 'RadioGroup';
 RadioGroup.propTypes = propTypes;

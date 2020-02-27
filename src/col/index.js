@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { RowContext } from '../row';
@@ -43,57 +43,51 @@ function getSizeClass(size, value) {
   return undefined;
 }
 
-class Col extends React.PureComponent {
-  render() {
-    const {
-      tag: Tag,
-      span,
-      offset,
-      pull,
-      push,
-      xs,
-      sm,
-      md,
-      lg,
-      xl,
-      style = {},
-      className,
-      children,
-      ...props
-    } = this.props;
+const Col = ({
+  tag: Tag,
+  span,
+  offset,
+  pull,
+  push,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  style = {},
+  className,
+  children,
+  ...props
+}) => {
+  const classes = classnames(
+    'cr-col',
+    span && `cr-col-${span}`,
+    offset && `cr-col-offset-${offset}`,
+    pull && `cr-col-pull-${pull}`,
+    push && `cr-col-push-${push}`,
+    getSizeClass('xs', xs),
+    getSizeClass('sm', sm),
+    getSizeClass('md', md),
+    getSizeClass('lg', lg),
+    getSizeClass('xl', xl),
+    className,
+  );
 
-    const classes = classnames(
-      'cr-col',
-      span && `cr-col-${span}`,
-      offset && `cr-col-offset-${offset}`,
-      pull && `cr-col-pull-${pull}`,
-      push && `cr-col-push-${push}`,
-      getSizeClass(xs),
-      getSizeClass(sm),
-      getSizeClass(md),
-      getSizeClass(lg),
-      getSizeClass(xl),
-      className,
-    );
+  const { gutter = 0 } = useContext(RowContext);
 
-    const { gutter = 0 } = this.context;
-
-    if (gutter) {
-      style.paddingLeft = `${gutter / 2}px`;
-      style.paddingRight = style.paddingLeft;
-    }
-
-    return (
-      <Tag {...props} className={classes} style={style}>
-        {children}
-      </Tag>
-    );
+  if (gutter) {
+    style.paddingLeft = `${gutter / 2}px`;
+    style.paddingRight = style.paddingLeft;
   }
-}
 
+  return (
+    <Tag {...props} className={classes} style={style}>
+      {children}
+    </Tag>
+  );
+};
 
 Col.displayName = 'Col';
-Col.contextType = RowContext;
 Col.propTypes = propTypes;
 Col.defaultProps = defaultProps;
 
