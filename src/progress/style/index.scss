@@ -1,5 +1,6 @@
 @import '../../style/var.scss';
 @import '../../style/mixins.scss';
+@import '../../style/utils.scss';
 
 @include b(progress) {
   position: relative;

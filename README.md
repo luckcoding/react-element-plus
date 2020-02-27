@@ -54,7 +54,7 @@ npm install @crude/ui
 - [ ] Modal
 - [x] Pagination(beta)
 - [ ] Popover
-- [x] Progress(beta)
+- [x] Progress
 - [ ] Radio
 - [x] Rate(beta)
 - [x] Row

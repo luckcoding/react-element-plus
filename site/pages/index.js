@@ -36,7 +36,7 @@ export default {
     'Data': {
     //   'table': require('./table'),
       'tag': require('./tag'),
-    //   'progress': require('./progress'),
+      'progress': require('./progress'),
     //   'tree': require('./tree'),
     //   'pagination': require('./pagination'),
       'badge': require('./badge'),

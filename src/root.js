@@ -21,7 +21,7 @@ require('./message/style');
 // require('./modal/style');
 require('./notification/style');
 // require('./pagination/style');
-// require('./progress/style');
+require('./progress/style');
 require('./radio/style');
 // require('./rate/style');
 require('./row/style');

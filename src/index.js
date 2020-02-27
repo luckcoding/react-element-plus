@@ -22,7 +22,7 @@ export { default as Message } from './message';
 // export { default as Modal } from './modal';
 export { default as Notification } from './notification';
 // export { default as Pagination } from './pagination';
-// export { default as Progress } from './progress';
+export { default as Progress } from './progress';
 export { default as Radio } from './radio';
 // export { default as Rate, RateItem } from './rate';
 export { default as Row } from './row';
