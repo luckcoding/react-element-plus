@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { isNumber, isJson } from '@crude/extras';
 import { RowContext } from '../row';
 
 const types = PropTypes.oneOfType([PropTypes.number, PropTypes.object]);
@@ -28,9 +27,9 @@ const defaultProps = {
 };
 
 function getSizeClass(size, value) {
-  if (isNumber(value)) {
+  if (typeof value === 'number') {
     return `cr-col-${size}-${value}`;
-  } if (isJson(size)) {
+  } if (size instanceof Object) {
     const classes = [];
     Object.keys(size).forEach((key) => {
       classes.push(
@@ -65,10 +64,10 @@ class Col extends React.PureComponent {
 
     const classes = classnames(
       'cr-col',
-      isNumber(span) && `cr-col-${span}`,
-      isNumber(offset) && `cr-col-offset-${span}`,
-      isNumber(pull) && `cr-col-pull-${span}`,
-      isNumber(push) && `cr-col-push-${span}`,
+      span && `cr-col-${span}`,
+      offset && `cr-col-offset-${offset}`,
+      pull && `cr-col-pull-${pull}`,
+      push && `cr-col-push-${push}`,
       getSizeClass(xs),
       getSizeClass(sm),
       getSizeClass(md),
@@ -77,14 +76,11 @@ class Col extends React.PureComponent {
       className,
     );
 
-    const { gutter } = this.context;
+    const { gutter = 0 } = this.context;
 
     if (gutter) {
-      const paddingLeft = `${gutter / 2}px`;
-      Object.assign(style, {
-        paddingLeft,
-        paddingRight: paddingLeft,
-      });
+      style.paddingLeft = `${gutter / 2}px`;
+      style.paddingRight = style.paddingLeft;
     }
 
     return (

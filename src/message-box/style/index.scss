@@ -1,4 +1,8 @@
-@import '../../style/vars.scss';
+@import '../../style/var.scss';
+@import '../../style/mixins.scss';
+@import '../../style/popup.scss';
+@import '../../style/button.scss';
+@import '../../style/input.scss';
 @import '../../style/mixins.scss';
 
 @include b(message-box) {

@@ -1,5 +1,7 @@
-@import '../../style/vars.scss';
+@import '../../style/var.scss';
 @import '../../style/mixins.scss';
+@import '../../style/utils.scss';
+@import '../../style/popup.scss';
 
 @include b(dialog) {
   position: relative;

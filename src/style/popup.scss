@@ -1,6 +1,5 @@
-@import './theme.scss';
+@import './var.scss';
 @import './mixins.scss';
-
 
 .v-modal-enter {
   animation: v-modal-in .2s ease;

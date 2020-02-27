@@ -1,5 +1,7 @@
-@import '../../style/vars.scss';
+@import '../../style/var.scss';
 @import '../../style/mixins.scss';
+@import '../../style/_button.scss';
+@import '../../style/utils.scss';
 
 @include b(checkbox) {
   color: $--checkbox-font-color;
@@ -270,7 +272,7 @@
     margin: 0;
     position: relative;
     transition: $--all-transition;
-    @include user-select(none);
+    @include utils-user-select(none);
 
     @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, 0);
 

@@ -1,104 +1,5 @@
-@import './vars.scss';
-
-// utils
-// --------------------------------------------------
-@mixin clearfix {
-  $selector: &;
-
-  @at-root {
-    #{$selector}::before,
-    #{$selector}::after {
-      display: table;
-      content: "";
-    }
-    #{$selector}::after {
-      clear: both
-    }
-  }
-}
-
-@mixin font-smoothing() {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-@mixin user-select($value) {
-  -moz-user-select: $value;
-  -webkit-user-select: $value;
-  -ms-user-select: $value;
-}
-
-@mixin vertical-center {
-  $selector: &;
-
-  @at-root {
-    #{$selector}::after {
-      display: inline-block;
-      content: "";
-      height: 100%;
-      vertical-align: middle
-    }
-  }
-}
-
-@mixin ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-
-
-// BEM
-// --------------------------------------------------
-@mixin b($block) {
-  $B: $namespace + "-" + $block !global;
-
-  .#{$B} {
-    @content;
-  }
-}
-
-@mixin e($element) {
-  $E: $element !global;
-  $selector: &;
-  $currentSelector: "";
-
-  @each $unit in $element {
-    $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
-  }
-
-  @at-root {
-    #{$currentSelector} {
-      @content;
-    }
-  }
-}
-
-@mixin m($modifier) {
-  $selector: &;
-  $currentSelector: "";
-
-  @each $unit in $modifier {
-    $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
-  }
-
-  @at-root {
-    #{$currentSelector} {
-      @content;
-    }
-  }
-}
-
-@mixin when($state) {
-  @at-root {
-    &.#{$state-prefix + $state} {
-      @content;
-    }
-  }
-}
-
-
+@import "./function.scss";
+@import "./var.scss";
 
 /* Break-points
  -------------------------- */
@@ -113,89 +14,177 @@
   }
 }
 
+/* Scrollbar
+ -------------------------- */
+@mixin scroll-bar {
+  $--scrollbar-thumb-background: #b4bccc;
+  $--scrollbar-track-background: #fff;
 
+  &::-webkit-scrollbar {
+    z-index: 11;
+    width: 6px;
 
-/**
- * button
- * -------------
- */
-@mixin button-plain($color) {
-  color: $color;
-  background: mix($--color-white, $color, 90%);
-  border-color: mix($--color-white, $color, 60%);
+    &:horizontal {
+      height: 6px;
+    }
 
-  &:hover,
-  &:focus {
-    background: $color;
-    border-color: $color;
-    color: $--color-white;
-  }
+    &-thumb {
+      border-radius: 5px;
+      width: 6px;
+      background: $--scrollbar-thumb-background;
+    }
 
-  &:active {
-    background: mix($--color-black, $color, $--button-active-shade-percent);
-    border-color: mix($--color-black, $color, $--button-active-shade-percent);
-    color: $--color-white;
-    outline: none;
-  }
+    &-corner {
+      background: $--scrollbar-track-background;
+    }
 
-  &.is-disabled {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      color: mix($--color-white, $color, 40%);
-      background-color: mix($--color-white, $color, 90%);
-      border-color: mix($--color-white, $color, 80%);
+    &-track {
+      background: $--scrollbar-track-background;
+
+      &-piece {
+        background: $--scrollbar-track-background;
+        width: 6px;
+      }
     }
   }
 }
 
-@mixin button-variant($color, $background-color, $border-color) {
-  color: $color;
-  background-color: $background-color;
-  border-color: $border-color;
-
-  &:hover,
-  &:focus {
-    background: mix($--color-white, $background-color, $--button-hover-tint-percent);
-    border-color: mix($--color-white, $border-color, $--button-hover-tint-percent);
-    color: $color;
-  }
-  
-  &:active {
-    background: mix($--color-black, $background-color, $--button-active-shade-percent);
-    border-color: mix($--color-black, $border-color, $--button-active-shade-percent);
-    color: $color;
-    outline: none;
+/* Placeholder
+ -------------------------- */
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content
   }
 
-  &.is-active {
-    background: mix($--color-black, $background-color, $--button-active-shade-percent);
-    border-color: mix($--color-black, $border-color, $--button-active-shade-percent);
-    color: $color;
+  &::-moz-placeholder {
+    @content
   }
 
-  &.is-disabled {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      color: $--color-white;
-      background-color: mix($background-color, $--color-white);
-      border-color: mix($border-color, $--color-white);
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+
+/* BEM
+ -------------------------- */
+@mixin b($block) {
+  $B: $namespace+'-'+$block !global;
+
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin e($element) {
+  $E: $element !global;
+  $selector: &;
+  $currentSelector: "";
+  @each $unit in $element {
+    $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+  }
+
+  @if hitAllSpecialNestRule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$currentSelector} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      #{$currentSelector} {
+        @content;
+      }
     }
   }
+}
 
-  &.is-plain {
-    @include button-plain($background-color);
+@mixin m($modifier) {
+  $selector: &;
+  $currentSelector: "";
+  @each $unit in $modifier {
+    $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+  }
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
   }
 }
 
-@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  border-radius: $border-radius;
-  &.is-round {
-    padding: $padding-vertical $padding-horizontal;
+@mixin configurable-m($modifier, $E-flag: false) {
+  $selector: &;
+  $interpolation: '';
+
+  @if $E-flag {
+    $interpolation: $element-separator + $E-flag;
+  }
+
+  @at-root {
+    #{$selector} {
+      .#{$B+$interpolation+$modifier-separator+$modifier} {
+        @content;
+      }
+    }
   }
 }
+
+@mixin spec-selector($specSelector: '', $element: $E, $modifier: false, $block: $B) {
+  $modifierCombo: '';
+
+  @if $modifier {
+    $modifierCombo: $modifier-separator + $modifier;
+  }
+
+  @at-root {
+    #{&}#{$specSelector}.#{$block+$element-separator+$element+$modifierCombo} {
+      @content
+    }
+  }
+}
+
+@mixin meb($modifier: false, $element: $E, $block: $B) {
+  $selector: &;
+  $modifierCombo: '';
+
+  @if $modifier {
+    $modifierCombo: $modifier-separator + $modifier;
+  }
+
+  @at-root {
+    #{$selector} {
+      .#{$block+$element-separator+$element+$modifierCombo} {
+        @content
+      }
+    }
+  }
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+@mixin extend-rule($name) {
+  @extend #{'%shared-'+$name};
+}
+
+@mixin share-rule($name) {
+  $rule-name: '%shared-'+$name;
+
+  @at-root #{$rule-name} {
+    @content
+  }
+}
+
+@mixin pseudo($pseudo) {
+  @at-root #{&}#{':#{$pseudo}'} {
+    @content
+  }
+}
+

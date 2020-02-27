@@ -1,10 +1,11 @@
-@import '../../style/vars.scss';
+@import '../../style/var.scss';
 @import '../../style/mixins.scss';
+@import '../../style/utils.scss';
 
 @include b(row) {
   position: relative;
   box-sizing: border-box;
-  @include clearfix;
+  @include utils-clearfix;
 
   @include m(flex) {
     display: flex;

@@ -1,5 +1,7 @@
-@import '../../style/vars.scss';
+@import '../../style/var.scss';
+@import '../../style/_button.scss';
 @import '../../style/mixins.scss';
+@import '../../style/utils.scss';
 
 @include b(button) {
   display: inline-block;
@@ -18,7 +20,7 @@
   transition: .1s;
   font-weight: $--button-font-weight;
 
-  @include user-select(none);
+  @include utils-user-select(none);
   @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
 
   & + & {
@@ -198,7 +200,7 @@
 
 
 @include b(button-group) {
-  @include clearfix;
+  @include utils-clearfix;
   display: inline-block;
   vertical-align: middle;
 
