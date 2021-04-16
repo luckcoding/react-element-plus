@@ -194,7 +194,7 @@ onChange(value) {
 render() {
   return (
     <div>
-      <DemoPart>
+      <div>
         <Checkbox.Group
           value={this.state.value}
           onChange={this.onChange.bind(this)}
@@ -203,8 +203,8 @@ render() {
             return <Checkbox.Button label={label} key={label}>{label}</Checkbox.Button>
           })}
         </Checkbox.Group>
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Checkbox.Group
           value={this.state.value}
           onChange={this.onChange.bind(this)}
@@ -214,8 +214,8 @@ render() {
             return <Checkbox.Button label={label} key={label}>{label}</Checkbox.Button>
           })}
         </Checkbox.Group>
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Checkbox.Group
           value={this.state.value}
           onChange={this.onChange.bind(this)}
@@ -225,8 +225,8 @@ render() {
             return <Checkbox.Button label={label} key={label} disabled={label === '北京'}>{label}</Checkbox.Button>
           })}
         </Checkbox.Group>
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Checkbox.Group
           value={this.state.value}
           onChange={this.onChange.bind(this)}
@@ -237,7 +237,7 @@ render() {
             return <Checkbox.Button label={label} key={label}>{label}</Checkbox.Button>
           })}
         </Checkbox.Group>
-      </DemoPart>
+      </div>
     </div>
   )
 }
@@ -277,7 +277,7 @@ render() {
   const value = this.state.value;
   return (
     <div>
-      <DemoPart>
+      <div>
         <Checkbox
           checked={value.indexOf('备选项1') !== -1}
           onChange={checked => this.handleChange(checked, '备选项1')}
@@ -290,8 +290,8 @@ render() {
           label="备选项2"
           border
         />
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Checkbox
           checked={value.indexOf('备选项1') !== -1}
           onChange={checked => this.handleChange(checked, '备选项1')}
@@ -306,19 +306,19 @@ render() {
           border
           size="medium"
         />
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Checkbox.Group value={value} onChange={this.onChange.bind(this)} size="small">
           <Checkbox label="备选项1" border></Checkbox>
           <Checkbox label="备选项2" border disabled></Checkbox>
         </Checkbox.Group>
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Checkbox.Group value={value} onChange={this.onChange.bind(this)} size="mini" disabled>
           <Checkbox label="备选项1" border></Checkbox>
           <Checkbox label="备选项2" border></Checkbox>
         </Checkbox.Group>
-      </DemoPart>
+      </div>
     </div>
   )
 }

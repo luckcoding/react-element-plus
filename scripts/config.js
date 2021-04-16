@@ -1,4 +1,4 @@
-const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
@@ -7,14 +7,14 @@ module.exports = (distRoot, optimize) => ({
   optimization: {
     minimize: !!optimize,
     minimizer: [
-      new UglifyWebpackPlugin({
-        cache: true,
-        parallel: true,
-      }),
+      // new UglifyWebpackPlugin({
+      //   cache: true,
+      //   parallel: true,
+      // }),
       new OptimizeCSSAssetsPlugin({}),
     ],
   },
-  entry: './src/root.js',
+  entry: './src/root.ts',
   output: {
     path: distRoot,
     filename: optimize ? 'crude-ui.min.js' : 'crude-ui.js',
@@ -24,7 +24,7 @@ module.exports = (distRoot, optimize) => ({
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.[tj]sx?$/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -34,12 +34,12 @@ module.exports = (distRoot, optimize) => ({
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
         ],
       },
       {
@@ -54,6 +54,9 @@ module.exports = (distRoot, optimize) => ({
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   externals: {
     react: {

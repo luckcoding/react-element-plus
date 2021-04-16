@@ -50,15 +50,15 @@ onChange(value) {
 render() {
   return (
     <div>
-      <DemoPart>
+      <div>
         <Switch
           onChange={this.onChange.bind(this)}
           value={this.state.value}
           onText="按月付费"
           offText="按年付费"
         />
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Switch
           onChange={this.onChange.bind(this)}
           value={this.state.value}
@@ -67,7 +67,7 @@ render() {
           onColor="#13ce66"
           offColor="#ff4949"
         />
-        </DemoPart>
+        </div>
     </div>
   )
 }

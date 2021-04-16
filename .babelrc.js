@@ -14,7 +14,8 @@ module.exports = api => {
           }
         }
       ],
-      "@babel/react"
+      "@babel/react",
+      "@babel/preset-typescript",
     ],
     "plugins": [
       "@babel/plugin-transform-runtime"

@@ -1,0 +1,57 @@
+@import "./var.scss";
+
+.cr-transition-fade {
+  transition: opacity 0.2s linear;
+}
+.cr-transition-fade:not(.cr-transition-show) {
+  opacity: 0;
+}
+
+
+.cr-transition-down {
+  transition: opacity 0.3s linear;
+}
+.cr-transition-down:not(.cr-transition-show) {
+  transform: translate(-50%, -100%);
+  opacity: 0;
+}
+
+.cr-transition-fade-down {
+  transition: opacity 0.3s, transform .3s;
+}
+.cr-transition-fade-down:not(.cr-transition-show) {
+  transform: translate3d(0, -10%, 0);
+  opacity: 0;
+}
+
+
+.cr-transition-hor-pan {
+  transition: opacity 0.3s linear;
+}
+.cr-transition-hor-pan:not(.cr-transition-show) {
+  &.right {
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &.left {
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+
+.cr-transition-zoom-in {
+  transition: all .3s cubic-bezier(.55,0,.1,1);
+}
+.cr-transition-zoom-in:not(.cr-transition-show) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="cr-transition-"] {
+    transition: none;
+  }
+}
+

@@ -1,0 +1,25 @@
+@import './mixins.scss';
+@import './var.scss';
+@import './reset.scss';
+@import './transition.scss';
+@import './popup.scss';
+
+/**
+ * reset
+ * ========================
+ */
+
+[class*="crude-"] {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}

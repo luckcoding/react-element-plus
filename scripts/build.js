@@ -9,7 +9,7 @@ const buildCss = require('./build-css');
 
 const targets = process.argv.slice(2);
 
-const srcRoot = path.join(__dirname, '../src');
+const srcRoot = path.join(__dirname, '../components');
 
 const libRoot = path.join(__dirname, '../lib');
 const distRoot = path.join(__dirname, '../dist');
@@ -21,7 +21,7 @@ const clean = () => {
   fse.existsSync(esRoot) && fse.removeSync(esRoot);
 };
 
-const step = (name, root, fn) => async () => {
+const step = (name, fn) => async () => {
   console.log(cyan('Building: ') + green(name));
   await fn();
   console.log(cyan('Built: ') + green(name));
@@ -31,20 +31,23 @@ const shell = cmd => execa(cmd, { stdio: ['pipe', 'pipe', 'inherit'], shell: tru
 
 const has = t => !targets.length || targets.includes(t);
 
+const babel = (outDir, envName) => shell(
+  `yarn babel ${srcRoot} -x .es6,.js,.es,.jsx,.mjs,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`,
+);
 /**
  * Run babel over the src directory and output
  * compiled common js files to ./lib.
  */
-const buildLib = step('commonjs modules', libRoot, async () => {
-  await shell(`npx babel ${srcRoot} --out-dir ${libRoot}`);
+const buildLib = step('commonjs modules', async () => {
+  await babel(libRoot, 'cjs');
 });
 
 /**
  * Run babel over the src directory and output
  * compiled es modules (but otherwise es5) to /es
  */
-const buildEsm = step('es modules', esRoot, async () => {
-  await shell(`npx cross-env BABEL_ENV=esm-dir babel ${srcRoot} --out-dir ${esRoot}`);
+const buildEsm = step('es modules', async () => {
+  await babel(esRoot, 'esm');
 });
 
 /**
@@ -53,7 +56,6 @@ const buildEsm = step('es modules', esRoot, async () => {
  */
 const buildDist = step(
   'browser distributable',
-  distRoot,
   () => new Promise((resolve, reject) => {
     webpack(
       [getConfig(distRoot, false), getConfig(distRoot, true)],
@@ -78,9 +80,7 @@ Promise.all([
   has('lib') && buildLib(),
   has('es') && buildEsm(),
   has('dist') && buildDist(),
-]).then(() => {
-  buildCss();
-}).catch((err) => {
+]).then(buildCss).catch((err) => {
   if (err) console.error(red(err.stack || err.toString()));
   process.exit(1);
 });

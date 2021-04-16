@@ -148,26 +148,26 @@ render() {
   const value = this.state.value
   return (
     <div>
-      <DemoPart>
+      <div>
         <Radio value={value} label={1} border onChange={this.onChange.bind(this)}>备选项1</Radio>
         <Radio value={value} label={2} border onChange={this.onChange.bind(this)}>备选项2</Radio>
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Radio value={value} label={1} border size="medium" onChange={this.onChange.bind(this)}>备选项1</Radio>
         <Radio value={value} label={2} border size="medium" onChange={this.onChange.bind(this)}>备选项2</Radio>
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Radio.Group value={value} size="small" onChange={this.onChange.bind(this)}>
           <Radio label={1} border>备选项1</Radio>
           <Radio label={2} border disabled>备选项2</Radio>
         </Radio.Group>
-      </DemoPart>
-      <DemoPart>
+      </div>
+      <div>
         <Radio.Group value={value} size="mini" disabled onChange={this.onChange.bind(this)}>
           <Radio label={1} border>备选项1</Radio>
           <Radio label={2} border>备选项2</Radio>
         </Radio.Group>
-      </DemoPart>
+      </div>
     </div>
   )
 }
