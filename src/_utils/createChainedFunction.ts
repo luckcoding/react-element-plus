@@ -7,7 +7,7 @@
  * @param {function} functions to chain
  * @returns {function|null}
  */
-export function createChainedFunction(...funcs: any[]) {
+ export function createChainedFunction(...funcs: any[]) {
   return funcs
     .filter((f) => f != null)
     .reduce((acc, f) => {

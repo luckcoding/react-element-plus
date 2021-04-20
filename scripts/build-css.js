@@ -17,19 +17,18 @@ async function sassRender(options) {
 }
 
 function writeCss(file, text) {
-  fs.writeFileSync(file.replace('/crude-ui/src', '/crude-ui/lib'), text);
-  fs.writeFileSync(file.replace('/crude-ui/src', '/crude-ui/es'), text);
+  fs.writeFileSync(file.replace('/crude-ui/components', '/crude-ui/lib'), text);
+  fs.writeFileSync(file.replace('/crude-ui/components', '/crude-ui/es'), text);
 }
 
 function walkCss(dir) {
   dir = dir || '.';
-  const directory = path.join(__dirname, '../src', dir);
+  const directory = path.join(__dirname, '../components', dir);
 
   fs.readdirSync(directory)
     .forEach(async (file) => {
       const fullpath = path.join(directory, file);
       const stat = fs.statSync(fullpath);
-
       if (stat.isFile() && file.indexOf('.scss') > 0) {
         const sassText = fs.readFileSync(fullpath).toString();
         const cssText = await sassRender({ file: fullpath, data: sassText });

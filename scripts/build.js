@@ -17,8 +17,8 @@ const esRoot = path.join(__dirname, '../es');
 
 const clean = () => {
   fse.existsSync(libRoot) && fse.removeSync(libRoot);
-  fse.existsSync(distRoot) && fse.removeSync(distRoot);
-  fse.existsSync(esRoot) && fse.removeSync(esRoot);
+  // fse.existsSync(distRoot) && fse.removeSync(distRoot);
+  // fse.existsSync(esRoot) && fse.removeSync(esRoot);
 };
 
 const step = (name, fn) => async () => {
@@ -79,7 +79,7 @@ clean();
 Promise.all([
   has('lib') && buildLib(),
   has('es') && buildEsm(),
-  has('dist') && buildDist(),
+  // has('dist') && buildDist(),
 ]).then(buildCss).catch((err) => {
   if (err) console.error(red(err.stack || err.toString()));
   process.exit(1);

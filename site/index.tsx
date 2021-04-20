@@ -4,10 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import 'core-js';
 
-import 'element-theme-default';
-
-import '../src/style/index.scss';
-import '../src/button/style/index.scss';
+import '../components/theme-chalk/src/index.scss';
 import './styles/base.scss';
 import './styles/prism.css';
 
@@ -15,8 +12,8 @@ import App from './page';
 
 render(<AppContainer><App /></AppContainer>, document.getElementById('app'));
 
-if (module.hot) {
-  module.hot.accept('./page', () => {
+if ((module as any).hot) {
+  (module as any).hot.accept('./page', () => {
     const App = require('./page').default;
 
     render(<AppContainer><App /></AppContainer>, document.getElementById('app'));

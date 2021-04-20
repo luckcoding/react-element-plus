@@ -7,7 +7,7 @@ export default {
   components: {
     Basic: {
       // 'layout': require('./layout'),
-      // 'container': require('./container'),
+      'container': require('./container'),
       // 'color': require('./color'),
       // 'typography': require('./typography'),
       // 'border': require('./border'),

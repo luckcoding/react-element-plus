@@ -22,9 +22,9 @@ new WebpackDevServer(webpack({
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      '@libs': path.resolve(__dirname, "../libs"),
-      '@libs/*': path.resolve(__dirname, "../libs/*"),
-    }
+      '@libs': path.resolve(__dirname, '../libs'),
+      '@libs/*': path.resolve(__dirname, '../libs/*'),
+    },
   },
   module: {
     rules: [
@@ -41,7 +41,7 @@ new WebpackDevServer(webpack({
         },
         include: [
           path.join(__dirname, '../site'),
-          path.join(__dirname, '../src'),
+          path.join(__dirname, '../components'),
           path.join(__dirname, '../libs'),
         ],
       },
@@ -68,7 +68,15 @@ new WebpackDevServer(webpack({
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?.+)?$/,
-        use: 'file-loader',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
       },
       {
         test: /\.(jpe?g|png|gif)(\?.+)?$/,

@@ -1,25 +1,16 @@
 {
   "compilerOptions": {
-    "allowJs": false,
-    "esModuleInterop": true,
+    "declaration": true,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "jsx": "react",
-    "module": "es2015",
-    "moduleResolution": "node",
+    "esModuleInterop": true,
     "noImplicitAny": false,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "noUnusedParameters": true,
     "noUnusedLocals": true,
     "sourceMap": true,
+    "moduleResolution": "node",
     "target": "esnext",
-    "lib": ["esnext", "dom"],
-    "skipLibCheck": true,
-    "paths": {
-      "@libs": ["./libs/"],
-      "@libs/*": ["./libs/*"],
-    }
+    "jsx": "react"
   },
-  "exclude": ["node_modules"],
-  "include": ["src", "site", "libs"]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
 }
