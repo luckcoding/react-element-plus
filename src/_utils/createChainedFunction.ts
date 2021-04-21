@@ -7,14 +7,12 @@
  * @param {function} functions to chain
  * @returns {function|null}
  */
- export function createChainedFunction(...funcs: any[]) {
+export function createChainedFunction(...funcs: any[]) {
   return funcs
-    .filter((f) => f != null)
+    .filter(f => f != null)
     .reduce((acc, f) => {
       if (typeof f !== 'function') {
-        throw new Error(
-          'Invalid Argument Type, must only provide functions, undefined, or null.',
-        );
+        throw new Error('Invalid Argument Type, must only provide functions, undefined, or null.');
       }
 
       if (acc === null) return f;

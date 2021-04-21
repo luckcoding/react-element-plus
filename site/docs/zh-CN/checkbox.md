@@ -1,11 +1,13 @@
 ## Checkbox 多选框
+
 一组备选项中进行多选
 
 ### 基础用法
 
 单独使用可以表示两种状态之间的切换。
 
-:::demo 简单的Checkbox，使用`checked`切换选中状态。
+:::demo 简单的 Checkbox，使用`checked`切换选中状态。
+
 ```js
 constructor(props) {
   super(props);
@@ -20,6 +22,7 @@ render() {
   return <Checkbox checked={this.state.checked} onChange={this.onChange.bind(this)}>备选项</Checkbox>
 }
 ```
+
 :::
 
 ### 禁用状态
@@ -27,6 +30,7 @@ render() {
 多选框不可用状态。
 
 :::demo 设置`disabled`属性即可。
+
 ```js
 render() {
   return (
@@ -37,13 +41,15 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 多选框组
 
 适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。
 
-:::demo Checkbox.Group元素能把多个 checkbox 管理为一组，只需要在 Group 中使用`value`绑定Array类型的变量即可，`label`属性除了改变 checkbox 按钮后的介绍外，同时也是该 checkbox 对应的值，`label`与数组中的元素值相对应，如果存在指定的值则为选中状态，否则为不选中。
+:::demo Checkbox.Group 元素能把多个 checkbox 管理为一组，只需要在 Group 中使用`value`绑定 Array 类型的变量即可，`label`属性除了改变 checkbox 按钮后的介绍外，同时也是该 checkbox 对应的值，`label`与数组中的元素值相对应，如果存在指定的值则为选中状态，否则为不选中。
+
 ```js
 constructor(props) {
   super(props);
@@ -66,13 +72,15 @@ render() {
   )
 }
 ```
+
 :::
 
 ### indeterminate 状态
 
 `indeterminate` 属性用以表示 checkbox 的不确定状态，一般用于实现全选的效果
 
-:::demo 设置`indeterminate`属性该表checkbox不确定状态.
+:::demo 设置`indeterminate`属性该表 checkbox 不确定状态.
+
 ```js
 constructor(props) {
   super(props);
@@ -124,6 +132,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 可选项目数量的限制
@@ -131,6 +140,7 @@ render() {
 使用 `min` 和 `max` 属性能够限制可以被勾选的项目的数量。
 
 :::demo
+
 ```js
 constructor(props) {
   super(props);
@@ -166,6 +176,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 按钮样式
@@ -173,7 +184,8 @@ render() {
 按钮样式的多选组合。
 
 :::demo 只需要把`Checkbox`元素替换为`Checkbox.Button`元素即可。此外，Element 还提供了`size`属性，支持`large`和`small`两种。
-````js
+
+`````js
 constructor(props) {
   super(props);
   this.options = ['上海', '北京', '广州', '深圳'];
@@ -369,3 +381,4 @@ render() {
 | disabled  | 是否禁用    | boolean   |  — | false   |
 | name | 原生 name 属性 | string    |      —         |     —    |
 | checked  | 当前是否勾选    | boolean   |  — | false   |
+`````

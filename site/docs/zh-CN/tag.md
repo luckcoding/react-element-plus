@@ -4,7 +4,8 @@
 
 ### 基础用法
 
-:::demo 由`type`属性来选择tag的类型，也可以通过`color`属性来自定义背景色。
+:::demo 由`type`属性来选择 tag 的类型，也可以通过`color`属性来自定义背景色。
+
 ```js
 render() {
   return (
@@ -18,6 +19,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 可移除标签
@@ -61,6 +63,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 动态编辑标签
@@ -68,6 +71,7 @@ render() {
 动态编辑标签可以通过点击标签关闭按钮后触发的 `onClose` 事件来实现
 
 :::demo
+
 ```js
 constructor(props) {
   super(props)
@@ -148,6 +152,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 不同尺寸
@@ -168,6 +173,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 不同主题
@@ -175,6 +181,7 @@ render() {
 Tag 组件提供了三个不同的主题：`dark`、`light` 和 `plain`
 
 :::demo 通过设置`effect`属性来改变主题，默认为 `light`
+
 ```js
 render() {
   const items = [
@@ -198,22 +205,24 @@ render() {
   )
 }
 ```
+
 :::
 
 ### Attributes
-| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
-|---------- |-------------- |---------- |--------------------------------  |-------- |
-| type | 类型 | string | success/info/warning/danger | — |
-| closable | 是否可关闭 | boolean | — | false |
-| disable-transitions | 是否禁用渐变动画 | boolean | — | false |
-| hit | 是否有边框描边 | boolean | — | false |
-| color | 背景色 | string | — | — |
-| size | 尺寸 | string | medium / small / mini | — |
-| effect | 主题 | string | dark / light / plain | light |
 
+| 参数                | 说明             | 类型    | 可选值                      | 默认值 |
+| ------------------- | ---------------- | ------- | --------------------------- | ------ |
+| type                | 类型             | string  | success/info/warning/danger | —      |
+| closable            | 是否可关闭       | boolean | —                           | false  |
+| disable-transitions | 是否禁用渐变动画 | boolean | —                           | false  |
+| hit                 | 是否有边框描边   | boolean | —                           | false  |
+| color               | 背景色           | string  | —                           | —      |
+| size                | 尺寸             | string  | medium / small / mini       | —      |
+| effect              | 主题             | string  | dark / light / plain        | light  |
 
 ### Events
-| 事件名称 | 说明 | 回调参数 |
-|---------- |-------- |---------- |
-| click | 点击 Tag 时触发的事件 | — |
-| close | 关闭 Tag 时触发的事件 | — |
+
+| 事件名称 | 说明                  | 回调参数 |
+| -------- | --------------------- | -------- |
+| click    | 点击 Tag 时触发的事件 | —        |
+| close    | 关闭 Tag 时触发的事件 | —        |

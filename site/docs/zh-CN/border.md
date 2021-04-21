@@ -37,6 +37,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 圆角
@@ -59,15 +60,15 @@ render() {
       <Col span={6} xs={{span: 12}}>
         <div className="title">小圆角</div>
         <div className="value">border-radius: {borderRadiusSmall}</div>
-        <div 
-          className="radius" 
+        <div
+          className="radius"
           style={{ borderRadius: borderRadiusSmall }}
         />
       </Col>
       <Col span={6} xs={{span: 12}}>
         <div className="title">大圆角</div>
         <div className="value">border-radius: {borderRadiusBase}</div>
-        <div 
+        <div
           className="radius"
           style={{ borderRadius: borderRadiusBase }}
         />
@@ -81,6 +82,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 投影
@@ -95,13 +97,13 @@ render() {
   const boxShadowLight = '0 2px 12px 0 rgba(0, 0, 0, 0.1)'
   return (
     <div>
-      <div 
+      <div
         className="demo-shadow"
         style={{ boxShadow: boxShadowBase }}
       />
       <span className="demo-shadow-text">基础投影 box-shadow: {boxShadowBase}</span>
 
-      <div 
+      <div
         className="demo-shadow"
         style={{ boxShadow: boxShadowLight }}
       />
@@ -110,4 +112,5 @@ render() {
   )
 }
 ```
+
 :::

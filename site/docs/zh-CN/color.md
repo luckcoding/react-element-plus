@@ -52,6 +52,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 辅助色
@@ -104,11 +105,11 @@ render() {
               <div className="value">{item.name}</div>
               <div className="bg-color-sub">
                 <div
-                  className="bg-success-sub-item" 
+                  className="bg-success-sub-item"
                   style={{ background: this.tintColor(item.value, 0.8) }}
                 />
                 <div
-                  className="bg-success-sub-item" 
+                  className="bg-success-sub-item"
                   style={{ background: this.tintColor(item.value, 0.9) }}
                 />
               </div>
@@ -120,6 +121,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 中性色
@@ -177,7 +179,7 @@ render() {
       </Col>
       <Col span={6} xs={{span: 12}}>
         <div className="demo-color-box-group">
-          <div 
+          <div
           className="demo-color-box demo-color-box-other"
           style={{ background: black }}
           >基础黑色<div className="value">{black}</div></div>
@@ -193,4 +195,5 @@ render() {
   )
 }
 ```
+
 :::

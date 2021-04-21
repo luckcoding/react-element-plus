@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import SafeAnchor from '../SafeAnchor';
 import { IRefForwardingComponent, WithAsProps, TypeAttributes } from '../@types/common';
 
-type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'default'
-type ButtonNativeType = 'button' | 'submit' | 'reset'
+type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'default';
+type ButtonNativeType = 'button' | 'submit' | 'reset';
 
 export interface ButtonProps extends WithAsProps, React.HTMLAttributes<HTMLElement> {
-  type?: ButtonType
-  size?: TypeAttributes.Size
-  icon?: string
-  nativeType?: ButtonNativeType
-  loading?: boolean
-  disabled?: boolean
-  plain?: boolean
-  autofocus?: boolean
-  round?: boolean
-  circle?: boolean
+  type?: ButtonType;
+  size?: TypeAttributes.Size;
+  icon?: string;
+  nativeType?: ButtonNativeType;
+  loading?: boolean;
+  disabled?: boolean;
+  plain?: boolean;
+  autofocus?: boolean;
+  round?: boolean;
+  circle?: boolean;
 
   href?: string;
 }
@@ -25,10 +25,10 @@ export interface ButtonProps extends WithAsProps, React.HTMLAttributes<HTMLEleme
 const defaultProps: Partial<ButtonProps> = {
   type: 'default',
   size: 'medium',
-  nativeType: 'button',
+  nativeType: 'button'
 };
 
-type Button = IRefForwardingComponent<'button', ButtonProps>
+type Button = IRefForwardingComponent<'button', ButtonProps>;
 
 const Button: Button = React.forwardRef((props: ButtonProps, ref) => {
   const {
@@ -47,7 +47,7 @@ const Button: Button = React.forwardRef((props: ButtonProps, ref) => {
     children,
     className,
     ...rest
-  } = props
+  } = props;
 
   const classes = classnames(
     'el-button',
@@ -58,9 +58,9 @@ const Button: Button = React.forwardRef((props: ButtonProps, ref) => {
       'is-loading': loading,
       'is-plain': plain,
       'is-round': round,
-      'is-circle': circle,
+      'is-circle': circle
     },
-    className,
+    className
   );
 
   // child
@@ -95,7 +95,7 @@ const Button: Button = React.forwardRef((props: ButtonProps, ref) => {
 
   return (
     <Component
-      {...props}
+      {...rest}
       role={role}
       type={nativeType}
       ref={ref}
@@ -123,7 +123,7 @@ Button.propTypes = {
   autofocus: PropTypes.bool,
   round: PropTypes.bool,
   circle: PropTypes.bool,
-  href: PropTypes.string,
+  href: PropTypes.string
 };
 
-export default Button
+export default Button;

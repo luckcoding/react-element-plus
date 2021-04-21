@@ -3,25 +3,19 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 export interface FooterProps extends React.HTMLAttributes<HTMLElement> {
-  height?: string
+  height?: string;
 }
 
 const defaultProps: Partial<FooterProps> = {
-  height: '60px',
+  height: '60px'
 };
 
-const Footer: React.FC<FooterProps> = ({
-  height,
-  style,
-  className,
-  children,
-  ...props
-}) => (
+const Footer: React.FC<FooterProps> = ({ height, style, className, children, ...props }) => (
   <footer
     {...props}
     style={{
       ...style,
-      height,
+      height
     }}
     className={classnames('el-footer', className)}
   >
@@ -34,7 +28,7 @@ Footer.defaultProps = defaultProps;
 Footer.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  height: PropTypes.string,
-}
+  height: PropTypes.string
+};
 
 export default Footer;

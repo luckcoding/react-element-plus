@@ -1,7 +1,6 @@
-import Markdown from '@libs/markdown';
+import React from 'react';
+import { Markdown } from '../../libs';
 
-export default class Button extends Markdown {
-  document(locale) {
-    return require(`../../docs/${locale}/button.md`);
-  }
-}
+export default () => {
+  return <Markdown name="button" />;
+};

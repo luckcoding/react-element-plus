@@ -50,7 +50,7 @@ module.exports = {
     collapse: 'Collapse 折叠面板',
     backtop: 'Backtop 回到顶部',
     border: 'Border 边框',
-    link: 'Link 文字链接',
+    link: 'Link 文字链接'
   },
   misc: {
     guide: '指南',
@@ -59,10 +59,10 @@ module.exports = {
     development: '开发指南',
     components: '基础组件',
     feedback: '反馈建议',
-    contribution: '贡献指南',
+    contribution: '贡献指南'
   },
   markdown: {
     show: '显示代码',
-    hide: '隐藏代码',
-  },
+    hide: '隐藏代码'
+  }
 };

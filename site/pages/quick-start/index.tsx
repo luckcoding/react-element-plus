@@ -1,7 +1,6 @@
-import Markdown from '@libs/markdown';
+import React from 'react';
+import { Markdown } from '../../libs';
 
-export default class QuickStart extends Markdown {
-  document(locale) {
-    return require(`../../docs/${locale}/quick-start.md`);
-  }
-}
+export default () => {
+  return <Markdown getDocument={locale => require(`../../docs/zh-CN/quick-start.md`).default} />;
+};

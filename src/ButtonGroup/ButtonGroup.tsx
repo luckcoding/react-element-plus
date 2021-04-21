@@ -10,28 +10,24 @@ export interface ButtonGroupProps extends WithAsProps {
   vertical?: boolean;
 }
 
-const defaultProps: Partial<ButtonGroupProps> = {};
+const defaultProps: Partial<ButtonGroupProps> = {
+  as: 'div',
+  role: 'group'
+};
 
-const ButtonGroup: IRefForwardingComponent<'div', ButtonGroupProps> = React.forwardRef((props: ButtonGroupProps, ref) => {
-  const {
-    as: Component,
-    role,
-    size,
-    toggle,
-    vertical,
-    className,
-    children,
-    ...rest
-  } = props
+const ButtonGroup: IRefForwardingComponent<'div', ButtonGroupProps> = React.forwardRef(
+  (props: ButtonGroupProps, ref) => {
+    const { as: Component, role, size, toggle, vertical, className, children, ...rest } = props;
 
-  const classes = classnames('el-button-group', className);
+    const classes = classnames('el-button-group', className);
 
-  return (
-    <Component {...rest} role={role} ref={ref} className={classes}>
-      {children}
-    </Component>
-  );
-});
+    return (
+      <Component {...rest} role={role} ref={ref} className={classes}>
+        {children}
+      </Component>
+    );
+  }
+);
 
 ButtonGroup.displayName = 'ButtonGroup';
 ButtonGroup.defaultProps = defaultProps;
@@ -42,7 +38,7 @@ ButtonGroup.propTypes = {
   role: PropTypes.string,
   size: PropTypes.oneOf(['lg', 'sm']),
   toggle: PropTypes.bool,
-  vertical: PropTypes.bool,
+  vertical: PropTypes.bool
 };
 
 export default ButtonGroup;

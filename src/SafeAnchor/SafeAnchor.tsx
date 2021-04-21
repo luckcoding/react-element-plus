@@ -14,33 +14,35 @@ export interface SafeAnchorProps extends WithAsProps, React.HTMLAttributes<HTMLE
  * button its accessible. It also emulates input `disabled` behavior for
  * links, which is usually desirable for Buttons, NavItems, DropdownItems, etc.
  */
-export const SafeAnchor: IRefForwardingComponent<'a', SafeAnchorProps> = React.forwardRef((props: SafeAnchorProps, ref) => {
-  const { as: Component = 'a', href, disabled, onClick, ...rest } = props;
+export const SafeAnchor: IRefForwardingComponent<'a', SafeAnchorProps> = React.forwardRef(
+  (props: SafeAnchorProps, ref) => {
+    const { as: Component = 'a', href, disabled, onClick, ...rest } = props;
 
-  const handleClick = useCallback(
-    (event: React.MouseEvent<HTMLAnchorElement>) => {
-      if (disabled) {
-        event.preventDefault();
-        event.stopPropagation();
-        return;
-      }
+    const handleClick = useCallback(
+      (event: React.MouseEvent<HTMLAnchorElement>) => {
+        if (disabled) {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
 
-      onClick?.(event);
-    },
-    [onClick, disabled]
-  );
+        onClick?.(event);
+      },
+      [onClick, disabled]
+    );
 
-  if (disabled) {
-    rest.tabIndex = -1;
-    rest['aria-disabled'] = true;
+    if (disabled) {
+      rest.tabIndex = -1;
+      rest['aria-disabled'] = true;
+    }
+
+    if (!href || href !== '#') {
+      rest.role = rest.role || 'button';
+    }
+
+    return <Component {...rest} href={href} ref={ref} onClick={handleClick} />;
   }
-
-  if (!href || href !== '#') {
-    rest.role = rest.role || 'button';
-  }
-
-  return <Component {...rest} href={href} ref={ref} onClick={handleClick} />;
-});
+);
 
 SafeAnchor.displayName = 'SafeAnchor';
 SafeAnchor.propTypes = {

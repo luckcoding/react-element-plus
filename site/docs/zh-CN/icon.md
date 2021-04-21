@@ -7,6 +7,7 @@
 首先初始化图标资源，再使用初始化后的对象进行对应取值操作，具体如下：
 
 :::demo
+
 ```js
 render() {
   const url = 'https://at.alicdn.com/t/font_1353659_o5sijwzyoqh.css';
@@ -32,4 +33,5 @@ render() {
 }
 
 ```
+
 :::

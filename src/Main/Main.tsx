@@ -4,15 +4,8 @@ import classnames from 'classnames';
 
 export interface MainProps extends React.HTMLAttributes<HTMLElement> {}
 
-const Main: React.FC<MainProps> = ({
-  className,
-  children,
-  ...props
-}) => (
-  <main
-    {...props}
-    className={classnames('el-main', className)}
-  >
+const Main: React.FC<MainProps> = ({ className, children, ...props }) => (
+  <main {...props} className={classnames('el-main', className)}>
     {children}
   </main>
 );
@@ -20,7 +13,7 @@ const Main: React.FC<MainProps> = ({
 Main.displayName = 'Main';
 Main.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
-}
+  children: PropTypes.node
+};
 
 export default Main;

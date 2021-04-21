@@ -61,14 +61,15 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 主题
 
 Tooltip 组件提供了两个不同的主题：`dark`和`light`。
 
-
 :::demo 通过设置`effect`属性来改变主题，默认为`dark`。
+
 ```js
 render() {
   return (
@@ -83,6 +84,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 更多 Content
@@ -90,6 +92,7 @@ render() {
 展示多行文本或者是设置文本内容的格式
 
 :::demo `content`属性也可以是`ReactElement`。
+
 ```js
 render() {
   return (
@@ -104,6 +107,7 @@ render() {
   )
 }
 ```
+
 :::
 
 ### 高级扩展
@@ -111,6 +115,7 @@ render() {
 除了这些基本设置外，还有一些属性可以让使用者更好的定制自己的效果：`transition`属性可以定制显隐的动画效果，默认为`fade-in-linear`。如果需要关闭`tooltip`功能，`disabled`属性可以满足这个需求，它接受一个`Boolean`，设置为`true`即可。
 
 :::demo 通过 state 中的 disabled 控制是否触发 tooltip
+
 ```js
 constructor(props){
   super(props);
@@ -128,17 +133,19 @@ render() {
   )
 }
 ```
+
 :::
 
 ### Attributes
-| 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
-|--------------------|----------------------------------------------------------|-------------------|-------------|--------|
-|  effect        |  默认提供的主题  | String            | `dark`, `light`  | dark  |
-|  content        |  显示的内容  | String/Node            | — | — |
-|  placement        |  Tooltip 的出现位置  | String           |  `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, `bottom-end`, `left`, `left-start`, `left-end`, `right`, `right-start`, `right-end` |  bottom |
-|  visible        |  状态是否可见  | Boolean           | — |  false |
-|  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
-|  transition     |  定义渐变动画      | String             | — | `fade-in-linear` |
-|  visibleArrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
-| openDelay | 延迟出现，单位毫秒 | Number | — | 0 |
-| manual | 手动控制模式，设置为 true 后，mouseenter 和 mouseleave 事件将不会生效 | Boolean | true,false| false |
+
+| 参数         | 说明                                                                  | 类型        | 可选值                                                                                                                                       | 默认值           |
+| ------------ | --------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| effect       | 默认提供的主题                                                        | String      | `dark`, `light`                                                                                                                              | dark             |
+| content      | 显示的内容                                                            | String/Node | —                                                                                                                                            | —                |
+| placement    | Tooltip 的出现位置                                                    | String      | `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, `bottom-end`, `left`, `left-start`, `left-end`, `right`, `right-start`, `right-end` | bottom           |
+| visible      | 状态是否可见                                                          | Boolean     | —                                                                                                                                            | false            |
+| disabled     | Tooltip 是否可用                                                      | Boolean     | —                                                                                                                                            | false            |
+| transition   | 定义渐变动画                                                          | String      | —                                                                                                                                            | `fade-in-linear` |
+| visibleArrow | 是否显示 Tooltip 箭头                                                 | Boolean     | —                                                                                                                                            | true             |
+| openDelay    | 延迟出现，单位毫秒                                                    | Number      | —                                                                                                                                            | 0                |
+| manual       | 手动控制模式，设置为 true 后，mouseenter 和 mouseleave 事件将不会生效 | Boolean     | true,false                                                                                                                                   | false            |

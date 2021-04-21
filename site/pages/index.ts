@@ -1,20 +1,20 @@
 export default {
   documents: {
-    'quick-start': require('./quick-start'),
+    'quick-start': require('./quick-start')
     // 'i18n': require('./i18n'),
     // 'custom-theme': require('./custom-theme')
   },
   components: {
     Basic: {
       // 'layout': require('./layout'),
-      'container': require('./container'),
+      // 'container': require('./container'),
       // 'color': require('./color'),
       // 'typography': require('./typography'),
       // 'border': require('./border'),
       // 'icon': require('./icon'),
-      button: require('./button'),
+      button: require('./button')
       // 'link': require('./link'),
-    },
+    }
     // 'Form': {
     //   'radio': require('./radio'),
     //   'checkbox': require('./checkbox'),
@@ -65,5 +65,5 @@ export default {
     // //   'collapse': require('./collapse'),
     //   'backtop': require('./backtop')
     // }
-  },
+  }
 };

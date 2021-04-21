@@ -1,4 +1,4 @@
-import Markdown from '@libs/markdown';
+import Markdown from '../../libs/markdown';
 
 export default class Layout extends Markdown {
   document(locale) {
