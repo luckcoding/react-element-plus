@@ -19,63 +19,61 @@
 :::demo
 
 ```js
-render() {
-  return (
-    <div>
+return (
+  <div>
+    <Container>
+      <Header>Header</Header>
+      <Main>Main</Main>
+    </Container>
+
+    <Container>
+      <Header>Header</Header>
+      <Main>Main</Main>
+      <Footer>Footer</Footer>
+    </Container>
+
+    <Container>
+      <Aside width="200px">Aside</Aside>
+      <Main>Main</Main>
+    </Container>
+
+    <Container>
+      <Header>Header</Header>
+      <Container>
+        <Aside width="200px">Aside</Aside>
+        <Main>Main</Main>
+      </Container>
+    </Container>
+
+    <Container>
+      <Header>Header</Header>
+      <Container>
+        <Aside width="200px">Aside</Aside>
+        <Container>
+          <Main>Main</Main>
+          <Footer>Footer</Footer>
+        </Container>
+      </Container>
+    </Container>
+
+    <Container>
+      <Aside width="200px">Aside</Aside>
       <Container>
         <Header>Header</Header>
         <Main>Main</Main>
       </Container>
+    </Container>
 
+    <Container>
+      <Aside width="200px">Aside</Aside>
       <Container>
         <Header>Header</Header>
         <Main>Main</Main>
         <Footer>Footer</Footer>
       </Container>
-
-      <Container>
-        <Aside width="200px">Aside</Aside>
-        <Main>Main</Main>
-      </Container>
-
-      <Container>
-        <Header>Header</Header>
-        <Container>
-          <Aside width="200px">Aside</Aside>
-          <Main>Main</Main>
-        </Container>
-      </Container>
-
-      <Container>
-        <Header>Header</Header>
-        <Container>
-          <Aside width="200px">Aside</Aside>
-          <Container>
-            <Main>Main</Main>
-            <Footer>Footer</Footer>
-          </Container>
-        </Container>
-      </Container>
-
-      <Container>
-        <Aside width="200px">Aside</Aside>
-        <Container>
-          <Header>Header</Header>
-          <Main>Main</Main>
-        </Container>
-      </Container>
-
-      <Container>
-        <Aside width="200px">Aside</Aside>
-        <Container>
-          <Header>Header</Header>
-          <Main>Main</Main>
-          <Footer>Footer</Footer>
-        </Container>
-      </Container>
-    </div>
-  )
-}
+    </Container>
+  </div>
+)
 ```
 
 :::

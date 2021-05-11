@@ -34,7 +34,6 @@ new WebpackDevServer(
           include: [
             path.join(__dirname, '../site'),
             path.join(__dirname, '../components'),
-            path.join(__dirname, '../libs')
           ]
         },
         {

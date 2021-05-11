@@ -159,31 +159,7 @@ export default class App extends React.Component {
         <footer className="footer">
           <div className="container">
             <div className="footer-main">
-              <p className="footer-main-title">Element-React</p>
-              <a
-                href="https://github.com/eleme/element-react/issues"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-main-link"
-              >
-                {this.getLocale('misc.feedback')}
-              </a>
-              <a
-                href="https://github.com/eleme/element-react/blob/master/CONTRIBUTING.md"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-main-link"
-              >
-                {this.getLocale('misc.contribution')}
-              </a>
-              <a
-                href={`http://element.eleme.io/#/${this.state.locale}/component/${this.state.page}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-main-link"
-              >
-                Element
-              </a>
+              <p className="footer-main-title">react-element-plus</p>
             </div>
             <div className="footer-social">
               <a href="//github.com/eleme/element-react" target="_blank" rel="noopener noreferrer">
@@ -196,3 +172,45 @@ export default class App extends React.Component {
     );
   }
 }
+
+// const App: React.FC<{}> = () => {
+
+//   const [locale, setLocale] = useState<Locale>('zh-CN')
+
+//   const getPage = useCallback(() => {
+//     const routes = location.hash.match(/(?:\/(.+))?\/(.+)/);
+
+//     if (routes) {
+//       if (locales.hasOwnProperty(routes[1])) {
+//         const nextLocale = routes[1] as Locale
+//         setLocale(nextLocale)
+//         localStorage.setItem('ELEMENT_LANGUAGE', nextLocale);
+//       }
+
+//       return routes[2];
+//     }
+
+//     return 'quick-start';
+//   }, [])
+
+//   useEffect(() => {
+//     window.addEventListener('hashchange', () => {
+//       window.scrollTo(0, 0);
+//       getPage();
+//     }, false);
+//   }, [])
+
+//   // const getLocale = (key) => {
+//   //   const map = locales[this.state.locale] || {};
+
+//   //   return key.split('.').reduce((a, b) => {
+//   //     const parent = map[a];
+
+//   //     if (b) {
+//   //       return (parent || {})[b];
+//   //     }
+
+//   //     return parent;
+//   //   });
+//   // }
+// }

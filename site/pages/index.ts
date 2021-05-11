@@ -7,14 +7,14 @@ export default {
   components: {
     Basic: {
       // 'layout': require('./layout'),
-      // 'container': require('./container'),
+      container: require('./container'),
       // 'color': require('./color'),
       // 'typography': require('./typography'),
       // 'border': require('./border'),
       // 'icon': require('./icon'),
       button: require('./button')
       // 'link': require('./link'),
-    }
+    },
     // 'Form': {
     //   'radio': require('./radio'),
     //   'checkbox': require('./checkbox'),
@@ -42,20 +42,20 @@ export default {
     //   'badge': require('./badge'),
     //   'avatar': require('./avatar')
     // },
-    // 'Notice': {
-    //   'alert': require('./alert'),
+    'Notice': {
+      'alert': require('./alert'),
     //   // 'loading': require('./loading'),
     //   'message': require('./message'),
     //   // 'message-box': require('./message-box'),
-    //   'notification': require('./notification')
-    // },
+      notification: require('./notification')
+    },
     // // 'Nav': {
     // //   'menu': require('./menu'),
     // //   'tabs': require('./tabs'),
     // //   'breadcrumb': require('./breadcrumb'),
     // //   'dropdown': require('./dropdown'),
     // //   'steps': require('./steps')
-    // // },
+    // },
     // 'Others': {
     //   // 'dialog': require('./dialog'),
     //   'tooltip': require('./tooltip'),

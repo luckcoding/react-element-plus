@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { IRefForwardingComponent, WithAsProps } from '../@types/common';
+import { ElRefForwardingComponent, WithAsProps } from '../@types/common';
 
 export interface SafeAnchorProps extends WithAsProps, React.HTMLAttributes<HTMLElement> {
   href?: string;
@@ -14,7 +14,7 @@ export interface SafeAnchorProps extends WithAsProps, React.HTMLAttributes<HTMLE
  * button its accessible. It also emulates input `disabled` behavior for
  * links, which is usually desirable for Buttons, NavItems, DropdownItems, etc.
  */
-export const SafeAnchor: IRefForwardingComponent<'a', SafeAnchorProps> = React.forwardRef(
+export const SafeAnchor: ElRefForwardingComponent<'a', SafeAnchorProps> = React.forwardRef(
   (props: SafeAnchorProps, ref) => {
     const { as: Component = 'a', href, disabled, onClick, ...rest } = props;
 

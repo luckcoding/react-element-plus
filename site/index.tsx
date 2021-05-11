@@ -4,7 +4,8 @@ import { AppContainer } from 'react-hot-loader';
 
 import 'core-js';
 
-import '../src/styles/index.scss';
+// import '../dist/styles/relement-default.css';
+// import '../src/styles/index.scss';
 import './styles/base.scss';
 import './styles/prism.css';
 

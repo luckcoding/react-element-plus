@@ -1,6 +1,5 @@
 import React from 'react';
-
-export type Omit<T, U> = Pick<T, Exclude<keyof T, keyof U>>;
+import { ReplaceProps } from './utils';
 
 export interface StandardProps {
   /** The prefix of the component CSS class */
@@ -16,19 +15,13 @@ export interface StandardProps {
   style?: React.CSSProperties;
 }
 
-export type ReplaceProps<Inner extends React.ElementType, P> = Omit<
-  React.ComponentPropsWithRef<Inner>,
-  P
-> &
-  P;
-
 export interface WithAsProps<As extends React.ElementType | string = React.ElementType>
   extends StandardProps {
   /** You can use a custom element for this component */
   as?: As;
 }
 
-export interface IRefForwardingComponent<T extends React.ElementType, P = unknown> {
+export interface ElRefForwardingComponent<T extends React.ElementType, P = unknown> {
   <As extends React.ElementType = T>(
     props: React.PropsWithChildren<ReplaceProps<As, WithAsProps<As> & P>>,
     context?: any
@@ -40,5 +33,24 @@ export interface IRefForwardingComponent<T extends React.ElementType, P = unknow
 }
 
 export declare namespace TypeAttributes {
-  type Size = 'large' | 'medium' | 'small' | 'mini';
+  type Size = ComponentSize
 }
+
+export interface TransitionCallbacks {
+  onEnter?(node: HTMLElement): any;
+  onEntered?(node: HTMLElement): any;
+  onEntering?(node: HTMLElement): any;
+  onExit?(node: HTMLElement): any;
+  onExited?(node: HTMLElement): any;
+  onExiting?(node: HTMLElement): any;
+}
+
+export type TransitionComponent = React.ComponentType<
+  {
+    in?: boolean;
+    appear?: boolean;
+    children: React.ReactElement;
+  } & TransitionCallbacks
+>;
+
+export type TransitionType = boolean | TransitionComponent;

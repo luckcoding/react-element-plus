@@ -9,16 +9,14 @@
 ::: demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。
 
 ```js
-render() {
-  return (
-    <div>
-      <Alert title="成功提示的文案" type="success" />
-      <Alert title="消息提示的文案" type="info" />
-      <Alert title="警告提示的文案" type="warning" />
-      <Alert title="错误提示的文案" type="error" />
-    </div>
-  )
-}
+return (
+  <div>
+    <Alert title="成功提示的文案" type="success" />
+    <Alert title="消息提示的文案" type="info" />
+    <Alert title="警告提示的文案" type="warning" />
+    <Alert title="错误提示的文案" type="error" />
+  </div>
+)
 ```
 
 :::
@@ -30,16 +28,14 @@ Alert 组件提供了两个不同的主题：`light`和`dark`。
 :::demo 通过设置`effect`属性来改变主题，默认为`light`。
 
 ```js
-render() {
-  return (
-    <div>
-      <Alert title="成功提示的文案" type="success" effect="dark" />
-      <Alert title="消息提示的文案" type="info" effect="dark" />
-      <Alert title="警告提示的文案" type="warning" effect="dark" />
-      <Alert title="错误提示的文案" type="error" effect="dark" />
-    </div>
-  )
-}
+return (
+  <div>
+    <Alert title="成功提示的文案" type="success" effect="dark" />
+    <Alert title="消息提示的文案" type="info" effect="dark" />
+    <Alert title="警告提示的文案" type="warning" effect="dark" />
+    <Alert title="错误提示的文案" type="error" effect="dark" />
+  </div>
+)
 ```
 
 :::
@@ -51,15 +47,13 @@ render() {
 ::: demo 在 Alert 组件中，你可以设置是否可关闭，关闭按钮的文本以及关闭时的回调函数。`closable`属性决定是否可关闭，接受`boolean`，默认为`true`。你可以设置`closeText`属性来代替右侧的关闭图标，注意：`closeText`必须为文本。设置`onClose`事件来设置关闭时的回调。
 
 ```js
-render() {
-  return (
-    <div>
-      <Alert title="不可关闭的 alert" type="success" closable={false} />
-      <Alert title="自定义 close-text" type="info" closeText="知道了" />
-      <Alert title="设置了回调的 alert" type="warning" onClose={() => alert('Hello World!')}/>
-    </div>
-  )
-}
+return (
+  <div>
+    <Alert title="不可关闭的 alert" type="success" closable={false} />
+    <Alert title="自定义 close-text" type="info" closeText="知道了" />
+    <Alert title="设置了回调的 alert" type="warning" onClose={() => alert('Hello World!')}/>
+  </div>
+)
 ```
 
 :::
@@ -71,16 +65,14 @@ render() {
 ::: demo 通过设置`showIcon`属性来显示 Alert 的 icon，这能更有效地向用户展示你的显示意图。
 
 ```js
-render() {
-  return (
-    <div>
-      <Alert title="成功提示的文案" type="success" showIcon />
-      <Alert title="消息提示的文案" type="info" showIcon />
-      <Alert title="警告提示的文案" type="warning" showIcon />
-      <Alert title="错误提示的文案" type="error" showIcon />
-    </div>
-  )
-}
+return (
+  <div>
+    <Alert title="成功提示的文案" type="success" showIcon />
+    <Alert title="消息提示的文案" type="info" showIcon />
+    <Alert title="警告提示的文案" type="warning" showIcon />
+    <Alert title="错误提示的文案" type="error" showIcon />
+  </div>
+)
 ```
 
 :::
@@ -92,16 +84,14 @@ render() {
 :::demo
 
 ```js
-render() {
-  return (
-    <div>
-      <Alert title="成功提示的文案" type="success" center />
-      <Alert title="消息提示的文案" type="info" center />
-      <Alert title="警告提示的文案" type="warning" center />
-      <Alert title="错误提示的文案" type="error" center />
-    </div>
-  )
-}
+return (
+  <div>
+    <Alert title="成功提示的文案" type="success" center />
+    <Alert title="消息提示的文案" type="info" center />
+    <Alert title="警告提示的文案" type="warning" center />
+    <Alert title="错误提示的文案" type="error" center />
+  </div>
+)
 ```
 
 :::
@@ -113,14 +103,12 @@ render() {
 ::: demo 除了必填的`title`属性外，你可以设置`description`属性来帮助你更好地介绍，我们称之为辅助性文字。辅助性文字只能存放单行文本，会自动换行显示。
 
 ```js
-render() {
-  return (
-    <Alert
-      type="success"
-      title="带辅助性文字介绍"
-      description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……" />
-  )
-}
+return (
+  <Alert
+    type="success"
+    title="带辅助性文字介绍"
+    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……" />
+)
 ```
 
 :::
@@ -130,16 +118,14 @@ render() {
 ::: demo 最后，这是一个同时具有 icon 和辅助性文字的样例。
 
 ```js
-render() {
-  return (
-    <div>
-      <Alert title="成功提示的文案" type="success" description="文字说明文字说明文字说明文字说明文字说明文字说明"  showIcon />
-      <Alert title="消息提示的文案" type="info" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
-      <Alert title="警告提示的文案" type="warning" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
-      <Alert title="错误提示的文案" type="error" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
-    </div>
-  )
-}
+return (
+  <div>
+    <Alert title="成功提示的文案" type="success" description="文字说明文字说明文字说明文字说明文字说明文字说明"  showIcon />
+    <Alert title="消息提示的文案" type="info" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
+    <Alert title="警告提示的文案" type="warning" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
+    <Alert title="错误提示的文案" type="error" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
+  </div>
+)
 ```
 
 :::

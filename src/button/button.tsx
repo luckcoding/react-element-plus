@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import SafeAnchor from '../SafeAnchor';
-import { IRefForwardingComponent, WithAsProps, TypeAttributes } from '../@types/common';
+import { ElRefForwardingComponent, WithAsProps, TypeAttributes } from '../@types/common';
 
 type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'default';
 type ButtonNativeType = 'button' | 'submit' | 'reset';
@@ -28,7 +28,7 @@ const defaultProps: Partial<ButtonProps> = {
   nativeType: 'button'
 };
 
-type Button = IRefForwardingComponent<'button', ButtonProps>;
+type Button = ElRefForwardingComponent<'button', ButtonProps>;
 
 const Button: Button = React.forwardRef((props: ButtonProps, ref) => {
   const {

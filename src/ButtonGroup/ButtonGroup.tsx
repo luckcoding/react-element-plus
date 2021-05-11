@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { IRefForwardingComponent, WithAsProps } from '../@types/common';
+import { ElRefForwardingComponent, WithAsProps } from '../@types/common';
 
 export interface ButtonGroupProps extends WithAsProps {
   role?: string;
@@ -15,7 +15,7 @@ const defaultProps: Partial<ButtonGroupProps> = {
   role: 'group'
 };
 
-const ButtonGroup: IRefForwardingComponent<'div', ButtonGroupProps> = React.forwardRef(
+const ButtonGroup: ElRefForwardingComponent<'div', ButtonGroupProps> = React.forwardRef(
   (props: ButtonGroupProps, ref) => {
     const { as: Component, role, size, toggle, vertical, className, children, ...rest } = props;
 

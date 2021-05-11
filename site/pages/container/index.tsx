@@ -1,8 +1,7 @@
-import Markdown from '../../libs/markdown';
+import React from 'react';
+import { Markdown } from '../../libs';
 import './index.scss';
 
-export default class Container extends Markdown {
-  document(locale) {
-    return require(`../../docs/${locale}/container.md`);
-  }
-}
+export default () => {
+  return <Markdown name="container" />;
+};
