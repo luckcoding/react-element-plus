@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { ElRefForwardingComponent, WithAsProps } from '../@types/common';
+import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
 
 export interface SafeAnchorProps extends WithAsProps, React.HTMLAttributes<HTMLElement> {
   href?: string;

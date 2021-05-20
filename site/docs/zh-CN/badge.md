@@ -9,24 +9,22 @@
 :::demo 定义`value`属性，它接受`Number`或者`String`。
 
 ```js
-render() {
-  return (
-    <div>
-      <Badge value={12} className="item">
-        <Button className="small">评论</Button>
-      </Badge>
-      <Badge value={3} className="item">
-        <Button className="small">回复</Button>
-      </Badge>
-      <Badge value={1} className="item" type="primary">
-        <Button className="small">评论</Button>
-      </Badge>
-      <Badge value={2} className="item" type="warning">
-        <Button className="small">回复</Button>
-      </Badge>
-    </div>
-  )
-}
+return (
+  <div>
+    <Badge value={12} className="item">
+      <Button className="small">评论</Button>
+    </Badge>
+    <Badge value={3} className="item">
+      <Button className="small">回复</Button>
+    </Badge>
+    <Badge value={1} className="item" type="primary">
+      <Button className="small">评论</Button>
+    </Badge>
+    <Badge value={2} className="item" type="warning">
+      <Button className="small">回复</Button>
+    </Badge>
+  </div>
+)
 ```
 
 :::
@@ -38,18 +36,16 @@ render() {
 :::demo 由`max`属性定义，它接受一个`Number`，需要注意的是，只有当`value`为`Number`时，它才会生效。
 
 ```js
-render() {
-  return (
-    <div>
-      <Badge value={200} max={99} className="item">
-        <Button size="small">评论</Button>
-      </Badge>
-      <Badge value={100} max={10} className="item">
-        <Button size="small">回复</Button>
-      </Badge>
-    </div>
-  )
-}
+return (
+  <div>
+    <Badge value={200} max={99} className="item">
+      <Button size="small">评论</Button>
+    </Badge>
+    <Badge value={100} max={10} className="item">
+      <Button size="small">回复</Button>
+    </Badge>
+  </div>
+)
 ```
 
 :::
@@ -61,18 +57,16 @@ render() {
 :::demo 定义`value`为`String`类型是时可以用于显示自定义文本。
 
 ```js
-render() {
-  return (
-    <div>
-      <Badge value="new" className="item">
-        <Button size="small">评论</Button>
-      </Badge>
-      <Badge value="hot" className="item">
-        <Button size="small">回复</Button>
-      </Badge>
-    </div>
-  )
-}
+return (
+  <div>
+    <Badge value="new" className="item">
+      <Button size="small">评论</Button>
+    </Badge>
+    <Badge value="hot" className="item">
+      <Button size="small">回复</Button>
+    </Badge>
+  </div>
+)
 ```
 
 :::
@@ -84,16 +78,14 @@ render() {
 :::demo 除了数字外，设置`isDot`属性，它接受一个`Boolean`。
 
 ```js
-render() {
-  return (
-    <div>
-      <Badge isDot className="item">数据查询</Badge>
-      <Badge isDot className="item">
-        <Button className="share-button" icon="el-icon-share" type="primary"></Button>
-      </Badge>
-    </div>
-  )
-}
+return (
+  <div>
+    <Badge isDot className="item">数据查询</Badge>
+    <Badge isDot className="item">
+      <Button className="share-button" icon="el-icon-share" type="primary"></Button>
+    </Badge>
+  </div>
+)
 ```
 
 :::

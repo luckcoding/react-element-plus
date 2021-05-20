@@ -9,18 +9,11 @@
 :::demo 简单的 Checkbox，使用`checked`切换选中状态。
 
 ```js
-constructor(props) {
-  super(props);
-  this.state = {
-    checked: true,
-  }
-}
-onChange() {
-  this.setState({ checked: !this.state.checked })
-}
-render() {
-  return <Checkbox checked={this.state.checked} onChange={this.onChange.bind(this)}>备选项</Checkbox>
-}
+const [checked, setChecked] = React.useState(true)
+const onChange = () => setChecked(!checked)
+return (
+  <Checkbox checked={checked} onChange={onChange}>备选项</Checkbox>
+)
 ```
 
 :::
@@ -32,14 +25,12 @@ render() {
 :::demo 设置`disabled`属性即可。
 
 ```js
-render() {
-  return (
-    <div>
-      <Checkbox disabled>备选项1</Checkbox>
-      <Checkbox checked disabled>备选项2</Checkbox>
-    </div>
-  )
-}
+return (
+  <div>
+    <Checkbox disabled>备选项1</Checkbox>
+    <Checkbox checked disabled>备选项2</Checkbox>
+  </div>
+)
 ```
 
 :::
@@ -48,32 +39,23 @@ render() {
 
 适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。
 
-:::demo Checkbox.Group 元素能把多个 checkbox 管理为一组，只需要在 Group 中使用`value`绑定 Array 类型的变量即可，`label`属性除了改变 checkbox 按钮后的介绍外，同时也是该 checkbox 对应的值，`label`与数组中的元素值相对应，如果存在指定的值则为选中状态，否则为不选中。
+:::demo CheckboxGroup 元素能把多个 checkbox 管理为一组，只需要在 Group 中使用`value`绑定 Array 类型的变量即可，`label`属性除了改变 checkbox 按钮后的介绍外，同时也是该 checkbox 对应的值，`label`与数组中的元素值相对应，如果存在指定的值则为选中状态，否则为不选中。
 
 ```js
-constructor(props) {
-  super(props);
-  this.state = {
-    value: ['复选框 A', '选中且禁用']
-  }
-}
-onChange(value) {
-  this.setState({ value })
-}
-render() {
-  return (
-    <Checkbox.Group value={this.state.value} onChange={this.onChange.bind(this)}>
-      <Checkbox label="复选框 A"></Checkbox>
-      <Checkbox label="复选框 B"></Checkbox>
-      <Checkbox label="复选框 C"></Checkbox>
-      <Checkbox label="禁用" disabled></Checkbox>
-      <Checkbox label="选中且禁用" disabled></Checkbox>
-    </Checkbox.Group>
-  )
-}
+const [value, setValue] = React.useState(['复选框 A', '选中且禁用'])
+return (
+  <CheckboxGroup value={value} onChange={setValue}>
+    <Checkbox label="复选框 A"></Checkbox>
+    <Checkbox label="复选框 B"></Checkbox>
+    <Checkbox label="复选框 C"></Checkbox>
+    <Checkbox label="禁用" disabled></Checkbox>
+    <Checkbox label="选中且禁用" disabled></Checkbox>
+  </CheckboxGroup>
+)
 ```
 
 :::
+
 
 ### indeterminate 状态
 
@@ -82,55 +64,44 @@ render() {
 :::demo 设置`indeterminate`属性该表 checkbox 不确定状态.
 
 ```js
-constructor(props) {
-  super(props);
-  this.options = ['上海', '北京', '广州', '深圳'];
-  this.state = {
-    checkAll: false,
-    value: ['上海', '北京'],
-    isIndeterminate: true,
-  }
+const options = React.useMemo(() => ['上海', '北京', '广州', '深圳'], []);
+const [checkAll, setCheckAll] = React.useState(false)
+const [value, setValue] = React.useState(['上海', '北京'])
+const [isIndeterminate, setIsIndeterminate] = React.useState(true)
+
+const onChecked = (checked) => {
+  setCheckAll(!!checked)
+  setValue(checked ? options : [])
+  setIsIndeterminate(false)
 }
 
-onChecked(checked) {
-  this.setState({
-    checkAll: !!checked,
-    value: checked ? this.options : [],
-    isIndeterminate: false,
-  })
-}
-
-onChange(value) {
+const onChange = (value) => {
   let len = value.length;
-  this.setState({
-    checkAll: len === this.options.length,
-    value: value,
-    isIndeterminate: len > 0 && len < this.options.length,
-  })
+  setCheckAll(len === options.length)
+  setValue(value)
+  setIsIndeterminate(len > 0 && len < options.length)
 }
 
-render() {
-  return (
-    <div>
-      <Checkbox
-        indeterminate={this.state.isIndeterminate}
-        checked={this.state.checkAll}
-        onChange={this.onChecked.bind(this)}
-      >
-        全选
-      </Checkbox>
-      <div style={{margin: '15px 0'}}></div>
-      <Checkbox.Group
-        value={this.state.value}
-        onChange={this.onChange.bind(this)}
-      >
-        {this.options.map(label => {
-          return <Checkbox label={label} key={label}>{label}</Checkbox>
-        })}
-      </Checkbox.Group>
-    </div>
-  )
-}
+return (
+  <div>
+    <Checkbox
+      indeterminate={isIndeterminate}
+      checked={checkAll}
+      onChange={onChecked}
+    >
+      全选
+    </Checkbox>
+    <div style={{margin: '15px 0'}}></div>
+    <CheckboxGroup
+      value={value}
+      onChange={onChange}
+    >
+      {options.map(label => {
+        return <Checkbox label={label} key={label}>{label}</Checkbox>
+      })}
+    </CheckboxGroup>
+  </div>
+)
 ```
 
 :::
@@ -142,39 +113,28 @@ render() {
 :::demo
 
 ```js
-constructor(props) {
-  super(props);
-  this.options = ['上海', '北京', '广州', '深圳'];
-  this.state = {
-    value: ['上海', '北京'],
-  }
-}
+const options = React.useMemo(() => ['上海', '北京', '广州', '深圳'], []);
+const [value, setValue] = React.useState(['上海', '北京'])
 
-onChange(value) {
+const onChange = (value) => {
   let len = value.length;
-  this.setState({
-    checkAll: len === this.options.length,
-    value: value,
-    isIndeterminate: len > 0 && len < this.options.length,
-  })
+  setCheckAll(len === options.length)
+  setValue(value)
+  setIsIndeterminate(len > 0 && len < options.length)
 }
 
-render() {
-  return (
-    <div>
-      <Checkbox.Group
-        min={1}
-        max={2}
-        value={this.state.value}
-        onChange={this.onChange.bind(this)}
-      >
-        {this.options.map(label => {
-          return <Checkbox label={label} key={label}>{label}</Checkbox>
-        })}
-      </Checkbox.Group>
-    </div>
-  )
-}
+return (
+  <CheckboxGroup
+    min={1}
+    max={2}
+    value={value}
+    onChange={onChange}
+  >
+    {options.map(label => {
+      return <Checkbox label={label} key={label}>{label}</Checkbox>
+    })}
+  </CheckboxGroup>
+)
 ```
 
 :::
@@ -183,76 +143,59 @@ render() {
 
 按钮样式的多选组合。
 
-:::demo 只需要把`Checkbox`元素替换为`Checkbox.Button`元素即可。此外，Element 还提供了`size`属性，支持`large`和`small`两种。
+:::demo 只需要把`Checkbox`元素替换为`CheckboxButton`元素即可。此外，Element 还提供了`size`属性，支持`large`和`small`两种。
 
 `````js
-constructor(props) {
-  super(props);
-  this.options = ['上海', '北京', '广州', '深圳'];
-  this.state = {
-    value: ['上海', '北京'],
-  }
-}
+const options = React.useMemo(() => ['上海', '北京', '广州', '深圳'], []);
+const [value, setValue] = React.useState(['上海', '北京'])
 
-onChange(value) {
+const onChange = (value) => {
   let len = value.length;
-  this.setState({
-    checkAll: len === this.options.length,
-    value: value,
-    isIndeterminate: len > 0 && len < this.options.length,
-  })
+  setCheckAll(len === options.length)
+  setValue(value)
+  setIsIndeterminate(len > 0 && len < options.length)
 }
 
-render() {
-  return (
-    <div>
-      <div>
-        <Checkbox.Group
-          value={this.state.value}
-          onChange={this.onChange.bind(this)}
-        >
-          {this.options.map(label => {
-            return <Checkbox.Button label={label} key={label}>{label}</Checkbox.Button>
-          })}
-        </Checkbox.Group>
-      </div>
-      <div>
-        <Checkbox.Group
-          value={this.state.value}
-          onChange={this.onChange.bind(this)}
-          size="medium"
-        >
-          {this.options.map(label => {
-            return <Checkbox.Button label={label} key={label}>{label}</Checkbox.Button>
-          })}
-        </Checkbox.Group>
-      </div>
-      <div>
-        <Checkbox.Group
-          value={this.state.value}
-          onChange={this.onChange.bind(this)}
-          size="small"
-        >
-          {this.options.map(label => {
-            return <Checkbox.Button label={label} key={label} disabled={label === '北京'}>{label}</Checkbox.Button>
-          })}
-        </Checkbox.Group>
-      </div>
-      <div>
-        <Checkbox.Group
-          value={this.state.value}
-          onChange={this.onChange.bind(this)}
-          size="mini"
-          disabled
-        >
-          {this.options.map(label => {
-            return <Checkbox.Button label={label} key={label}>{label}</Checkbox.Button>
-          })}
-        </Checkbox.Group>
-      </div>
-    </div>
-  )
-}
+return (
+  <div>
+    <CheckboxGroup
+      value={value}
+      onChange={onChange}
+    >
+      {options.map(label => {
+        return <CheckboxButton label={label} key={label}>{label}</CheckboxButton>
+      })}
+    </CheckboxGroup>
+    <CheckboxGroup
+      value={value}
+      onChange={onChange}
+      size="medium"
+    >
+      {options.map(label => {
+        return <CheckboxButton label={label} key={label}>{label}</CheckboxButton>
+      })}
+    </CheckboxGroup>
+    <CheckboxGroup
+      value={value}
+      onChange={onChange}
+      size="small"
+    >
+      {options.map(label => {
+        return <CheckboxButton label={label} key={label} disabled={label === '北京'}>{label}</CheckboxButton>
+      })}
+    </CheckboxGroup>
+    <CheckboxGroup
+      value={value}
+      onChange={onChange}
+      size="mini"
+      disabled
+    >
+      {options.map(label => {
+        return <CheckboxButton label={label} key={label}>{label}</CheckboxButton>
+      })}
+    </CheckboxGroup>
+  </div>
+)
 ```
 :::
 
@@ -260,20 +203,15 @@ render() {
 
 :::demo 设置`border`属性可以渲染为带有边框的多选框。
 ````js
-constructor(props) {
-  super(props);
-  this.options = ['上海', '北京', '广州', '深圳'];
-  this.state = {
-    value: [],
-  }
+const options = React.useMemo(() => ['上海', '北京', '广州', '深圳'], []);
+const [value, setValue] = React.useState([])
+
+const onChange = (value) => {
+  setValue(value)
 }
 
-onChange(value) {
-  this.setState({ value })
-}
-
-handleChange(checked, label) {
-  let value = [...this.state.value]
+const handleChange = (checked, label) => {
+  let value = [...value]
   const index = value.indexOf(label)
   if (checked) {
     if (index === -1) {
@@ -282,62 +220,62 @@ handleChange(checked, label) {
   } else {
     value.splice(index, 1)
   }
-  this.setState({ value })
+  setValue(value)
 }
 
-render() {
-  const value = this.state.value;
-  return (
+return (
+  <div>
     <div>
-      <div>
-        <Checkbox
-          checked={value.indexOf('备选项1') !== -1}
-          onChange={checked => this.handleChange(checked, '备选项1')}
-          label="备选项1"
-          border
-        />
-        <Checkbox
-          checked={value.indexOf('备选项2') !== -1}
-          onChange={checked => this.handleChange(checked, '备选项2')}
-          label="备选项2"
-          border
-        />
-      </div>
-      <div>
-        <Checkbox
-          checked={value.indexOf('备选项1') !== -1}
-          onChange={checked => this.handleChange(checked, '备选项1')}
-          label="备选项1"
-          border
-          size="medium"
-        />
-        <Checkbox
-          checked={value.indexOf('备选项2') !== -1}
-          onChange={checked => this.handleChange(checked, '备选项2')}
-          label="备选项2"
-          border
-          size="medium"
-        />
-      </div>
-      <div>
-        <Checkbox.Group value={value} onChange={this.onChange.bind(this)} size="small">
-          <Checkbox label="备选项1" border></Checkbox>
-          <Checkbox label="备选项2" border disabled></Checkbox>
-        </Checkbox.Group>
-      </div>
-      <div>
-        <Checkbox.Group value={value} onChange={this.onChange.bind(this)} size="mini" disabled>
-          <Checkbox label="备选项1" border></Checkbox>
-          <Checkbox label="备选项2" border></Checkbox>
-        </Checkbox.Group>
-      </div>
+      <Checkbox
+        checked={value.indexOf('备选项1') !== -1}
+        onChange={checked => handleChange(checked, '备选项1')}
+        label="备选项1"
+        border
+      />
+      <Checkbox
+        checked={value.indexOf('备选项2') !== -1}
+        onChange={checked => handleChange(checked, '备选项2')}
+        label="备选项2"
+        border
+      />
     </div>
-  )
-}
+    <div>
+      <Checkbox
+        checked={value.indexOf('备选项1') !== -1}
+        onChange={checked => handleChange(checked, '备选项1')}
+        label="备选项1"
+        border
+        size="medium"
+      />
+      <Checkbox
+        checked={value.indexOf('备选项2') !== -1}
+        onChange={checked => handleChange(checked, '备选项2')}
+        label="备选项2"
+        border
+        size="medium"
+      />
+    </div>
+    <div>
+      <CheckboxGroup value={value} onChange={onChange} size="small">
+        <Checkbox label="备选项1" border></Checkbox>
+        <Checkbox label="备选项2" border disabled></Checkbox>
+      </CheckboxGroup>
+    </div>
+    <div>
+      <CheckboxGroup value={value} onChange={onChange} size="mini" disabled>
+        <Checkbox label="备选项1" border></Checkbox>
+        <Checkbox label="备选项2" border></Checkbox>
+      </CheckboxGroup>
+    </div>
+  </div>
+)
 ```
 :::
 
+
+
 ### Checkbox Attributes
+
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | value / v-model | 绑定值 | string / number / boolean | — | — |

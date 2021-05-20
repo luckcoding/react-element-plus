@@ -24,10 +24,10 @@ const open2 = () => {
   });
 }
 return (
-  <div>
+  <React.Fragment>
     <Button plain={true} onClick={open1}>可自动关闭</Button>
     <Button plain={true} onClick={open2}>不会自动关闭</Button>
-  </div>
+  </React.Fragment>
 )
 ```
 
@@ -70,12 +70,12 @@ const open4 = () => {
   });
 }
 return (
-  <div>
+  <React.Fragment>
     <Button plain={true} onClick={open1}>成功</Button>
     <Button plain={true} onClick={open2}>警告</Button>
     <Button plain={true} onClick={open3}>消息</Button>
     <Button plain={true} onClick={open4}>错误</Button>
-  </div>
+  </React.Fragment>
 )
 ```
 
@@ -119,12 +119,12 @@ const open4 = () => {
   });
 }
 return (
-  <div>
+  <React.Fragment>
     <Button plain={true} onClick={open1}>右上角</Button>
     <Button plain={true} onClick={open2}>右下角</Button>
     <Button plain={true} onClick={open3}>左下角</Button>
     <Button plain={true} onClick={open4}>左上角</Button>
-  </div>
+  </React.Fragment>
 )
 ```
 

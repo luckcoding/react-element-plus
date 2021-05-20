@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Transition from '../Transition';
 import { useTimeout } from '../_utils';
-import { ElRefForwardingComponent, WithAsProps } from '../@types/common';
+import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
 import { Position, Type } from './types';
 
 export interface NotificationProps extends WithAsProps {

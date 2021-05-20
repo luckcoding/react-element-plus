@@ -9,37 +9,35 @@
 :::demo
 
 ```js
-render() {
-  const circleUrl = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png';
-  const squareUrl = 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png';
-  const sizeList = ['large', 'medium', 'small'];
-  return (
-    <Row className="demo-basic">
-      <Col span={12}>
-        <div className="sub-title">circle</div>
-        <div className="demo-basic--circle">
-          <div className="block"><Avatar size={50} src={circleUrl}></Avatar></div>
-          {sizeList.map(size => (
-            <div className="block" key={size}>
-              <Avatar size={size} src={circleUrl}></Avatar>
-            </div>
-          ))}
-        </div>
-      </Col>
-      <Col span={12}>
-        <div className="sub-title">square</div>
-        <div className="demo-basic--circle">
-          <div className="block"><Avatar shape="square" size={50} src={squareUrl}></Avatar></div>
-          {sizeList.map(size => (
-            <div className="block" key={size}>
-              <Avatar shape="square" size={size} src={squareUrl}></Avatar>
-            </div>
-          ))}
-        </div>
-      </Col>
-    </Row>
-  )
-}
+const circleUrl = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png';
+const squareUrl = 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png';
+const sizeList = ['large', 'medium', 'small'];
+return (
+  <Row className="demo-basic">
+    <Col span={12}>
+      <div className="sub-title">circle</div>
+      <div className="demo-basic--circle">
+        <div className="block"><Avatar size={50} src={circleUrl}></Avatar></div>
+        {sizeList.map(size => (
+          <div className="block" key={size}>
+            <Avatar size={size} src={circleUrl}></Avatar>
+          </div>
+        ))}
+      </div>
+    </Col>
+    <Col span={12}>
+      <div className="sub-title">square</div>
+      <div className="demo-basic--circle">
+        <div className="block"><Avatar shape="square" size={50} src={squareUrl}></Avatar></div>
+        {sizeList.map(size => (
+          <div className="block" key={size}>
+            <Avatar shape="square" size={size} src={squareUrl}></Avatar>
+          </div>
+        ))}
+      </div>
+    </Col>
+  </Row>
+)
 ```
 
 :::
@@ -51,21 +49,19 @@ render() {
 :::demo
 
 ```js
-render() {
-  return (
-    <div className="demo-type">
-      <div>
-        <Avatar icon="el-icon-user-solid"></Avatar>
-      </div>
-      <div>
-        <Avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
-      </div>
-      <div>
-        <Avatar>user</Avatar>
-      </div>
+return (
+  <div className="demo-type">
+    <div>
+      <Avatar icon="el-icon-user-solid"></Avatar>
     </div>
-  )
-}
+    <div>
+      <Avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+    </div>
+    <div>
+      <Avatar>user</Avatar>
+    </div>
+  </div>
+)
 ```
 
 :::
@@ -77,16 +73,14 @@ render() {
 :::demo
 
 ```js
-render() {
-  const errorHandler = () => true;
-  return (
-    <div className="demo-type">
-      <Avatar size={60} src="https://empty" onError={errorHandler}>
-        <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
-      </Avatar>
-    </div>
-  )
-}
+const errorHandler = () => true;
+return (
+  <div className="demo-type">
+    <Avatar size={60} src="https://empty" onError={errorHandler}>
+      <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
+    </Avatar>
+  </div>
+)
 ```
 
 :::
@@ -98,20 +92,18 @@ render() {
 :::demo
 
 ```js
-render() {
-  const fits = ['fill', 'contain', 'cover', 'none', 'scale-down'];
-  const url = 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
-  return (
-    <div className="demo-fit">
-      {fits.map((fit, k) => (
-        <div className="block" key={k}>
-          <span className="title">{fit}</span>
-          <Avatar shape="square" size={100} fit={fit} src={url} />
-        </div>
-      ))}
-    </div>
-  )
-}
+const fits = ['fill', 'contain', 'cover', 'none', 'scale-down'];
+const url = 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
+return (
+  <div className="demo-fit">
+    {fits.map((fit, k) => (
+      <div className="block" key={k}>
+        <span className="title">{fit}</span>
+        <Avatar shape="square" size={100} fit={fit} src={url} />
+      </div>
+    ))}
+  </div>
+)
 ```
 
 :::

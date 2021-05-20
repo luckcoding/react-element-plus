@@ -1,4 +1,4 @@
-interface GlobalConfig { size?: ComponentSize, zIndex?: number}
+export interface GlobalConfig { size?: ComponentSize, zIndex?: number}
 
 const globalConfig: GlobalConfig = {
   size: 'medium',

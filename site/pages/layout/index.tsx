@@ -1,7 +1,7 @@
-import Markdown from '../../libs/markdown';
+import React from 'react';
+import { Markdown } from '../../libs';
+import './index.scss';
 
-export default class Layout extends Markdown {
-  document(locale) {
-    return require(`../../docs/${locale}/layout.md`);
-  }
-}
+export default () => {
+  return <Markdown name="layout" />;
+};

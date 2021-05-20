@@ -8,14 +8,12 @@
 :::demo
 
 ```js
-render() {
-  return (
-    <div>
-      Scroll down to see the bottom-right button.
-      <Backtop target="body" />
-    </div>
-  )
-}
+return (
+  <div>
+    Scroll down to see the bottom-right button.
+    <Backtop target=".content" />
+  </div>
+)
 ```
 
 :::
@@ -26,28 +24,26 @@ render() {
 :::demo
 
 ```js
-render() {
-  return (
-    <div>
-      Scroll down to see the bottom-right button.
-      <Backtop target="body" bottom={100}>
-        <div
-          style={{
-            height: '100%',
-            width: '100%',
-            backgroundColor: '#f2f5f6',
-            boxShadow: '0 0 6px rgba(0,0,0, .12)',
-            textAlign: 'center',
-            lineHeight: '40px',
-            color: '#1989fa',
-          }}
-        >
-          UP
-        </div>
-      </Backtop>
-    </div>
-  )
-}
+return (
+  <div>
+    Scroll down to see the bottom-right button.
+    <Backtop target=".content" bottom={100}>
+      <div
+        style={{
+          height: '100%',
+          width: '100%',
+          backgroundColor: '#f2f5f6',
+          boxShadow: '0 0 6px rgba(0,0,0, .12)',
+          textAlign: 'center',
+          lineHeight: '40px',
+          color: '#1989fa',
+        }}
+      >
+        UP
+      </div>
+    </Backtop>
+  </div>
+)
 ```
 
 :::

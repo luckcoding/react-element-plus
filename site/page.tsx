@@ -93,28 +93,26 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <header className="header">
-          <div className="container">
-            <h1>Crude UI</h1>
-            <ul className="nav">
-              <li className="nav-item">
-                <span
-                  className={classnames('nav-lang', { active: this.state.locale === 'zh-CN' })}
-                  onClick={this.setLocale.bind(this, 'zh-CN')}
-                >
-                  中文
-                </span>
-                <span> / </span>
-                <span
-                  className={classnames('nav-lang', { active: this.state.locale === 'en-US' })}
-                  onClick={this.setLocale.bind(this, 'en-US')}
-                >
-                  En
-                </span>
-              </li>
-            </ul>
-          </div>
+          <h1>Crude UI</h1>
+          <ul className="nav">
+            <li className="nav-item">
+              <span
+                className={classnames('nav-lang', { active: this.state.locale === 'zh-CN' })}
+                onClick={this.setLocale.bind(this, 'zh-CN')}
+              >
+                中文
+              </span>
+              <span> / </span>
+              <span
+                className={classnames('nav-lang', { active: this.state.locale === 'en-US' })}
+                onClick={this.setLocale.bind(this, 'en-US')}
+              >
+                En
+              </span>
+            </li>
+          </ul>
         </header>
-        <div className="main container">
+        <div className="main">
           <nav className="side-nav">
             <ul>
               <li className="nav-item">
@@ -154,9 +152,11 @@ export default class App extends React.Component {
               </li>
             </ul>
           </nav>
-          <div className="content">{this.getComponent(this.state.page)}</div>
+          <div className="content">
+            {this.getComponent(this.state.page)}
+          </div>
         </div>
-        <footer className="footer">
+        {/* <footer className="footer">
           <div className="container">
             <div className="footer-main">
               <p className="footer-main-title">react-element-plus</p>
@@ -167,7 +167,7 @@ export default class App extends React.Component {
               </a>
             </div>
           </div>
-        </footer>
+        </footer> */}
       </div>
     );
   }

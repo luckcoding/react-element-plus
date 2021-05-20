@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ReactTransition from 'react-transition-group/Transition';
+import ReactTransition, { TransitionStatus } from 'react-transition-group/Transition';
 import { transitionEndListener, triggerBrowserReflow } from '../_utils';
-import { TransitionCallbacks } from '../@types/common'
+import { TransitionCallbacks } from '../_utils/types'
 
 export interface TransitionProps extends TransitionCallbacks {
   in?: boolean
@@ -13,7 +13,9 @@ export interface TransitionProps extends TransitionCallbacks {
   className?: string
   timeout?: number
   children: React.ReactElement
-  transitionClass?: any
+  transitionClass: {
+    [K in TransitionStatus]?: string;
+  }
 }
 
 const defaultProps: Partial<TransitionProps> = {

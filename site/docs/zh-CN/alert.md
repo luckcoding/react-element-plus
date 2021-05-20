@@ -10,12 +10,12 @@
 
 ```js
 return (
-  <div>
+  <React.Fragment>
     <Alert title="成功提示的文案" type="success" />
     <Alert title="消息提示的文案" type="info" />
     <Alert title="警告提示的文案" type="warning" />
     <Alert title="错误提示的文案" type="error" />
-  </div>
+  </React.Fragment>
 )
 ```
 
@@ -29,12 +29,12 @@ Alert 组件提供了两个不同的主题：`light`和`dark`。
 
 ```js
 return (
-  <div>
+  <React.Fragment>
     <Alert title="成功提示的文案" type="success" effect="dark" />
     <Alert title="消息提示的文案" type="info" effect="dark" />
     <Alert title="警告提示的文案" type="warning" effect="dark" />
     <Alert title="错误提示的文案" type="error" effect="dark" />
-  </div>
+  </React.Fragment>
 )
 ```
 
@@ -48,11 +48,11 @@ return (
 
 ```js
 return (
-  <div>
+  <React.Fragment>
     <Alert title="不可关闭的 alert" type="success" closable={false} />
     <Alert title="自定义 close-text" type="info" closeText="知道了" />
     <Alert title="设置了回调的 alert" type="warning" onClose={() => alert('Hello World!')}/>
-  </div>
+  </React.Fragment>
 )
 ```
 
@@ -66,12 +66,12 @@ return (
 
 ```js
 return (
-  <div>
+  <React.Fragment>
     <Alert title="成功提示的文案" type="success" showIcon />
     <Alert title="消息提示的文案" type="info" showIcon />
     <Alert title="警告提示的文案" type="warning" showIcon />
     <Alert title="错误提示的文案" type="error" showIcon />
-  </div>
+  </React.Fragment>
 )
 ```
 
@@ -85,12 +85,12 @@ return (
 
 ```js
 return (
-  <div>
+  <React.Fragment>
     <Alert title="成功提示的文案" type="success" center />
     <Alert title="消息提示的文案" type="info" center />
     <Alert title="警告提示的文案" type="warning" center />
     <Alert title="错误提示的文案" type="error" center />
-  </div>
+  </React.Fragment>
 )
 ```
 
@@ -119,12 +119,12 @@ return (
 
 ```js
 return (
-  <div>
+  <React.Fragment>
     <Alert title="成功提示的文案" type="success" description="文字说明文字说明文字说明文字说明文字说明文字说明"  showIcon />
     <Alert title="消息提示的文案" type="info" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
     <Alert title="警告提示的文案" type="warning" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
     <Alert title="错误提示的文案" type="error" description="文字说明文字说明文字说明文字说明文字说明文字说明" showIcon />
-  </div>
+  </React.Fragment>
 )
 ```
 
@@ -132,14 +132,16 @@ return (
 
 ### Attributes
 
-| 参数        | 说明               | 类型    | 可选值                     | 默认值 |
-| ----------- | ------------------ | ------- | -------------------------- | ------ |
-| **title**   | 标题，**必选参数** | string  | —                          | —      |
-| type        | 主题               | string  | success/warning/info/error | info   |
-| description | 辅助性文字         | string  | —                          | —      |
-| closable    | 是否可关闭         | boolean | —                          | true   |
-| closeText   | 关闭按钮自定义文本 | string  | —                          | —      |
-| showIcon    | 是否显示图标       | boolean | —                          | false  |
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| title     | 标题           | string | — | — |
+| type | 主题 | string | success/warning/info/error | info |
+| description | 辅助性文字。也可通过默认 slot 传入 | string | — | — |
+| closable | 是否可关闭 | boolean | — | true |
+| center | 文字是否居中 | boolean | — | true |
+| closeText | 关闭按钮自定义文本 | string | — | — |
+| showIcon | 是否显示图标 | boolean | — | false |
+| effect | 选择提供的主题 | string | light/dark | light |
 
 ### Events
 

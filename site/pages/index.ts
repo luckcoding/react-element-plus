@@ -6,7 +6,7 @@ export default {
   },
   components: {
     Basic: {
-      // 'layout': require('./layout'),
+      'layout': require('./layout'),
       container: require('./container'),
       // 'color': require('./color'),
       // 'typography': require('./typography'),
@@ -15,9 +15,9 @@ export default {
       button: require('./button')
       // 'link': require('./link'),
     },
-    // 'Form': {
+    'Form': {
     //   'radio': require('./radio'),
-    //   'checkbox': require('./checkbox'),
+      'checkbox': require('./checkbox'),
     // //   'input': require('./input'),
     // //   'input-number': require('./input-number'),
     // //   'select': require('./select'),
@@ -32,16 +32,16 @@ export default {
     // //   'color-picker': require('./color-picker'),
     // //   'transfer': require('./transfer'),
     // //   'form': require('./form')
-    // },
-    // 'Data': {
+    },
+    'Data': {
     // //   'table': require('./table'),
     //   'tag': require('./tag'),
     //   'progress': require('./progress'),
     // //   'tree': require('./tree'),
     // //   'pagination': require('./pagination'),
-    //   'badge': require('./badge'),
-    //   'avatar': require('./avatar')
-    // },
+      'badge': require('./badge'),
+      'avatar': require('./avatar')
+    },
     'Notice': {
       'alert': require('./alert'),
     //   // 'loading': require('./loading'),
@@ -56,14 +56,14 @@ export default {
     // //   'dropdown': require('./dropdown'),
     // //   'steps': require('./steps')
     // },
-    // 'Others': {
+    'Others': {
     //   // 'dialog': require('./dialog'),
     //   'tooltip': require('./tooltip'),
     // //   'popover': require('./popover'),
     // //   'card': require('./card'),
     // //   'carousel': require('./carousel'),
     // //   'collapse': require('./collapse'),
-    //   'backtop': require('./backtop')
-    // }
+      'backtop': require('./backtop')
+    }
   }
 };

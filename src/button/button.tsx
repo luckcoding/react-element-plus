@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import SafeAnchor from '../SafeAnchor';
-import { ElRefForwardingComponent, WithAsProps, TypeAttributes } from '../@types/common';
+import { ElRefForwardingComponent, WithAsProps, TypeAttributes } from '../_utils/types';
 
 type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'default';
 type ButtonNativeType = 'button' | 'submit' | 'reset';

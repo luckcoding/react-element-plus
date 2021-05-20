@@ -89,11 +89,14 @@ const Alert = React.forwardRef<CSSTransition<any>, AlertProps>(({
 
   return (
     <Transition
-      name="el-alert-fade"
       unmountOnExit
       ref={ref}
       in={display}
       onExited={onCloseProp}
+      transitionClass={{
+        exiting: 'el-alert-fade-leave-active',
+        exited: 'el-alert-fade-enter-from'
+      }}
     >
       <div
         role="alert"

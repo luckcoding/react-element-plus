@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { ElRefForwardingComponent, WithAsProps } from '../@types/common';
+import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
 
 export interface ButtonGroupProps extends WithAsProps {
   role?: string;
