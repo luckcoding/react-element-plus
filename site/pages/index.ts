@@ -6,7 +6,7 @@ export default {
   },
   components: {
     Basic: {
-      'layout': require('./layout'),
+      layout: require('./layout'),
       container: require('./container'),
       // 'color': require('./color'),
       // 'typography': require('./typography'),
@@ -49,13 +49,14 @@ export default {
     //   // 'message-box': require('./message-box'),
       notification: require('./notification')
     },
-    // // 'Nav': {
-    // //   'menu': require('./menu'),
-    // //   'tabs': require('./tabs'),
-    // //   'breadcrumb': require('./breadcrumb'),
-    // //   'dropdown': require('./dropdown'),
-    // //   'steps': require('./steps')
-    // },
+    'Nav': {
+      affix: require('./affix'),
+      // 'menu': require('./menu'),
+      // 'tabs': require('./tabs'),
+      // 'breadcrumb': require('./breadcrumb'),
+      // 'dropdown': require('./dropdown'),
+      // 'steps': require('./steps')
+    },
     'Others': {
     //   // 'dialog': require('./dialog'),
     //   'tooltip': require('./tooltip'),
@@ -63,7 +64,7 @@ export default {
     // //   'card': require('./card'),
     // //   'carousel': require('./carousel'),
     // //   'collapse': require('./collapse'),
-      'backtop': require('./backtop')
+      backtop: require('./backtop')
     }
   }
 };

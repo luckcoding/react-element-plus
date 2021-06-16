@@ -106,6 +106,7 @@ Transition.propTypes = {
    */
   onExited: PropTypes.func,
 };
+
 Transition.defaultProps = defaultProps;
 
 export default Transition;
