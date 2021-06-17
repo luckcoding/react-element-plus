@@ -8,9 +8,9 @@ export default {
     Basic: {
       layout: require('./layout'),
       container: require('./container'),
-      // 'color': require('./color'),
-      // 'typography': require('./typography'),
-      // 'border': require('./border'),
+      color: require('./color'),
+      typography: require('./typography'),
+      border: require('./border'),
       // 'icon': require('./icon'),
       button: require('./button')
       // 'link': require('./link'),

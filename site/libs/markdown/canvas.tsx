@@ -70,7 +70,6 @@ const Canvas: React.FC<CanvasProps> = ({ document, translation, name }) => {
         <div className="meta">
           {description && (
             <div
-              ref="description"
               className="description"
               dangerouslySetInnerHTML={{ __html: description }}
             />
