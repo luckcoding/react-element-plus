@@ -11,7 +11,7 @@ export default {
       color: require('./color'),
       typography: require('./typography'),
       border: require('./border'),
-      // 'icon': require('./icon'),
+      icon: require('./icon'),
       button: require('./button')
       // 'link': require('./link'),
     },

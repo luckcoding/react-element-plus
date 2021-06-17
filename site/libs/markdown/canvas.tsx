@@ -11,9 +11,10 @@ interface CanvasProps {
     [key: string]: string;
   };
   document: string;
+  [key: string]: any
 }
 
-const Canvas: React.FC<CanvasProps> = ({ document, translation, name }) => {
+const Canvas: React.FC<CanvasProps> = ({ document, translation, name, ...props }) => {
   const playerId = useMemo(() => `${(Math.random() * 1e9).toString(36)}`, []);
   const [showBlock, setShowBlock] = useState(false);
 
@@ -26,7 +27,7 @@ const Canvas: React.FC<CanvasProps> = ({ document, translation, name }) => {
       const Element = await import('../../../src');
 
       const args = ['context', 'React', 'ReactDOM'];
-      const argv = [this, React, ReactDOM];
+      const argv = [{ ...props }, React, ReactDOM];
       for (const key in Element) {
         args.push(key);
         argv.push(Element[key]);
@@ -34,11 +35,11 @@ const Canvas: React.FC<CanvasProps> = ({ document, translation, name }) => {
 
       const code = transform(
         `
-        const Demo = () => {
+        const Demo = (props) => {
           ${value}
         }
 
-        ReactDOM.render(<Demo />, document.getElementById('${playerId}'))
+        ReactDOM.render(<Demo {...context} />, document.getElementById('${playerId}'))
       `,
         {
           presets: ['es2015', 'react']
@@ -46,6 +47,8 @@ const Canvas: React.FC<CanvasProps> = ({ document, translation, name }) => {
       ).code;
 
       args.push(code);
+
+      console.log(args, argv)
 
       new Function(...args).apply(null, argv);
     } catch (err) {

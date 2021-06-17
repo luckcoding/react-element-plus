@@ -7,9 +7,10 @@ import Canvas from './canvas';
 
 interface MarkdownProps {
   name: string;
+  [key: string]: any
 }
 
-const Markdown: React.FC<MarkdownProps> = ({ name }) => {
+const Markdown: React.FC<MarkdownProps> = ({ name, ...props }) => {
   const components = useMemo(() => new Map(), []);
   const renderer = useMemo(() => new marked.Renderer(), []);
   renderer.table = (header, body) => {
@@ -46,7 +47,7 @@ const Markdown: React.FC<MarkdownProps> = ({ name }) => {
 
       components.set(
         id,
-        <Canvas name={name} translation={locales[locale]?.markdown} document={p1} />
+        <Canvas name={name} translation={locales[locale]?.markdown} document={p1} {...props} />
       );
 
       return `<div id=${id}></div>`;

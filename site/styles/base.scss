@@ -385,3 +385,17 @@ table.large {
     padding-left: 10px;
   }
 }
+
+.icon-list {
+  li {
+    list-style: none;
+  }
+  &:after {
+    content: '';
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+  }
+}
