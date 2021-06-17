@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import React, { useMemo } from 'react';
-import Transition from '../Transition';
+import Fade from '../Fade';
 import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
 
 const Type = ['primary', 'success', 'warning', 'info', 'danger'] as const
@@ -60,7 +60,7 @@ const Badge: ElRefForwardingComponent<'div', BadgeProps> = React.forwardRef(({
       className={classnames('el-badge', className)}
     >
       {children}
-      <Transition
+      <Fade
         unmountOnExit
         in={isShow}
         transitionClass={{
@@ -69,7 +69,7 @@ const Badge: ElRefForwardingComponent<'div', BadgeProps> = React.forwardRef(({
         }}
       >
         <sup className={classes}>{content}</sup>
-      </Transition>
+      </Fade>
     </Component>
   );
 });

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSTransition from 'react-transition-group/CSSTransition';
-import Transition from '../Transition';
+import Fade from '../Fade';
 
 type AlertType = 'success' | 'info' | 'error' | 'warning'
 
@@ -88,7 +88,7 @@ const Alert = React.forwardRef<CSSTransition<any>, AlertProps>(({
   );
 
   return (
-    <Transition
+    <Fade
       unmountOnExit
       ref={ref}
       in={display}
@@ -110,7 +110,7 @@ const Alert = React.forwardRef<CSSTransition<any>, AlertProps>(({
           {closable && <i className={closeClasses} onClick={onClose}>{closeText}</i>}
         </div>
       </div>
-    </Transition>
+    </Fade>
   );
 });
 

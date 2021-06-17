@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import throttle from 'lodash/throttle'
-import Transition from '../transition';
+import Fade from '../Fade';
 import { easeInOutCubic } from '../_utils/animation';
 import { off, on } from '../_utils/dom';
 
@@ -90,7 +90,7 @@ const Backtop: React.FC<BacktopProps> = (props) => {
   style.bottom = `${bottom}px`
 
   return (
-    <Transition
+    <Fade
       transitionClass={{
         exiting: 'el-fade-in-leave-active',
         exited: 'el-fade-in-enter-from'
@@ -105,7 +105,7 @@ const Backtop: React.FC<BacktopProps> = (props) => {
       >
         {children || <i className="el-icon-caret-top" />}
       </div>
-    </Transition>
+    </Fade>
   )
 }
 

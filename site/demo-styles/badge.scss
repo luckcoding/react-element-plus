@@ -1,4 +1,4 @@
-.demo-badge.demo-block .cr-dropdown {
+.demo-badge.demo-block .#{$namespace}-dropdown {
   vertical-align: middle;
 }
 .demo-badge.demo-block {
@@ -15,6 +15,5 @@
 
   .item {
     margin-right: 40px;
-    margin-top: 10px;
   }
 }

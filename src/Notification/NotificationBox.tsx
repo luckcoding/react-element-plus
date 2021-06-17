@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Transition from '../Transition';
+import Fade from '../Fade';
 import { useTimeout } from '../_utils';
 import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
 import { Position, Type } from './types';
@@ -88,7 +88,7 @@ const Notification: ElRefForwardingComponent<'div', NotificationProps> = React.f
   }), [position, offset])
 
   return (
-    <Transition
+    <Fade
       unmountOnExit
       in={display}
       transitionClass={{
@@ -115,7 +115,7 @@ const Notification: ElRefForwardingComponent<'div', NotificationProps> = React.f
         </div>
         {showClose && <i className="el-notification__closeBtn el-icon-close" onClick={handleClose} />}
       </Component>
-    </Transition>
+    </Fade>
   )
 })
 

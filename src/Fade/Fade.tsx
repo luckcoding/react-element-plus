@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ReactTransition, { TransitionStatus } from 'react-transition-group/Transition';
+import Transition, { TransitionStatus } from 'react-transition-group/Transition';
 import { transitionEndListener, triggerBrowserReflow } from '../_utils';
 import { TransitionCallbacks } from '../_utils/types'
 
-export interface TransitionProps extends TransitionCallbacks {
+export interface FadeProps extends TransitionCallbacks {
   in?: boolean
   mountOnEnter?: boolean
   unmountOnExit?: boolean
@@ -18,7 +18,7 @@ export interface TransitionProps extends TransitionCallbacks {
   }
 }
 
-const defaultProps: Partial<TransitionProps> = {
+const defaultProps: Partial<FadeProps> = {
   in: false,
   timeout: 3000,
   mountOnEnter: false,
@@ -26,7 +26,7 @@ const defaultProps: Partial<TransitionProps> = {
   appear: true,
 };
 
-const Transition = React.forwardRef<ReactTransition<any>, TransitionProps>((props, ref) => {
+const Fade = React.forwardRef<Transition<any>, FadeProps>((props, ref) => {
   const { transitionClass, onEnter, className, children, ...rest } = props
 
   const handleEnter = useCallback(
@@ -38,7 +38,7 @@ const Transition = React.forwardRef<ReactTransition<any>, TransitionProps>((prop
   );
 
   return (
-    <ReactTransition
+    <Transition
       ref={ref}
       addEndListener={transitionEndListener}
       {...rest}
@@ -54,11 +54,11 @@ const Transition = React.forwardRef<ReactTransition<any>, TransitionProps>((prop
           ),
         })
       }}
-    </ReactTransition>
+    </Transition>
   )
 })
 
-Transition.propTypes = {
+Fade.propTypes = {
   /**
    * Show the component; triggers the fade in or fade out animation
    */
@@ -107,7 +107,7 @@ Transition.propTypes = {
   onExited: PropTypes.func,
 };
 
-Transition.defaultProps = defaultProps;
+Fade.defaultProps = defaultProps;
 
-export default Transition;
+export default Fade;
 
