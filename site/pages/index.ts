@@ -17,7 +17,7 @@ export default {
     },
     'Form': {
     //   'radio': require('./radio'),
-      'checkbox': require('./checkbox'),
+      checkbox: require('./checkbox'),
     // //   'input': require('./input'),
     // //   'input-number': require('./input-number'),
     // //   'select': require('./select'),
@@ -39,11 +39,11 @@ export default {
     //   'progress': require('./progress'),
     // //   'tree': require('./tree'),
     // //   'pagination': require('./pagination'),
-      'badge': require('./badge'),
-      'avatar': require('./avatar')
+      badge: require('./badge'),
+      avatar: require('./avatar')
     },
     'Notice': {
-      'alert': require('./alert'),
+      alert: require('./alert'),
     //   // 'loading': require('./loading'),
     //   'message': require('./message'),
     //   // 'message-box': require('./message-box'),
@@ -57,11 +57,11 @@ export default {
       // 'dropdown': require('./dropdown'),
       // 'steps': require('./steps')
     },
-    'Others': {
+    'Autres': {
     //   // 'dialog': require('./dialog'),
     //   'tooltip': require('./tooltip'),
     // //   'popover': require('./popover'),
-    // //   'card': require('./card'),
+      card: require('./card'),
     // //   'carousel': require('./carousel'),
     // //   'collapse': require('./collapse'),
       backtop: require('./backtop')
