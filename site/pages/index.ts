@@ -12,8 +12,8 @@ export default {
       typography: require('./typography'),
       border: require('./border'),
       icon: require('./icon'),
-      button: require('./button')
-      // 'link': require('./link'),
+      button: require('./button'),
+      link: require('./link'),
     },
     'Form': {
     //   'radio': require('./radio'),

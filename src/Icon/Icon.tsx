@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IconList } from './IconList'
 
+export { IconList }
+
+export type IconName = typeof IconList[number]
 export interface IconProps extends React.HTMLAttributes<HTMLElement> {
-  name?: typeof IconList[number];
+  name?: IconName
 }
 
 const Icon: React.FC<IconProps> = ({ name, ...props }) => (
