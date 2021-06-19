@@ -9,6 +9,7 @@ interface IState {
 }
 export default class App extends React.Component<{}, IState> {
   state: IState = {};
+  components: Map<string, React.ReactElement> = new Map()
 
   componentWillMount() {
     window.addEventListener(
@@ -64,25 +65,34 @@ export default class App extends React.Component<{}, IState> {
     return 'quick-start';
   }
 
-  setPage(fn?: () => void) {
-    this.setState({ page: this.getPage() }, fn);
+  async setPage(fn?: () => void) {
+    const page = this.getPage()
+    await this.loadComponent(page)
+    this.setState({ page }, fn);
   }
 
-  getComponent(page) {
+  async loadComponent(page: string) {
     const components = Object.assign(
       Object.values(pages.components).reduce((a, b) => Object.assign(a, b), {}),
       pages.documents
     )
 
-    const target = components[page]
+    const loader = components[page]
 
-    if (target) {
-      return React.createElement(target.default, {
+    if (!loader) {
+      return
+    }
+
+    const component = (await loader()).default
+
+    if (component) {
+      this.components.set(page, React.createElement(component, {
         locale: {
           show: this.getLocale('markdown.show'),
           hide: this.getLocale('markdown.hide')
         }
-      });
+      }))
+      // this.forceUpdate()
     } else {
       return null
     }
@@ -135,7 +145,7 @@ export default class App extends React.Component<{}, IState> {
             </ul>
           </nav>
           <div className="content">
-            {this.getComponent(this.state.page)}
+            {this.components.get(this.state.page) || null}
           </div>
         </div>
       </>

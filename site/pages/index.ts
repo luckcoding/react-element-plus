@@ -1,70 +1,70 @@
 export default {
   documents: {
-    'quick-start': require('./quick-start')
-    // 'i18n': require('./i18n'),
-    // 'custom-theme': require('./custom-theme')
+    'quick-start': () => import('./quick-start')
+    // 'i18n': () => import('./i18n'),
+    // 'custom-theme': () => import('./custom-theme')
   },
   components: {
     Basic: {
-      layout: require('./layout'),
-      container: require('./container'),
-      color: require('./color'),
-      typography: require('./typography'),
-      border: require('./border'),
-      icon: require('./icon'),
-      button: require('./button'),
-      link: require('./link'),
+      layout: () => import('./layout'),
+      container: () => import('./container'),
+      color: () => import('./color'),
+      typography: () => import('./typography'),
+      border: () => import('./border'),
+      icon: () => import('./icon'),
+      button: () => import('./button'),
+      link: () => import('./link'),
     },
     'Form': {
-    //   'radio': require('./radio'),
-      checkbox: require('./checkbox'),
-    // //   'input': require('./input'),
-    // //   'input-number': require('./input-number'),
-    // //   'select': require('./select'),
-    // //   'cascader': require('./cascader'),
-    //   'switch': require('./switch'),
-    // //   'slider': require('./slider'),
-    // //   'time-picker': require('./time-picker'),
-    // //   'date-picker': require('./date-picker'),
-    // //   'datetime-picker': require('./datetime-picker'),
-    // //   'upload': require('./upload'),
-    // //   'rate': require('./rate'),
-    // //   'color-picker': require('./color-picker'),
-    // //   'transfer': require('./transfer'),
-    // //   'form': require('./form')
+    //   'radio': () => import('./radio'),
+      checkbox: () => import('./checkbox'),
+    // //   'input': () => import('./input'),
+    // //   'input-number': () => import('./input-number'),
+    // //   'select': () => import('./select'),
+    // //   'cascader': () => import('./cascader'),
+    //   'switch': () => import('./switch'),
+    // //   'slider': () => import('./slider'),
+    // //   'time-picker': () => import('./time-picker'),
+    // //   'date-picker': () => import('./date-picker'),
+    // //   'datetime-picker': () => import('./datetime-picker'),
+    // //   'upload': () => import('./upload'),
+    // //   'rate': () => import('./rate'),
+    // //   'color-picker': () => import('./color-picker'),
+    // //   'transfer': () => import('./transfer'),
+    // //   'form': () => import('./form')
     },
     'Data': {
-    // //   'table': require('./table'),
-    //   'tag': require('./tag'),
-    //   'progress': require('./progress'),
-    // //   'tree': require('./tree'),
-    // //   'pagination': require('./pagination'),
-      badge: require('./badge'),
-      avatar: require('./avatar')
+    // //   'table': () => import('./table'),
+    //   'tag': () => import('./tag'),
+    //   'progress': () => import('./progress'),
+    // //   'tree': () => import('./tree'),
+    // //   'pagination': () => import('./pagination'),
+      badge: () => import('./badge'),
+      avatar: () => import('./avatar')
     },
     'Notice': {
-      alert: require('./alert'),
-    //   // 'loading': require('./loading'),
-    //   'message': require('./message'),
-    //   // 'message-box': require('./message-box'),
-      notification: require('./notification')
+      alert: () => import('./alert'),
+    //   // 'loading': () => import('./loading'),
+    //   'message': () => import('./message'),
+    //   // 'message-box': () => import('./message-box'),
+      notification: () => import('./notification')
     },
     'Nav': {
-      affix: require('./affix'),
-      // 'menu': require('./menu'),
-      // 'tabs': require('./tabs'),
-      // 'breadcrumb': require('./breadcrumb'),
-      // 'dropdown': require('./dropdown'),
-      // 'steps': require('./steps')
+      affix: () => import('./affix'),
+      // 'menu': () => import('./menu'),
+      // 'tabs': () => import('./tabs'),
+      // 'breadcrumb': () => import('./breadcrumb'),
+      // 'dropdown': () => import('./dropdown'),
+      // 'steps': () => import('./steps')
     },
     'Autres': {
-    //   // 'dialog': require('./dialog'),
-    //   'tooltip': require('./tooltip'),
-    // //   'popover': require('./popover'),
-      card: require('./card'),
-    // //   'carousel': require('./carousel'),
-    // //   'collapse': require('./collapse'),
-      backtop: require('./backtop')
+    //   // 'dialog': () => import('./dialog'),
+    //   'tooltip': () => import('./tooltip'),
+    // //   'popover': () => import('./popover'),
+      card: () => import('./card'),
+    // //   'carousel': () => import('./carousel'),
+    // //   'collapse': () => import('./collapse'),
+      backtop: () => import('./backtop')
     }
   }
 };

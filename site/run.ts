@@ -24,25 +24,17 @@ new WebpackDevServer(
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(j|t)sx?$/,
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react']
+              presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
             }
           },
           include: [
             path.join(__dirname, '../site'),
-            path.join(__dirname, '../components'),
+            path.join(__dirname, '../src'),
           ]
-        },
-        {
-          test: /\.tsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
-          }
         },
         {
           test: /\.(sa|sc|c)ss$/,

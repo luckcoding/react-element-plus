@@ -48,8 +48,6 @@ const Canvas: React.FC<CanvasProps> = ({ document, translation, name, ...props }
 
       args.push(code);
 
-      console.log(args, argv)
-
       new Function(...args).apply(null, argv);
     } catch (err) {
       if (process.env.NODE_ENV !== 'production') {
