@@ -9,3 +9,6 @@ export const VALIDATE_STATE_MAP = {
   error: 'el-icon-circle-close',
 }
 
+export const COMPONENT_SIZE = ['large', 'medium', 'small', 'mini'] as const
+
+export const COMPONENT_STATUS = ['success', 'info', 'error', 'warning'] as const

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { isServer, PopupManager } from '../_utils';
 import { INotificationOptions, Position, NotificationQueue, INotification, CloseAttrs } from './types';
 import NotificationBox, { verticalProperty } from './NotificationBox';
+import { COMPONENT_STATUS } from '../_utils/constants';
 
 const notifications: Record<Position, NotificationQueue> = {
   'top-left': [],
@@ -60,7 +61,7 @@ const Notification: INotification = (options) => {
   }
 }
 
-;(['success', 'warning', 'info', 'error'] as const).forEach(type => {
+COMPONENT_STATUS.forEach(type => {
   Object.assign(Notification, {
     [type]: (options: React.ReactElement | INotificationOptions | string = {}) => {
       if (typeof options === 'string' || React.isValidElement(options)) {

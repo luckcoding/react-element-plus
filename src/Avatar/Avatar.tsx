@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { COMPONENT_SIZE } from '../_utils/constants';
 
 export interface AvatarProps {
   size?: ComponentSize
@@ -18,7 +19,7 @@ export interface AvatarProps {
 
 const propTypes = {
   size: PropTypes.oneOfType([
-    PropTypes.oneOf(['large', 'medium', 'small', 'mini']),
+    PropTypes.oneOf(COMPONENT_SIZE),
     PropTypes.number,
   ]),
   shape: PropTypes.oneOf(['circle', 'square']),

@@ -4,7 +4,8 @@ import classnames from 'classnames';
 import Fade from '../Fade';
 import { useTimeout } from '../_utils';
 import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
-import { Position, Type } from './types';
+import { Position } from './types';
+import { COMPONENT_STATUS } from '../_utils/constants';
 
 export interface NotificationProps extends WithAsProps {
   duration?: number;
@@ -17,7 +18,7 @@ export interface NotificationProps extends WithAsProps {
   position?: Position
   showClose?: boolean
   title?: React.ReactNode
-  type?: Type;
+  type?: ComponentStatus;
   zIndex?: number
 }
 
@@ -123,7 +124,7 @@ Notification.displayName = 'Notification';
 Notification.propTypes = {
   message: PropTypes.node,
   duration: PropTypes.number,
-  type: PropTypes.oneOf(['success', 'info', 'warning', 'error']),
+  type: PropTypes.oneOf(COMPONENT_STATUS),
 
   onClose: PropTypes.func.isRequired,
   className: PropTypes.string,

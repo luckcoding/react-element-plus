@@ -5,7 +5,7 @@ import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
 
 const Shadow = ['always', 'hover', 'never'] as const
 
-export interface CardProps extends WithAsProps {
+export interface CardProps extends WithAsProps, React.HTMLAttributes<HTMLElement> {
   header?: React.ReactNode
   bodyStyle?: React.CSSProperties
   shadow?: typeof Shadow[number]

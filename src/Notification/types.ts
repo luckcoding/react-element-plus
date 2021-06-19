@@ -1,6 +1,5 @@
 import React from "react"
 
-export type Type = 'success' | 'warning' | 'info' | 'error'
 export type Position = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
 export interface INotificationHandle {
   close: () => void
@@ -21,7 +20,7 @@ export type INotificationOptions = {
   offset?: number // defaults 0
   position?: Position // default top-right
   showClose?: boolean
-  type?: Type
+  type?: ComponentStatus
   title?: string
 }
 

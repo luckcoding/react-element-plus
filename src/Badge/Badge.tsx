@@ -5,7 +5,6 @@ import Fade from '../Fade';
 import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
 
 const Type = ['primary', 'success', 'warning', 'info', 'danger'] as const
-
 export interface BadgeProps extends WithAsProps {
   value?: string | number
   max?: number

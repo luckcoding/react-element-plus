@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import Fade from '../Fade';
-
-type AlertType = 'success' | 'info' | 'error' | 'warning'
+import { COMPONENT_STATUS } from '../_utils/constants';
 
 const TYPE_CLASSES_MAP = {
   'success': 'el-icon-success',
@@ -15,7 +14,7 @@ const TYPE_CLASSES_MAP = {
 export interface AlertProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   title?: React.ReactNode
   description?: React.ReactNode
-  type?: AlertType
+  type?: ComponentStatus
   closable?: boolean
   closeText?: React.ReactNode
   showIcon?: boolean
@@ -116,7 +115,7 @@ const Alert = React.forwardRef<CSSTransition<any>, AlertProps>(({
 
 Alert.displayName = 'Alert';
 Alert.propTypes = {
-  type: PropTypes.oneOf(['success', 'warning', 'info', 'error']),
+  type: PropTypes.oneOf(COMPONENT_STATUS),
   effect: PropTypes.oneOf(['light', 'dark']),
 
   title: PropTypes.node,

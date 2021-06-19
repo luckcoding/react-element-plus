@@ -35,7 +35,7 @@ export default {
     },
     'Data': {
     // //   'table': () => import('./table'),
-    //   'tag': () => import('./tag'),
+      tag: () => import('./tag'),
     //   'progress': () => import('./progress'),
     // //   'tree': () => import('./tree'),
     // //   'pagination': () => import('./pagination'),

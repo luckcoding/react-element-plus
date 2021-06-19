@@ -7,17 +7,15 @@
 :::demo 由`type`属性来选择 tag 的类型，也可以通过`color`属性来自定义背景色。
 
 ```js
-render() {
-  return (
-    <div>
-      <Tag>标签一</Tag>
-      <Tag type="success">标签二</Tag>
-      <Tag type="info">标签三</Tag>
-      <Tag type="warning">标签四</Tag>
-      <Tag type="danger">标签五</Tag>
-    </div>
-  )
-}
+return (
+  <div>
+    <Tag>标签一</Tag>
+    <Tag type="success">标签二</Tag>
+    <Tag type="info">标签三</Tag>
+    <Tag type="warning">标签四</Tag>
+    <Tag type="danger">标签五</Tag>
+  </div>
+)
 ```
 
 :::
@@ -27,41 +25,29 @@ render() {
 :::demo 设置`closable`属性可以定义一个标签是否可移除。默认的标签移除时会附带渐变动画，如果不想使用，可以设置`disableTransitions`属性，它接受一个`Boolean`，true 为关闭。
 
 ```js
-constructor(props) {
-  super(props)
-  this.state = {
-    tags: [
-      { name: '标签一', type: '' },
-      { name: '标签二', type: 'success' },
-      { name: '标签三', type: 'info' },
-      { name: '标签四', type: 'warning' },
-      { name: '标签五', type: 'danger' }
-    ]
-  }
+const [tags, setTags] = React.useState([
+  { name: '标签一', type: '' },
+  { name: '标签二', type: 'success' },
+  { name: '标签三', type: 'info' },
+  { name: '标签四', type: 'warning' },
+  { name: '标签五', type: 'danger' }
+])
+
+const onClose = (index) => {
+  const newTags = [...tags]
+  newTags.splice(index, 1)
+  setTags(newTags)
 }
-onClose(index) {
-  let tags = [...this.state.tags]
-  tags.splice(index, 1)
-  this.setState({ tags })
-}
-render() {
-  const tags = [
-    { name: '标签一', type: '' },
-    { name: '标签二', type: 'success' },
-    { name: '标签三', type: 'info' },
-    { name: '标签四', type: 'warning' },
-    { name: '标签五', type: 'danger' }
-  ]
-  return (
-    <div>
-      {this.state.tags.map(({ name, type }, key) => (
-        <Tag key={name} closable type={type} onClose={() => this.onClose(key)}>
-          {name}
-        </Tag>
-      ))}
-    </div>
-  )
-}
+
+return (
+  <div>
+    {tags.map(({ name, type }, key) => (
+      <Tag key={name} closable type={type} onClose={() => onClose(key)}>
+        {name}
+      </Tag>
+    ))}
+  </div>
+)
 ```
 
 :::
@@ -70,7 +56,7 @@ render() {
 
 动态编辑标签可以通过点击标签关闭按钮后触发的 `onClose` 事件来实现
 
-:::demo
+:::d_e_m_o
 
 ```js
 constructor(props) {
@@ -162,16 +148,14 @@ Tag 组件提供除了默认值以外的三种尺寸，可以在不同场景下�
 :::demo 额外的尺寸：`medium`、`small`、`mini`，通过设置`size`属性来配置它们。
 
 ```js
-render() {
-  return (
-    <div>
-      <Tag closable>默认标签</Tag>
-      <Tag size="medium" closable>中等标签</Tag>
-      <Tag size="small" closable>小型标签</Tag>
-      <Tag size="mini" closable>超小标签</Tag>
-    </div>
-  )
-}
+return (
+  <div>
+    <Tag closable>默认标签</Tag>
+    <Tag size="medium" closable>中等标签</Tag>
+    <Tag size="small" closable>小型标签</Tag>
+    <Tag size="mini" closable>超小标签</Tag>
+  </div>
+)
 ```
 
 :::
@@ -183,27 +167,25 @@ Tag 组件提供了三个不同的主题：`dark`、`light` 和 `plain`
 :::demo 通过设置`effect`属性来改变主题，默认为 `light`
 
 ```js
-render() {
-  const items = [
-    { type: '', label: '标签一' },
-    { type: 'success', label: '标签二' },
-    { type: 'info', label: '标签三' },
-    { type: 'danger', label: '标签四' },
-    { type: 'warning', label: '标签五' }
-  ]
-  return (
-    <div>
-      <div className="tag-group">
-        <span className="tag-group__title">Dark</span>
-        {items.map(({ label, type }) => <Tag key={label} type={type} effect="dark">{label}</Tag>)}
-      </div>
-      <div className="tag-group">
-        <span className="tag-group__title">Plain</span>
-        {items.map(({ label, type }) => <Tag key={label} type={type} effect="plain">{label}</Tag>)}
-      </div>
+const items = [
+  { type: '', label: '标签一' },
+  { type: 'success', label: '标签二' },
+  { type: 'info', label: '标签三' },
+  { type: 'danger', label: '标签四' },
+  { type: 'warning', label: '标签五' }
+]
+return (
+  <div>
+    <div className="tag-group">
+      <span className="tag-group__title">Dark</span>
+      {items.map(({ label, type }) => <Tag key={label} type={type} effect="dark">{label}</Tag>)}
     </div>
-  )
-}
+    <div className="tag-group">
+      <span className="tag-group__title">Plain</span>
+      {items.map(({ label, type }) => <Tag key={label} type={type} effect="plain">{label}</Tag>)}
+    </div>
+  </div>
+)
 ```
 
 :::

@@ -18,3 +18,4 @@ export { default as Link } from './Link';
 export { default as Main } from './Main';
 export { default as Notification } from './Notification';
 export { default as Row } from './Row';
+export { default as Tag } from './Tag';

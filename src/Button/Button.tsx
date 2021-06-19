@@ -2,14 +2,15 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import SafeAnchor from '../SafeAnchor';
-import { ElRefForwardingComponent, WithAsProps, TypeAttributes } from '../_utils/types';
+import { ElRefForwardingComponent, WithAsProps } from '../_utils/types';
+import { COMPONENT_SIZE } from '../_utils/constants';
 
 type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'default';
 type ButtonNativeType = 'button' | 'submit' | 'reset';
 
 export interface ButtonProps extends WithAsProps, React.HTMLAttributes<HTMLElement> {
   type?: ButtonType;
-  size?: TypeAttributes.Size;
+  size?: ComponentSize;
   icon?: string;
   nativeType?: ButtonNativeType;
   loading?: boolean;
@@ -114,7 +115,7 @@ Button.propTypes = {
   as: PropTypes.elementType,
   className: PropTypes.string,
   type: PropTypes.oneOf(['primary', 'success', 'warning', 'danger', 'info', 'text', 'default']),
-  size: PropTypes.oneOf(['large', 'medium', 'small', 'mini']),
+  size: PropTypes.oneOf(COMPONENT_SIZE),
   icon: PropTypes.string,
   nativeType: PropTypes.oneOf(['button', 'reset', 'submit']),
   loading: PropTypes.bool,

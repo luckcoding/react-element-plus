@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { CheckboxProps } from './types';
 import { useCheckbox } from './hooks';
+import { COMPONENT_SIZE } from '../_utils/constants';
 
 const Checkbox: React.FC<CheckboxProps> = (props) => {
   const { name, border, indeterminate, controls, label, trueLabel, falseLabel, children, className } = props
@@ -92,7 +93,7 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   name: PropTypes.string,
   border: PropTypes.bool,
-  size: PropTypes.oneOf(['large', 'medium', 'small', 'mini']),
+  size: PropTypes.oneOf(COMPONENT_SIZE),
 
   trueLabel: PropTypes.string,
   falseLabel: PropTypes.string,
