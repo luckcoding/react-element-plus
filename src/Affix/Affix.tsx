@@ -1,7 +1,7 @@
 import React, { useRef, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { shadowReactive } from '../_utils';
+import { useUpdate } from '../_utils';
 import { getScrollContainer, off, on } from '../_utils/dom';
 import { addResizeListener, removeResizeListener } from '../_utils/resize-event';
 
@@ -33,15 +33,16 @@ const Affix: React.FC<AffixProps> = ({
   const target = useRef<HTMLElement>()
   const root = useRef<HTMLDivElement>()
   const scrollContainer = useRef<HTMLElement>()
+  const update = useUpdate()
 
-  const state = shadowReactive({
+  const state = useMemo(() => ({
     fixed: false,
     height: 0,  // height of root
     width: 0,  // width of root
     scrollTop: 0, // scrollTop of documentElement
     clientHeight: 0,  // clientHeight of documentElement
     transform: 0,
-  })
+  }), [])
 
   const rootStyle = useMemo<React.CSSProperties>(() => {
     return {
@@ -75,6 +76,8 @@ const Affix: React.FC<AffixProps> = ({
     state.scrollTop = scrollContainer.current as any === window ? document.documentElement.scrollTop : scrollContainer.current.scrollTop
     state.clientHeight = document.documentElement.clientHeight
 
+    const prevFixed = state.fixed
+
     if (props.position === 'top') {
       if (props.target) {
         const difference = targetRect.bottom - props.offset - state.height
@@ -92,6 +95,7 @@ const Affix: React.FC<AffixProps> = ({
         state.fixed = state.clientHeight - props.offset < rootRect.bottom
       }
     }
+    (prevFixed !== state.fixed) && update()
   }
 
   const onScroll = () => {
@@ -133,7 +137,7 @@ const Affix: React.FC<AffixProps> = ({
   );
 };
 
-Affix.displayName = 'Affix';
+Affix.displayName = 'ElAffix';
 Affix.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,

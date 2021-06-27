@@ -4,10 +4,11 @@ import { addClass, removeClass, on } from './dom'
 import { EVENT_CODE } from './aria'
 
 interface Instance {
-  closeOnClickModal: any
-  closeOnPressEscape: any
+  // todo
   // closeOnClickModal: Ref<boolean>
   // closeOnPressEscape: Ref<boolean>
+  closeOnClickModal: any
+  closeOnPressEscape: any
   close: () => void
   handleClose?: () => void
   handleAction?: (action: string) => void

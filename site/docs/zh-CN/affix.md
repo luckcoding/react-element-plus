@@ -23,7 +23,7 @@ return (
 :::demo 请注意容器避免出现滚动条。
 ```js
 return (
-  <div class="affix-container">
+  <div className="affix-container">
     <Affix target=".affix-container" offset={80}>
       <Button type="primary">指定容器</Button>
     </Affix>

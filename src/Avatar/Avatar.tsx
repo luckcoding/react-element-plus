@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { CSSProperties, useCallback, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { COMPONENT_SIZE } from '../_utils/constants';
@@ -74,16 +74,14 @@ const Avatar: React.FC<AvatarProps> = (props) => {
     className,
   );
 
-  const outerStyle = style || {};
-
-  if (typeof size === 'number') {
-    outerStyle.height = `${size}px`
-    outerStyle.width = `${size}px`
-    outerStyle.lineHeight = `${size}px`
-  }
+  const outerStyle = useMemo<CSSProperties>(() => typeof size === 'number' ? {
+    height: `${size}px`,
+    width: `${size}px`,
+    lineHeight: `${size}px`,
+  } : {}, [size])
 
   return (
-    <span style={outerStyle} className={classes}>
+    <span style={{ ...style, ...outerStyle }} className={classes}>
       {((src || srcSet) && isImageExist) ? (
         <img
           src={src}

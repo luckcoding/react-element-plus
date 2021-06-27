@@ -3,6 +3,7 @@ import isServer from './isServer'
 import type { AnyFunction } from './types'
 import { warn } from './error'
 import { getGlobalConfig } from './globalConfig'
+import { MutableRefObject } from 'react'
 
 // type polyfill for compat isIE method
 declare global {
@@ -146,10 +147,10 @@ export function rafThrottle<T extends AnyFunction<any>>(fn: T): AnyFunction<void
   }
 }
 
-// export const clearTimer = (timer: Ref<TimeoutHandle>) => {
-//   clearTimeout(timer.value)
-//   timer.value = null
-// }
+export const clearTimer = (timer: MutableRefObject<NodeJS.Timeout>) => {
+  clearTimeout(timer.current)
+  timer.current = null
+}
 
 /**
  * Generating a random int in range (0, max - 1)

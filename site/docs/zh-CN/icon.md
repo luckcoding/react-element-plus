@@ -10,9 +10,9 @@
 ```js
 return (
   <div>
-    <i class="el-icon-edit"></i>
-    <i class="el-icon-share"></i>
-    <i class="el-icon-delete"></i>
+    <i className="el-icon-edit"></i>
+    <i className="el-icon-share"></i>
+    <i className="el-icon-delete"></i>
     <Button type="primary" icon="el-icon-search">搜索</Button>
   </div>
 )

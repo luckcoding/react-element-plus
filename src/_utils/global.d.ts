@@ -14,6 +14,4 @@ declare type TimeoutHandle = ReturnType<typeof global.setTimeout>
 
 declare type ComponentSize = 'large' | 'medium' | 'small' | 'mini'
 
-declare type PartialReturnType<T extends (...args: unknown[]) =>  unknown> = Partial<ReturnType<T>>
-
 declare type ComponentStatus = 'success' | 'info' | 'error' | 'warning'

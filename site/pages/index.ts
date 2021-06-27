@@ -14,6 +14,7 @@ export default {
       icon: () => import('./icon'),
       button: () => import('./button'),
       link: () => import('./link'),
+      scrollbar: () => import('./scrollbar'),
     },
     'Form': {
     //   'radio': () => import('./radio'),
