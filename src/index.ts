@@ -22,3 +22,5 @@ export { default as Progress } from './Progress';
 export { default as Row } from './Row';
 export { default as Scrollbar } from './Scrollbar';
 export { default as Tag } from './Tag';
+export { default as Timeline } from './Timeline';
+export { default as TimelineItem } from './TimelineItem';

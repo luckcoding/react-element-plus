@@ -65,6 +65,7 @@ export default {
       card: () => import('./card'),
     // //   'carousel': () => import('./carousel'),
     // //   'collapse': () => import('./collapse'),
+      timeline: () => import('./timeline'),
       divider: () => import('./divider'),
       backtop: () => import('./backtop')
     }
