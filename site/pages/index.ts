@@ -50,7 +50,7 @@ export default {
     //   // 'message-box': () => import('./message-box'),
       notification: () => import('./notification')
     },
-    'Nav': {
+    'Navigation': {
       affix: () => import('./affix'),
       // 'menu': () => import('./menu'),
       // 'tabs': () => import('./tabs'),
@@ -58,13 +58,14 @@ export default {
       // 'dropdown': () => import('./dropdown'),
       // 'steps': () => import('./steps')
     },
-    'Autres': {
+    'Others': {
     //   // 'dialog': () => import('./dialog'),
     //   'tooltip': () => import('./tooltip'),
     // //   'popover': () => import('./popover'),
       card: () => import('./card'),
     // //   'carousel': () => import('./carousel'),
     // //   'collapse': () => import('./collapse'),
+      divider: () => import('./divider'),
       backtop: () => import('./backtop')
     }
   }
