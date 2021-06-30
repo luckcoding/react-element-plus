@@ -10,6 +10,8 @@ export { default as Card } from './Card';
 export { default as Checkbox } from './Checkbox';
 export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as Col } from './Col';
+export { default as Collapse } from './Collapse';
+export { default as CollapseItem } from './CollapseItem';
 export { default as Container } from './Container';
 export { default as Divider } from './Divider';
 export { default as Footer } from './Footer';
