@@ -54,7 +54,7 @@ export default {
       affix: () => import('./affix'),
       // 'menu': () => import('./menu'),
       // 'tabs': () => import('./tabs'),
-      // 'breadcrumb': () => import('./breadcrumb'),
+      breadcrumb: () => import('./breadcrumb'),
       // 'dropdown': () => import('./dropdown'),
       // 'steps': () => import('./steps')
     },
