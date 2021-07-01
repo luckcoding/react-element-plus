@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types';
 import { addClass, removeClass } from '../../_utils/dom'
+import { useWatch } from '../../_utils';
 
 export interface CollapseTransitionProps extends React.HTMLAttributes<HTMLElement> {
   duration?: number
@@ -11,7 +12,7 @@ const defaultProps: CollapseTransitionProps = {
   duration: 300
 }
 
-const CollapseTransition: React.FC<CollapseTransitionProps> = ({ isActive, duration, children, ...props }) => {
+const CollapseTransition: React.FC<CollapseTransitionProps> = ({ isActive, duration, ...props }) => {
   const rootRef = useRef<HTMLDivElement>()
   const enterTimerRef = useRef<NodeJS.Timeout>()
   const leaveTimerRef = useRef<NodeJS.Timeout>()
@@ -24,6 +25,7 @@ const CollapseTransition: React.FC<CollapseTransitionProps> = ({ isActive, durat
 
     el.dataset.oldPaddingTop = el.style.paddingTop
     el.dataset.oldPaddingBottom = el.style.paddingBottom
+    el.dataset.oldOverflow = el.style.overflow
 
     el.style.height = '0'
     el.style.paddingTop = '0'
@@ -32,7 +34,7 @@ const CollapseTransition: React.FC<CollapseTransitionProps> = ({ isActive, durat
 
   const enter = useCallback(() => {
     const el = rootRef.current
-    el.dataset.oldOverflow = el.style.overflow
+    el.style.display = 'block';
     if (el.scrollHeight !== 0) {
       el.style.height = el.scrollHeight + 'px'
       el.style.paddingTop = el.dataset.oldPaddingTop
@@ -42,8 +44,8 @@ const CollapseTransition: React.FC<CollapseTransitionProps> = ({ isActive, durat
       el.style.paddingTop = el.dataset.oldPaddingTop
       el.style.paddingBottom = el.dataset.oldPaddingBottom
     }
-
     el.style.overflow = 'hidden'
+    enterTimerRef.current = setTimeout(afterEnter, duration)
   }, [])
 
   const afterEnter = useCallback(() => {
@@ -62,6 +64,7 @@ const CollapseTransition: React.FC<CollapseTransitionProps> = ({ isActive, durat
     el.dataset.oldPaddingBottom = el.style.paddingBottom
     el.dataset.oldOverflow = el.style.overflow
 
+    el.style.display = 'block';
     el.style.height = el.scrollHeight + 'px'
     el.style.overflow = 'hidden'
   }, [])
@@ -78,11 +81,15 @@ const CollapseTransition: React.FC<CollapseTransitionProps> = ({ isActive, durat
       el.style.paddingTop = '0'
       el.style.paddingBottom = '0'
     }
+    leaveTimerRef.current = setTimeout(afterLeave, duration)
   }, [])
 
   const afterLeave = useCallback(() => {
     const el = rootRef.current
+    if (!el) return
+
     removeClass(el, 'collapse-transition')
+    el.style.display = 'none';
     el.style.height = ''
     el.style.overflow = el.dataset.oldOverflow
     el.style.paddingTop = el.dataset.oldPaddingTop
@@ -90,22 +97,35 @@ const CollapseTransition: React.FC<CollapseTransitionProps> = ({ isActive, durat
   }, [])
 
   useEffect(() => {
+    beforeEnter()
+    isActive && enter()
+    return () => {
+      beforeLeave();
+      leave();
+      clearTimeout(enterTimerRef.current)
+      clearTimeout(leaveTimerRef.current)
+    }
+  }, [])
+
+  const triggerChange = () => {
+    clearTimeout(enterTimerRef.current)
+    clearTimeout(leaveTimerRef.current)
     if (isActive) {
       beforeEnter()
       enter()
-      clearTimeout(enterTimerRef.current)
-      enterTimerRef.current = setTimeout(afterEnter, duration)
-    }
-    return () => {
-      clearTimeout(enterTimerRef.current)
-      clearTimeout(leaveTimerRef.current)
+    } else {
       beforeLeave()
       leave()
-      leaveTimerRef.current = setTimeout(afterLeave, duration)
     }
-  }, [isActive, duration])
+  }
 
-  return <div ref={rootRef} {...props} />
+  useWatch(isActive, (newValue, oldVale) => {
+    if (newValue !== oldVale) {
+      triggerChange()
+    }
+  })
+
+  return <div ref={rootRef} {...props} style={{ overflow: 'hidden' }} />
 }
 
 CollapseTransition.displayName = 'ElCollapseTransition';

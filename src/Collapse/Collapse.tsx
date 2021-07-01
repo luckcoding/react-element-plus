@@ -22,38 +22,26 @@ const Collapse: React.FC<CollapseProps> = (props) => {
     'el-collapse',
     className,
   )
-  const [activeNames, setter] = useState<IArrayValue>([].concat(value))
-
-  const setActiveNames = useCallback((_activeNames: IValue) => {
-    const newActiveNames = [].concat(_activeNames)
-    const value = accordion ? newActiveNames[0] : newActiveNames
-    setter(value)
-    // emit(UPDATE_MODEL_EVENT, value)
-    // emit(CHANGE_EVENT, value)
-  }, [accordion])
+  const [activeNames, setActiveNames] = useState<IArrayValue>([].concat(value))
 
   const handleItemClick = useCallback((name: ICollapseName) => {
     if (accordion) {
-      setActiveNames(
-        (activeNames[0] || activeNames[0] === 0) &&
-          activeNames[0] === name
-          ? ''
-          : name,
-      )
+      setActiveNames([name])
     } else {
-      let _activeNames = activeNames.slice(0)
-      const index = _activeNames.indexOf(name)
-
-      if (index > -1) {
-        _activeNames.splice(index, 1)
-      } else {
-        _activeNames.push(name)
-      }
-      setActiveNames(_activeNames)
+      setActiveNames(peevActiveNames => {
+        let nextActiveNames = peevActiveNames.slice(0)
+        const index = nextActiveNames.indexOf(name)
+        if (index > -1) {
+          nextActiveNames.splice(index, 1)
+        } else {
+          nextActiveNames.push(name)
+        }
+        return nextActiveNames
+      })
     }
-  }, [accordion, activeNames])
+  }, [accordion])
 
-  useEffect(() => setter([].concat(value)), [value])
+  useEffect(() => setActiveNames([].concat(value)), [value])
 
   const contextValue: ICollapseContext = {
     name: 'ElCollapse',

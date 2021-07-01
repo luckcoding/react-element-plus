@@ -16,8 +16,9 @@ export interface CollapseItemProps {
 }
 
 const CollapseItem: React.FC<CollapseItemProps> = (props) => {
-  const { title, name = generateId(), disabled, className, children, ...rest } = props
+  const { title, name: nameProp, disabled, className, children, ...rest } = props
 
+  const name = useMemo(() => nameProp || generateId(), [])
   const { activeNames, handleItemClick } = useCollapse();
   const [focusing, setFocusing] = useState(false)
   const [isClick, setIsClick] = useState(false)
@@ -34,7 +35,7 @@ const CollapseItem: React.FC<CollapseItemProps> = (props) => {
   }, [])
 
   const handleHeaderClick = useCallback(() => {
-    if(disabled) return
+    if (disabled) return
     handleItemClick(name)
     setFocusing(false)
     setIsClick(true)
@@ -74,7 +75,7 @@ const CollapseItem: React.FC<CollapseItemProps> = (props) => {
           role="button"
           tabIndex={disabled ? -1 : 0}
           onClick={handleHeaderClick}
-          onKeyUp={handleEnterClick}
+          onKeyPress={handleEnterClick}
           onFocus={handleFocus}
           onBlur={handleBlur}
         >
