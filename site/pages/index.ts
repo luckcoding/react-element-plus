@@ -56,7 +56,7 @@ export default {
       // 'tabs': () => import('./tabs'),
       breadcrumb: () => import('./breadcrumb'),
       // 'dropdown': () => import('./dropdown'),
-      // 'steps': () => import('./steps')
+      steps: () => import('./steps')
     },
     'Others': {
     //   // 'dialog': () => import('./dialog'),
