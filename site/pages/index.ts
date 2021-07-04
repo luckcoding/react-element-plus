@@ -55,6 +55,7 @@ export default {
       // 'menu': () => import('./menu'),
       // 'tabs': () => import('./tabs'),
       breadcrumb: () => import('./breadcrumb'),
+      'page-header': () => import('./page-header'),
       // 'dropdown': () => import('./dropdown'),
       steps: () => import('./steps')
     },

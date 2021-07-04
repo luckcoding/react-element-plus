@@ -22,6 +22,7 @@ export { default as Icon } from './Icon';
 export { default as Link } from './Link';
 export { default as Main } from './Main';
 export { default as Notification } from './Notification';
+export { default as PageHeader } from './PageHeader';
 export { default as Progress } from './Progress';
 export { default as Row } from './Row';
 export { default as Scrollbar } from './Scrollbar';
