@@ -46,8 +46,8 @@ npm install r-element-plus
 - [ ] Form
 - [x] Header
 - [x] Icon
-- [ ] Image
-- [ ] ImageViewer
+- [x] Image
+- [x] ImageViewer
 - [ ] InfiniteScroll
 - [ ] Input
 - [ ] InputNumber
@@ -59,7 +59,7 @@ npm install r-element-plus
 - [x] Notification
 - [ ] Option
 - [ ] Overlay
-- [ ] PageHeader
+- [x] PageHeader
 - [ ] Pagination
 - [ ] Popconfirm
 - [ ] Popover
@@ -74,7 +74,7 @@ npm install r-element-plus
 - [ ] Skeleton
 - [ ] Slider
 - [ ] Space
-- [ ] Step
+- [x] Steps
 - [ ] Submenu
 - [ ] Switch
 - [ ] Table

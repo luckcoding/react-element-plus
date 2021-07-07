@@ -19,6 +19,7 @@ export { default as Divider } from './Divider';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Icon } from './Icon';
+export { default as Image } from './Image';
 export { default as Link } from './Link';
 export { default as Main } from './Main';
 export { default as Notification } from './Notification';

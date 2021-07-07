@@ -5,3 +5,4 @@ export { default as triggerBrowserReflow } from './triggerBrowserReflow';
 export { default as useTimeout } from './useTimeout';
 export { default as PopupManager } from './popup-manager'
 export * from './hooks'
+export * from './portal'

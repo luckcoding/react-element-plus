@@ -68,6 +68,7 @@ export default {
       collapse: () => import('./collapse'),
       timeline: () => import('./timeline'),
       divider: () => import('./divider'),
+      image: () => import('./image'),
       backtop: () => import('./backtop')
     }
   }
