@@ -25,6 +25,7 @@ export { default as Main } from './Main';
 export { default as Notification } from './Notification';
 export { default as PageHeader } from './PageHeader';
 export { default as Progress } from './Progress';
+export { default as Result } from './Result';
 export { default as Row } from './Row';
 export { default as Scrollbar } from './Scrollbar';
 export { default as Step } from './Step';

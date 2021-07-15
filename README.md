@@ -67,7 +67,7 @@ npm install r-element-plus
 - [x] Progress
 - [ ] Radio
 - [ ] Rate
-- [ ] Result
+- [x] Result
 - [x] Row
 - [x] Scrollbar
 - [ ] Select

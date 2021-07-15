@@ -41,7 +41,8 @@ export default {
     // //   'tree': () => import('./tree'),
     // //   'pagination': () => import('./pagination'),
       badge: () => import('./badge'),
-      avatar: () => import('./avatar')
+      avatar: () => import('./avatar'),
+      result: () => import('./result'),
     },
     'Notice': {
       alert: () => import('./alert'),
